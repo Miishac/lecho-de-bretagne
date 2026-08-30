@@ -427,7 +427,7 @@ footer .ornement{
   </p>
 
   <div class="edition-date">
-    Édition du 30 août 1474
+    Édition du <span class="date-rp"></span>
   </div>
 
   <div class="ornement">
@@ -485,7 +485,7 @@ footer .ornement{
     </div>
 
     <div class="meta">
-      30 août 1474 · Chronique
+      <span class="date-rp"></span> · Chronique
     </div>
 
     <h2>
@@ -708,7 +708,7 @@ footer .ornement{
   <div class="article-head">
 
     <div class="section-label">
-      Édition spéciale · 30 août 1474
+      Édition spéciale · <span class="date-rp"></span>
     </div>
 
     <h2>
@@ -929,7 +929,25 @@ footer .ornement{
 </footer>
 
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const mois = [
+      "janvier", "février", "mars", "avril", "mai", "juin",
+      "juillet", "août", "septembre", "octobre", "novembre", "décembre"
+    ];
+
+    const aujourdHui = new Date();
+    const jour = aujourdHui.getDate();
+    const moisActuel = mois[aujourdHui.getMonth()];
+    const anneeRP = 1474;
+
+    const dateTexte = `${jour} ${moisActuel} ${anneeRP}`;
+
+    document.querySelectorAll(".date-rp").forEach(function (element) {
+      element.textContent = dateTexte;
+    });
+  });
+</script>
+
 </body>
 </html>
-
-
