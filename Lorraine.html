@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L’Écho de Lorraine — Journal libre et indépendant</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+  --parchemin:#eee1c5;
+  --papier:#f6ecd5;
+  --ocre:#cbb88f;
+  --brun:#2d251c;
+  --brun2:#191510;
+  --bordeaux:#762c27;
+  --or:#a17a38;
+  --ligne:#927d5b;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--ocre);
+  color:var(--brun);
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+header{
+  background:var(--parchemin);
+  text-align:center;
+  padding:28px 15px 20px;
+  border-bottom:7px double #806d50;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+
+.masthead-kicker{
+  font-size:12px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:#6f604c;
+}
+
+header h1{
+  font-size:clamp(46px,9vw,88px);
+  line-height:.95;
+  margin:10px 0 12px;
+  letter-spacing:-2px;
+}
+
+header p{
+  margin:0;
+  font-size:clamp(17px,3vw,24px);
+  font-style:italic;
+  color:#514433;
+}
+
+.ornement{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  max-width:520px;
+  margin:14px auto 0;
+  color:var(--bordeaux);
+}
+
+.ornement:before,
+.ornement:after{
+  content:"";
+  height:1px;
+  background:var(--ligne);
+  flex:1;
+}
+
+nav{
+  background:var(--brun2);
+  text-align:center;
+  padding:14px 8px;
+  border-bottom:3px solid var(--or);
+}
+
+nav a{
+  display:inline-block;
+  margin:4px 10px;
+  color:#eadfc9;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+}
+
+nav a:hover{color:#d5ad5b}
+
+main{
+  max-width:1150px;
+  margin:28px auto;
+  padding:0 15px;
+}
+
+.paper{
+  background:var(--papier);
+  border:1px solid var(--ligne);
+  box-shadow:0 7px 22px rgba(107,87,54,.28);
+  padding:30px;
+}
+
+.section-label{
+  color:var(--bordeaux);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.intro{
+  text-align:center;
+}
+
+.intro h2{
+  font-size:clamp(34px,6vw,58px);
+  line-height:1.05;
+  margin:12px 0 18px;
+}
+
+.intro p{
+  max-width:760px;
+  margin:0 auto 18px;
+  font-size:18px;
+  line-height:1.8;
+}
+
+.button{
+  display:inline-block;
+  margin-top:8px;
+  padding:12px 18px;
+  background:var(--bordeaux);
+  border:2px solid #51201c;
+  color:var(--papier);
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.button:hover{background:#54201c}
+
+.section-heading{
+  text-align:center;
+  margin:45px 0 20px;
+}
+
+.section-heading h2{
+  margin:8px 0;
+  font-size:clamp(30px,5vw,48px);
+}
+
+.section-heading p{
+  margin:0;
+  color:#6f604c;
+  font-style:italic;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  background:var(--papier);
+  border:1px solid var(--ligne);
+  padding:22px;
+  box-shadow:0 5px 15px rgba(107,87,54,.24);
+}
+
+.card:before{
+  content:"✦";
+  display:block;
+  text-align:center;
+  color:var(--bordeaux);
+  margin-bottom:10px;
+}
+
+.card h3{
+  font-size:24px;
+  line-height:1.2;
+  margin:9px 0 10px;
+}
+
+.card p{
+  font-size:15px;
+  line-height:1.7;
+}
+
+.future{
+  text-align:center;
+  margin-top:42px;
+}
+
+.future h2{
+  font-size:32px;
+  margin-top:0;
+}
+
+.future p{
+  max-width:760px;
+  margin:0 auto 18px;
+  line-height:1.8;
+  font-size:17px;
+}
+
+footer{
+  text-align:center;
+  padding:35px 15px;
+  color:#5f513e;
+}
+
+footer .ornement{margin-bottom:18px}
+
+@media(max-width:800px){
+  .cards{grid-template-columns:1fr}
+}
+
+@media(max-width:600px){
+  header{padding:24px 12px 18px}
+  header h1{font-size:48px;letter-spacing:-1px}
+  header p{font-size:17px}
+  nav{padding:11px 5px}
+  nav a{margin:3px 5px;font-size:11px}
+  main{margin:20px auto;padding:0 10px}
+  .paper{padding:22px 17px}
+  .intro h2{font-size:38px}
+  .intro p{font-size:17px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="masthead-kicker">Journal libre et indépendant</div>
+  <h1>L’Écho de Lorraine</h1>
+  <p>Chroniques, nouvelles et regards sur les terres lorraines</p>
+  <div class="ornement">✦</div>
+</header>
+
+<nav>
+  <a href="index.html">L’Écho de Bretagne</a>
+  <a href="Lorraine.html">L’Écho de Lorraine</a>
+  <a href="#rubriques">Rubriques</a>
+  <a href="#apropos">À propos</a>
+</nav>
+
+<main>
+
+<section class="paper intro">
+  <div class="section-label">Nouveau journal</div>
+
+  <h2>Bienvenue dans L’Écho de Lorraine</h2>
+
+  <p>
+    Une nouvelle page s’apprête à s’écrire.
+    Ce journal aura pour vocation de raconter les terres lorraines,
+    leurs villes, leurs habitants, leurs événements et les rencontres
+    qui accompagneront cette nouvelle étape.
+  </p>
+
+  <p>
+    Le journal est encore en préparation.
+    Les premières éditions paraîtront lorsque Mishac sera installé
+    en Lorraine et que les premières histoires pourront être racontées.
+  </p>
+
+  <a class="button" href="index.html">
+    ← Retour à L’Écho de Bretagne
+  </a>
+</section>
+
+<section id="rubriques">
+
+  <div class="section-heading">
+    <div class="section-label">✦ Les pages du journal ✦</div>
+    <h2>Rubriques</h2>
+    <p>Les futures pages de L’Écho de Lorraine</p>
+  </div>
+
+  <div class="cards">
+
+    <article class="card">
+      <div class="section-label">Actualités</div>
+      <h3>Les nouvelles de Lorraine</h3>
+      <p>
+        Les événements, décisions et faits importants
+        qui rythmeront la vie des terres lorraines.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="section-label">Vie locale</div>
+      <h3>Villes et habitants</h3>
+      <p>
+        Portraits, métiers, rencontres et scènes de la vie quotidienne.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="section-label">Chroniques</div>
+      <h3>Regards et témoignages</h3>
+      <p>
+        Des récits plus personnels pour raconter les personnes
+        et les histoires qui méritent d’être entendues.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="section-label">Voyages</div>
+      <h3>Sur les routes</h3>
+      <p>
+        Les routes parcourues, les découvertes et les rencontres
+        entre la Bretagne et les nouvelles terres.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="section-label">Portraits</div>
+      <h3>Celles et ceux qui font la Lorraine</h3>
+      <p>
+        Des portraits consacrés aux personnages qui donneront
+        leur visage au nouveau journal.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="section-label">Archives</div>
+      <h3>La mémoire du journal</h3>
+      <p>
+        Chaque édition sera conservée afin de construire,
+        au fil du temps, la mémoire de L’Écho de Lorraine.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<section class="paper future">
+
+  <div class="section-label">✦ Première édition ✦</div>
+
+  <h2>À venir</h2>
+
+  <p>
+    Le premier article sera publié lorsque le moment sera venu.
+  </p>
+
+  <p>
+    Pour l'instant, L’Écho de Lorraine ouvre simplement ses portes.
+    Les pages restent blanches… mais elles ne le resteront pas longtemps.
+  </p>
+
+</section>
+
+<section id="apropos" class="paper future">
+
+  <div class="section-label">✦ À propos ✦</div>
+
+  <h2>L’Écho de Lorraine</h2>
+
+  <p>
+    L’Écho de Lorraine est le second journal de la maison éditoriale
+    de Mishac, aux côtés de L’Écho de Bretagne.
+  </p>
+
+  <p>
+    Les deux journaux conserveront leur identité propre tout en partageant
+    la même volonté : raconter les événements, les habitants et les histoires
+    qui font vivre leurs terres.
+  </p>
+
+  <a class="button" href="index.html">
+    Revenir à L’Écho de Bretagne →
+  </a>
+
+</section>
+
+</main>
+
+<footer>
+  <div class="ornement">✦</div>
+  <strong>L’Écho de Lorraine</strong>
+  <p>Journal libre et indépendant</p>
+</footer>
+
+</body>
+</html>
