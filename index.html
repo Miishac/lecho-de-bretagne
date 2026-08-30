@@ -19,15 +19,12 @@ body {
     font-family: Georgia, "Times New Roman", serif;
 }
 
-/* =========================
-   EN-TÊTE
-========================= */
-
 header {
     background: #eee1c2;
     text-align: center;
     padding: 35px 15px 25px;
     border-bottom: 7px double #5d4328;
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
 
 header .petit-titre {
@@ -39,10 +36,8 @@ header .petit-titre {
 
 header h1 {
     margin: 10px 0;
-    font-family: Georgia, serif;
     font-size: clamp(42px, 9vw, 82px);
     line-height: 1;
-    letter-spacing: 1px;
 }
 
 header p {
@@ -56,9 +51,7 @@ header .date {
     color: #725b3b;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
+/* NAVIGATION */
 
 nav {
     background: #241c16;
@@ -71,7 +64,7 @@ nav a {
     color: #eee1c2;
     text-decoration: none;
     display: inline-block;
-    margin: 5px 12px;
+    margin: 5px 11px;
     font-weight: bold;
     font-size: 14px;
 }
@@ -80,9 +73,7 @@ nav a:hover {
     color: #d5ad5b;
 }
 
-/* =========================
-   CONTENU
-========================= */
+/* CONTENU */
 
 main {
     max-width: 1200px;
@@ -90,9 +81,7 @@ main {
     padding: 0 15px;
 }
 
-/* =========================
-   UNE
-========================= */
+/* UNE */
 
 .une {
     background: #eee1c2;
@@ -146,9 +135,7 @@ main {
     font-weight: bold;
 }
 
-/* =========================
-   BOUTONS
-========================= */
+/* BOUTONS */
 
 .bouton {
     display: inline-block;
@@ -166,9 +153,7 @@ main {
     background: #54201c;
 }
 
-/* =========================
-   SÉPARATEUR
-========================= */
+/* SÉPARATEURS */
 
 .titre-section {
     display: flex;
@@ -189,9 +174,7 @@ main {
     flex: 1;
 }
 
-/* =========================
-   ARTICLES
-========================= */
+/* ARTICLES */
 
 .articles {
     display: grid;
@@ -231,9 +214,7 @@ main {
     text-decoration: none;
 }
 
-/* =========================
-   RUBRIQUES
-========================= */
+/* RUBRIQUES */
 
 .rubriques {
     display: grid;
@@ -250,9 +231,7 @@ main {
     font-size: 16px;
 }
 
-/* =========================
-   ARCHIVES
-========================= */
+/* ARCHIVES */
 
 .archives {
     background: #eee1c2;
@@ -271,9 +250,26 @@ main {
     line-height: 1.7;
 }
 
-/* =========================
-   À PROPOS
-========================= */
+/* CARTE */
+
+.carte {
+    background: #eee1c2;
+    border: 1px solid #765532;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
+}
+
+.carte h2 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.carte p {
+    line-height: 1.7;
+}
+
+/* À PROPOS */
 
 .apropos {
     background: #eee1c2;
@@ -285,9 +281,7 @@ main {
     margin-top: 0;
 }
 
-/* =========================
-   PIED DE PAGE
-========================= */
+/* FOOTER */
 
 footer {
     background: #241c16;
@@ -307,9 +301,7 @@ footer p {
     line-height: 1.7;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media (max-width: 800px) {
 
@@ -365,7 +357,9 @@ footer p {
         Journal libre de Bretagne
     </div>
 
-    <h1>L'Écho de Bretagne</h1>
+    <h1>
+        L'Écho de Bretagne
+    </h1>
 
     <p>
         Chroniques, nouvelles et regards sur les terres bretonnes
@@ -380,16 +374,29 @@ footer p {
 
 <nav>
 
-    <a href="index.html">À LA UNE</a>
+    <a href="index.html">
+        À LA UNE
+    </a>
 
-    <a href="#articles">ARTICLES</a>
+    <a href="#articles">
+        ARTICLES
+    </a>
 
-    <a href="#rubriques">RUBRIQUES</a>
+    <a href="#rubriques">
+        RUBRIQUES
+    </a>
 
-    <!-- Le A majuscule est volontaire -->
-    <a href="Archives.html">ARCHIVES</a>
+    <a href="Archives.html">
+        ARCHIVES
+    </a>
 
-    <a href="#apropos">À PROPOS</a>
+    <a href="Carte.html">
+        CARTE
+    </a>
+
+    <a href="#apropos">
+        À PROPOS
+    </a>
 
 </nav>
 
@@ -397,9 +404,7 @@ footer p {
 <main>
 
 
-<!-- =========================
-     UNE
-========================= -->
+<!-- UNE -->
 
 <section class="une">
 
@@ -450,9 +455,7 @@ footer p {
 </section>
 
 
-<!-- =========================
-     DERNIERS ARTICLES
-========================= -->
+<!-- ARTICLES -->
 
 <div id="articles" class="titre-section">
     DERNIERS ARTICLES
@@ -534,9 +537,7 @@ footer p {
 </section>
 
 
-<!-- =========================
-     RUBRIQUES
-========================= -->
+<!-- RUBRIQUES -->
 
 <div id="rubriques" class="titre-section">
     RUBRIQUES
@@ -546,31 +547,33 @@ footer p {
 <section class="rubriques">
 
     <div class="rubrique">
-        🏰<br><br>
+        🏰
+        <br><br>
         Politique
     </div>
 
     <div class="rubrique">
-        ⚔️<br><br>
+        ⚔️
+        <br><br>
         Défense
     </div>
 
     <div class="rubrique">
-        🏘️<br><br>
+        🏘️
+        <br><br>
         Vie bretonne
     </div>
 
     <div class="rubrique">
-        🌿<br><br>
+        🌿
+        <br><br>
         Chroniques
     </div>
 
 </section>
 
 
-<!-- =========================
-     ARCHIVES
-========================= -->
+<!-- ARCHIVES -->
 
 <div class="titre-section">
     LES ARCHIVES
@@ -588,7 +591,6 @@ footer p {
         les articles publiés par L'Écho de Bretagne.
     </p>
 
-    <!-- A majuscule : correspond exactement au fichier GitHub -->
     <a class="bouton" href="Archives.html">
         CONSULTER LES ARCHIVES
     </a>
@@ -596,9 +598,33 @@ footer p {
 </section>
 
 
-<!-- =========================
-     À PROPOS
-========================= -->
+<!-- CARTE -->
+
+<div class="titre-section">
+    CARTE DES ROYAUMES
+</div>
+
+
+<section class="carte">
+
+    <h2>
+        🗺️ Le monde connu
+    </h2>
+
+    <p>
+        Découvrez les royaumes, provinces, villes, ports et
+        autres terres des Royaumes Renaissants grâce à notre
+        carte interactive.
+    </p>
+
+    <a class="bouton" href="Carte.html">
+        OUVRIR LA CARTE
+    </a>
+
+</section>
+
+
+<!-- À PROPOS -->
 
 <div id="apropos" class="titre-section">
     À PROPOS
