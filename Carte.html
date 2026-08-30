@@ -8,18 +8,36 @@
 
 <title>Carte des Royaumes — L'Écho de Bretagne</title>
 
+<!-- Leaflet -->
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    crossorigin=""
+>
+
 <style>
+
+/* =========================
+   BASE
+========================= */
 
 * {
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
     background: #c7b07d;
     color: #261c14;
     font-family: Georgia, "Times New Roman", serif;
 }
+
 
 /* =========================
    EN-TÊTE
@@ -28,28 +46,28 @@ body {
 header {
     background: #eee1c2;
     text-align: center;
-    padding: 30px 15px 25px;
+    padding: 25px 15px 20px;
     border-bottom: 7px double #5d4328;
-    box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
 
 .petit-titre {
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: #704d2b;
 }
 
 header h1 {
-    margin: 10px 0;
-    font-size: clamp(40px, 8vw, 72px);
+    margin: 8px 0;
+    font-size: clamp(36px, 7vw, 65px);
     line-height: 1;
 }
 
 header p {
-    margin: 8px 0;
+    margin: 8px 0 0;
     font-style: italic;
 }
+
 
 /* =========================
    NAVIGATION
@@ -58,7 +76,7 @@ header p {
 nav {
     background: #241c16;
     text-align: center;
-    padding: 14px 8px;
+    padding: 13px 8px;
     border-bottom: 3px solid #a17a38;
 }
 
@@ -66,124 +84,99 @@ nav a {
     color: #eee1c2;
     text-decoration: none;
     display: inline-block;
-    margin: 4px 12px;
+    margin: 4px 10px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 nav a:hover {
     color: #d5ad5b;
 }
 
-/* =========================
-   CONTENU
-========================= */
 
-main {
-    max-width: 1400px;
-    margin: 30px auto;
-    padding: 0 15px;
-}
+/* =========================
+   TITRE
+========================= */
 
 .introduction {
     background: #eee1c2;
-    border: 1px solid #765532;
-    padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,.25);
+    padding: 20px 15px;
 }
 
 .introduction h2 {
-    margin-top: 0;
-    font-size: clamp(28px, 5vw, 45px);
+    margin: 0 0 8px;
+    font-size: clamp(25px, 5vw, 40px);
 }
 
 .introduction p {
-    max-width: 800px;
-    margin: auto;
-    line-height: 1.8;
+    margin: 0;
+    font-style: italic;
 }
 
+
 /* =========================
-   CARTE
+   CONTENEUR CARTE
 ========================= */
 
-.carte-container {
-    margin-top: 25px;
-    background: #eee1c2;
-    border: 5px solid #60452a;
-    box-shadow: 0 7px 20px rgba(0,0,0,.35);
+.map-wrapper {
     padding: 10px;
+    background: #60452a;
 }
 
-.carte {
+#map {
     width: 100%;
-    height: 75vh;
+    height: calc(100vh - 230px);
     min-height: 500px;
-    border: 1px solid #765532;
     background: #d8c79f;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
-.carte-message {
-    max-width: 650px;
-    padding: 30px;
-}
-
-.carte-message h3 {
-    font-size: 28px;
-    margin-top: 0;
-}
-
-.carte-message p {
-    line-height: 1.7;
-}
-
-.bouton-carte {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 14px 22px;
-    background: #762c27;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #51201c;
-}
-
-.bouton-carte:hover {
-    background: #54201c;
-}
 
 /* =========================
-   INFORMATIONS
+   MESSAGE TEMPORAIRE
 ========================= */
 
-.informations {
-    margin-top: 25px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+.map-overlay {
+    position: absolute;
+    z-index: 1000;
+    top: 20px;
+    left: 20px;
+
+    max-width: 320px;
+
+    background: rgba(238,225,194,.96);
+    border: 2px solid #60452a;
+    box-shadow: 0 4px 15px rgba(0,0,0,.35);
+
+    padding: 18px;
 }
 
-.info {
-    background: #eee1c2;
-    border: 1px solid #765532;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.2);
-}
-
-.info h3 {
-    margin-top: 0;
+.map-overlay h3 {
+    margin: 0 0 8px;
     color: #7b2924;
 }
 
-.info p {
-    line-height: 1.7;
+.map-overlay p {
+    margin: 0;
+    line-height: 1.5;
     font-size: 14px;
 }
+
+
+/* =========================
+   CONTRÔLES LEAFLET
+========================= */
+
+.leaflet-control-zoom a {
+    background: #eee1c2 !important;
+    color: #241c16 !important;
+    border-color: #765532 !important;
+}
+
+.leaflet-control-attribution {
+    font-size: 10px;
+}
+
 
 /* =========================
    RETOUR
@@ -191,17 +184,19 @@ main {
 
 .retour {
     text-align: center;
-    margin: 35px 0;
+    padding: 25px 15px;
+    background: #eee1c2;
 }
 
 .retour a {
     display: inline-block;
-    padding: 13px 22px;
+    padding: 12px 20px;
     background: #762c27;
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
+
 
 /* =========================
    FOOTER
@@ -211,8 +206,7 @@ footer {
     background: #241c16;
     color: #eee1c2;
     text-align: center;
-    padding: 35px 15px;
-    margin-top: 50px;
+    padding: 30px 15px;
     border-top: 4px solid #a17a38;
 }
 
@@ -222,27 +216,31 @@ footer h2 {
 
 footer p {
     font-size: 13px;
-    line-height: 1.7;
 }
+
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
 
     nav a {
-        margin: 4px 7px;
-        font-size: 12px;
+        margin: 4px 6px;
+        font-size: 11px;
     }
 
-    .carte {
-        height: 65vh;
+    #map {
+        height: calc(100vh - 250px);
         min-height: 450px;
     }
 
-    .informations {
-        grid-template-columns: 1fr;
+    .map-overlay {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        max-width: none;
+        padding: 12px;
     }
 
 }
@@ -297,107 +295,40 @@ footer p {
 </nav>
 
 
-<main>
-
-
 <section class="introduction">
 
     <h2>
-        🗺️ La carte des Royaumes Renaissants
+        🗺️ Carte des Royaumes Renaissants
     </h2>
 
     <p>
-        Découvrez les terres connues des Royaumes Renaissants,
-        leurs royaumes, leurs provinces, leurs villes, leurs ports
-        et leurs routes.
+        Une carte interactive du monde connu.
     </p>
 
 </section>
 
 
-<section class="carte-container">
+<div class="map-wrapper">
 
-    <div class="carte">
+    <div id="map">
 
-        <div class="carte-message">
+        <div class="map-overlay">
 
             <h3>
-                Carte interactive
+                Carte en construction
             </h3>
 
             <p>
-                La carte interactive sera intégrée ici.
-                Elle permettra de parcourir le monde, de zoomer
-                et de consulter les différentes régions et villes.
+                Le moteur interactif est prêt.
+                Nous allons maintenant lui ajouter
+                la véritable cartographie des Royaumes.
             </p>
-
-            <p>
-                Cette carte est une représentation générale du monde
-                des Royaumes Renaissants.
-            </p>
-
-            <a
-                class="bouton-carte"
-                href="https://rk-map.de/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                OUVRIR LA CARTE INTERACTIVE
-            </a>
 
         </div>
 
     </div>
 
-</section>
-
-
-<section class="informations">
-
-
-    <div class="info">
-
-        <h3>
-            🏰 Royaumes et provinces
-        </h3>
-
-        <p>
-            Explorez les différents royaumes et provinces qui
-            composent le monde des Royaumes Renaissants.
-        </p>
-
-    </div>
-
-
-    <div class="info">
-
-        <h3>
-            📍 Villes
-        </h3>
-
-        <p>
-            Retrouvez les villages et capitales qui parsèment
-            les terres connues.
-        </p>
-
-    </div>
-
-
-    <div class="info">
-
-        <h3>
-            ⚓ Ports et mers
-        </h3>
-
-        <p>
-            Les ports et les espaces maritimes permettent également
-            de comprendre les grandes routes du monde.
-        </p>
-
-    </div>
-
-
-</section>
+</div>
 
 
 <div class="retour">
@@ -407,9 +338,6 @@ footer p {
     </a>
 
 </div>
-
-
-</main>
 
 
 <footer>
@@ -427,6 +355,251 @@ footer p {
     </p>
 
 </footer>
+
+
+<!-- Leaflet -->
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    crossorigin="">
+</script>
+
+
+<script>
+
+/*
+=========================================================
+   MOTEUR DE CARTE
+=========================================================
+
+   Nous utilisons CRS.Simple.
+
+   Cela permet de créer une carte qui ne dépend
+   pas de la géographie réelle de la Terre.
+
+   C'est exactement ce qu'il nous faut pour une
+   future carte des Royaumes Renaissants.
+=========================================================
+*/
+
+
+const map = L.map("map", {
+
+    crs: L.CRS.Simple,
+
+    minZoom: -5,
+
+    maxZoom: 5,
+
+    zoomControl: true,
+
+    attributionControl: true,
+
+    doubleClickZoom: true,
+
+    scrollWheelZoom: true,
+
+    dragging: true,
+
+    touchZoom: true,
+
+    boxZoom: true,
+
+    keyboard: true
+
+});
+
+
+/*
+=========================================================
+   ZONE PROVISOIRE
+
+   Cette zone représente simplement l'espace
+   de notre future carte.
+
+   Elle sera remplacée par les véritables
+   dimensions du fond cartographique.
+=========================================================
+*/
+
+
+const bounds = [
+    [0, 0],
+    [1000, 1600]
+];
+
+
+/*
+   Cadre temporaire
+*/
+
+L.rectangle(
+
+    bounds,
+
+    {
+        color: "#765532",
+
+        weight: 2,
+
+        fillColor: "#d8c79f",
+
+        fillOpacity: 1
+    }
+
+).addTo(map);
+
+
+/*
+=========================================================
+   POSITION INITIALE
+=========================================================
+*/
+
+map.fitBounds(bounds);
+
+
+/*
+=========================================================
+   LIMITES DE DÉPLACEMENT
+=========================================================
+
+   Empêche de perdre complètement la carte
+   lorsqu'on la déplace.
+=========================================================
+*/
+
+map.setMaxBounds([
+
+    [-200, -200],
+
+    [1200, 1800]
+
+]);
+
+
+/*
+=========================================================
+   FUTURES LAYERS
+=========================================================
+
+   Les groupes suivants accueilleront plus tard :
+
+   - royaumes
+   - provinces
+   - villes
+   - routes
+   - ports
+   - mines
+=========================================================
+*/
+
+
+const royaumesLayer =
+    L.layerGroup();
+
+const provincesLayer =
+    L.layerGroup();
+
+const villesLayer =
+    L.layerGroup();
+
+const routesLayer =
+    L.layerGroup();
+
+const portsLayer =
+    L.layerGroup();
+
+const minesLayer =
+    L.layerGroup();
+
+
+/*
+=========================================================
+   CONTRÔLE DES COUCHES
+=========================================================
+*/
+
+const couches = {
+
+    "🏰 Royaumes":
+        royaumesLayer,
+
+    "🏛️ Provinces":
+        provincesLayer,
+
+    "📍 Villes":
+        villesLayer,
+
+    "🛣️ Routes":
+        routesLayer,
+
+    "⚓ Ports":
+        portsLayer,
+
+    "⛏️ Mines":
+        minesLayer
+
+};
+
+
+L.control.layers(
+
+    null,
+
+    couches,
+
+    {
+        collapsed: false
+    }
+
+).addTo(map);
+
+
+/*
+=========================================================
+   MESSAGE DE TEST
+=========================================================
+
+   Ce marqueur est uniquement technique.
+   Il sera supprimé lorsque les vraies données
+   de la carte seront intégrées.
+=========================================================
+*/
+
+
+const testMarker = L.marker([500, 800])
+
+    .bindPopup(
+
+        "<strong>Carte des Royaumes</strong><br>" +
+
+        "Le moteur interactif fonctionne.<br><br>" +
+
+        "Cette position est provisoire."
+
+    );
+
+
+testMarker.addTo(villesLayer);
+
+
+/*
+=========================================================
+   OUVERTURE AUTOMATIQUE DES VILLES
+=========================================================
+*/
+
+villesLayer.addTo(map);
+
+
+/*
+=========================================================
+   FIN
+=========================================================
+*/
+
+</script>
 
 
 </body>
