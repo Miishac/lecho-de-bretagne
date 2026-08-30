@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>L’Écho de Bretagne</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+  --parchemin:#eee1c5;
+  --papier:#f6ecd5;
+  --ocre:#cbb88f;
+  --brun:#2d251c;
+  --brun2:#191510;
+  --bordeaux:#762c27;
+  --or:#a17a38;
+  --ligne:#927d5b;
+}
+
+body{
+  margin:0;
+  background:var(--ocre);
+  color:var(--brun);
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+header{
+  text-align:center;
+  background:var(--parchemin);
+  padding:28px 15px 20px;
+  border-bottom:7px double #806d50;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+
+.masthead-kicker{
+  font-size:12px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:#6f604c;
+}
+
+header h1{
+  font-size:clamp(46px,9vw,88px);
+  line-height:.95;
+  margin:10px 0 12px;
+  text-transform:none;
+  letter-spacing:-2px;
+}
+
+header p{
+  margin:0;
+  font-size:clamp(17px,3vw,24px);
+  font-style:italic;
+  color:#514433;
+}
+
+.edition-date{
+  margin-top:14px;
+  font-size:14px;
+  color:#765f3f;
+  letter-spacing:1px;
+}
+
+.ornement{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  max-width:520px;
+  margin:14px auto 0;
+  color:var(--bordeaux);
+  font-size:13px;
+}
+
+.ornement:before,
+.ornement:after{
+  content:"";
+  height:1px;
+  background:#927d5b;
+  flex:1;
+}
+
+nav{
+  background:var(--brun2);
+  text-align:center;
+  padding:14px 8px;
+  border-bottom:3px solid var(--or);
+}
+
+nav a{
+  color:#eadfc9;
+  text-decoration:none;
+  margin:4px 10px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+  display:inline-block;
+}
+
+nav a:hover{
+  color:#d5ad5b;
+}
+
+main{
+  max-width:1150px;
+  margin:28px auto;
+  padding:0 15px;
+}
+
+.paper{
+  background:var(--papier);
+  border:1px solid var(--ligne);
+  box-shadow:0 8px 25px rgba(107,87,54,.35);
+  padding:28px;
+}
+
+.special-label,
+.section-label{
+  color:var(--bordeaux);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1.05fr;
+  gap:30px;
+  align-items:center;
+}
+
+.hero-copy h2{
+  font-size:clamp(34px,5vw,62px);
+  line-height:1.02;
+  margin:12px 0 18px;
+}
+
+.hero-copy .chapo{
+  font-size:18px;
+  line-height:1.75;
+  margin:0;
+}
+
+.meta{
+  margin:0 0 8px;
+  color:#6f604c;
+  font-size:13px;
+  font-style:italic;
+}
+
+.hero img{
+  width:100%;
+  max-width:100%;
+  display:block;
+  border:1px solid var(--ligne);
+  box-shadow:0 4px 14px rgba(0,0,0,.22);
+}
+
+.button{
+  display:inline-block;
+  color:var(--papier);
+  background:var(--bordeaux);
+  border:2px solid #51201c;
+  padding:12px 18px;
+  text-decoration:none;
+  margin-top:18px;
+  font-weight:bold;
+}
+
+.button:hover{
+  background:#54201c;
+}
+
+.section-heading{
+  text-align:center;
+  margin:45px 0 20px;
+}
+
+.section-heading h2{
+  margin:8px 0;
+  font-size:clamp(30px,5vw,48px);
+}
+
+.section-heading p{
+  margin:0;
+  font-style:italic;
+  color:#6f604c;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  background:var(--papier);
+  border:1px solid var(--ligne);
+  padding:21px;
+  box-shadow:0 5px 15px rgba(107,87,54,.24);
+  position:relative;
+}
+
+.card:before{
+  content:"✦";
+  display:block;
+  text-align:center;
+  color:var(--bordeaux);
+  margin-bottom:10px;
+}
+
+.card h3{
+  font-size:24px;
+  line-height:1.2;
+  margin:9px 0 10px;
+}
+
+.card p{
+  font-size:15px;
+  line-height:1.7;
+}
+
+.card a{
+  color:var(--bordeaux);
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.card a:hover{
+  text-decoration:underline;
+}
+
+.article{
+  margin-top:42px;
+}
+
+.article-head{
+  text-align:center;
+  border-bottom:1px solid var(--ligne);
+  padding-bottom:22px;
+  margin-bottom:24px;
+}
+
+.article-head h2{
+  font-size:clamp(34px,6vw,58px);
+  line-height:1.05;
+  margin:10px 0;
+}
+
+.article-head p{
+  margin:0;
+  color:#6f604c;
+  font-style:italic;
+}
+
+.article p{
+  max-width:820px;
+  margin:0 auto 20px;
+  font-size:18px;
+  line-height:1.85;
+}
+
+.article .phrase-forte{
+  max-width:760px;
+  margin:28px auto;
+  padding:18px 22px;
+  border-left:4px solid var(--bordeaux);
+  background:#eee1c5;
+  font-size:20px;
+  font-style:italic;
+}
+
+.info-section{
+  margin-top:42px;
+}
+
+.info-section h2{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.info-section .paper p{
+  font-size:17px;
+  line-height:1.8;
+}
+
+footer{
+  text-align:center;
+  padding:35px 15px;
+  color:#5f513e;
+}
+
+footer .ornement{
+  margin-bottom:18px;
+}
+
+@media(max-width:800px){
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero-copy{
+    order:1;
+  }
+
+  .hero img{
+    order:2;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+  header{
+    padding:24px 12px 18px;
+  }
+
+  header h1{
+    font-size:48px;
+    letter-spacing:-1px;
+  }
+
+  header p{
+    font-size:17px;
+  }
+
+  nav{
+    padding:11px 5px;
+  }
+
+  nav a{
+    margin:3px 5px;
+    font-size:11px;
+  }
+
+  main{
+    margin:20px auto;
+    padding:0 10px;
+  }
+
+  .paper{
+    padding:20px 17px;
+  }
+
+  .hero-copy h2{
+    font-size:38px;
+  }
+
+  .hero-copy .chapo{
+    font-size:17px;
+  }
+
+  .article p{
+    font-size:17px;
+    line-height:1.8;
+  }
+
+  .article .phrase-forte{
+    font-size:18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="masthead-kicker">Journal libre et indépendant</div>
+  <h1>L’Écho de Bretagne</h1>
+  <p>Chroniques, nouvelles et regards sur les terres bretonnes</p>
+  <div class="edition-date">Édition du 30 août 1474</div>
+  <div class="ornement">✦</div>
+</header>
+
+<nav>
+  <a href="index.html">À la une</a>
+  <a href="#articles">Articles</a>
+  <a href="#rubriques">Rubriques</a>
+  <a href="Archives.html">Archives</a>
+  <a href="Carte.html">Carte</a>
+  <a href="#apropos">À propos</a>
+</nav>
+
+<main>
+
+<section class="paper hero" id="une">
+  <div class="hero-copy">
+    <div class="special-label">Édition spéciale</div>
+    <div class="meta">30 août 1474 · Chronique</div>
+    <h2>Mishac : à quelques heures du départ</h2>
+    <p class="chapo">
+      Après plusieurs années passées à servir la Bretagne,
+      Mishac s’apprête à prendre la route. Entre responsabilités,
+      rencontres, désillusions et nouvelles ambitions, il revient
+      sur le chemin parcouru.
+    </p>
+    <a class="button" href="#article">Lire l’article complet →</a>
+  </div>
+
+  <div>
+    <img src="article-depart.png" alt="Illustration de L’Écho de Bretagne">
+  </div>
+</section>
+
+<section id="articles">
+
+  <div class="section-heading">
+    <div class="section-label">✦ La vie du journal ✦</div>
+    <h2>Derniers articles</h2>
+    <p>Les nouvelles, chroniques et récits de L’Écho de Bretagne</p>
+  </div>
+
+  <div class="cards">
+
+    <article class="card">
+      <div class="section-label">Chronique</div>
+      <h3>À quelques heures du départ</h3>
+      <p>
+        Un regard personnel sur plusieurs années passées
+        au service de la Bretagne.
+      </p>
+      <a href="#article">Lire →</a>
+    </article>
+
+    <article class="card">
+      <div class="section-label">Vie des villes</div>
+      <h3>Quand les Bretons commencent à partir</h3>
+      <p>
+        Une réflexion sur les départs, les changements
+        et l’avenir des communautés bretonnes.
+      </p>
+      <a href="#articles">Bientôt disponible</a>
+    </article>
+
+    <article class="card">
+      <div class="section-label">À venir</div>
+      <h3>Les routes de demain</h3>
+      <p>
+        Nouvelles terres, nouvelles rencontres et nouvelles
+        histoires à venir dans les prochaines éditions.
+      </p>
+      <a href="#articles">À suivre</a>
+    </article>
+
+  </div>
+</section>
+
+<section id="rubriques" class="info-section">
+  <div class="section-heading">
+    <div class="section-label">✦ Les pages du journal ✦</div>
+    <h2>Rubriques</h2>
+    <p>Les différents regards de L’Écho sur le monde</p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <div class="section-label">Chroniques</div>
+      <h3>Récits et témoignages</h3>
+      <p>Les histoires personnelles et les événements qui méritent d’être racontés.</p>
+    </article>
+
+    <article class="card">
+      <div class="section-label">Vie bretonne</div>
+      <h3>Villes et habitants</h3>
+      <p>La vie quotidienne, les cités, les métiers et celles et ceux qui font vivre la Bretagne.</p>
+    </article>
+
+    <article class="card">
+      <div class="section-label">Voyages</div>
+      <h3>Au-delà des frontières</h3>
+      <p>Les routes, les terres lointaines et les découvertes qui nourriront les prochaines éditions.</p>
+    </article>
+  </div>
+</section>
+
+<section id="article" class="paper article">
+
+  <div class="article-head">
+    <div class="section-label">Édition spéciale · 30 août 1474</div>
+    <h2>À quelques heures du départ</h2>
+    <p>Par Mishac · L’Écho de Bretagne</p>
+  </div>
+
+  <p>
+    Il paraît qu’un journaliste doit savoir rester objectif.
+    Pourtant, à quelques heures de prendre la route, j’ai aujourd’hui
+    envie de faire une exception et de raconter un peu mon propre chemin.
+  </p>
+
+  <p>
+    Non pas parce que mon histoire serait plus importante que celle
+    des autres, mais parce qu’il est difficile de quitter une terre
+    à laquelle on s’est attaché sans prendre un instant pour regarder
+    le chemin parcouru et ce qu’il nous a appris.
+  </p>
+
+  <p>
+    Je suis arrivé à Roc’han avec l’envie de construire quelque chose
+    et j’y ai ouvert Le Jardin des Simples, une petite échoppe consacrée
+    aux plantes et aux remèdes.
+  </p>
+
+  <p>
+    J’y ai rencontré des habitants, des amis et des personnes de passage,
+    découvrant peu à peu une ville et une terre auxquelles je me suis attaché.
+  </p>
+
+  <p class="phrase-forte">
+    La Bretagne, ce sont ses habitants : ceux qui travaillent,
+    tiennent une échoppe, montent la garde, cultivent, voyagent,
+    arrivent, restent et même ceux qui partent.
+  </p>
+
+  <p>
+    Puis sont venues les responsabilités et les différentes fonctions
+    que j’ai eu l’occasion d’exercer au service de la Bretagne :
+    la maréchaussée et la Prévôté, mais aussi les charges administratives
+    et économiques comme celles de Bailli ou de Commissaire au Commerce.
+  </p>
+
+  <p>
+    Je ne prétendrai pas que tout a été facile.
+    J’ai connu des moments où j’étais fier de servir cette terre,
+    d’autres où je me suis demandé si cela en valait encore la peine.
+  </p>
+
+  <p>
+    Dans quelques heures, je quitterai mes fonctions et prendrai la route.
+    Ce départ n’est ni une fuite ni une volonté d’effacer ce que j’ai
+    construit ici ; j’ai simplement envie de découvrir autre chose,
+    de voyager, d’apprendre et de rencontrer d’autres personnes.
+  </p>
+
+  <p>
+    Ce voyage doit surtout me permettre d’acquérir de nouvelles connaissances,
+    de découvrir d’autres façons de vivre et de construire, et de faire mûrir
+    les objectifs que je souhaite poursuivre à mon retour en Bretagne.
+  </p>
+
+  <p class="phrase-forte">
+    Alors oui, une page se tourne !
+    Mais l’histoire, elle, n’est pas terminée.
+  </p>
+
+  <p>
+    Je ne sais pas encore ce que les routes me réserveront,
+    mais je sais que les expériences à venir façonneront mes choix
+    et mes ambitions.
+  </p>
+
+</section>
+
+<section id="archives" class="info-section">
+  <div class="section-heading">
+    <div class="section-label">✦ La mémoire du journal ✦</div>
+    <h2>Archives</h2>
+  </div>
+
+  <div class="paper">
+    <p>
+      Retrouvez les anciennes éditions de L’Écho de Bretagne
+      dans les archives du journal.
+    </p>
+    <a class="button" href="Archives.html">Consulter les archives →</a>
+  </div>
+</section>
+
+<section id="apropos" class="info-section">
+  <div class="section-heading">
+    <div class="section-label">✦ À propos ✦</div>
+    <h2>Le journal</h2>
+  </div>
+
+  <div class="paper">
+    <p>
+      L’Écho de Bretagne est un journal libre et indépendant consacré
+      aux événements, aux habitants et aux débats qui façonnent
+      les terres bretonnes.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="ornement">✦</div>
+  <strong>L’Écho de Bretagne</strong>
+  <p>Journal libre et indépendant · 1474</p>
+</footer>
+
+</body>
+</html>
