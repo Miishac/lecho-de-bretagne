@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Carte des Royaumes — L'Écho de Bretagne</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #c7b07d;
+    color: #261c14;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* =========================
+   EN-TÊTE
+========================= */
+
+header {
+    background: #eee1c2;
+    text-align: center;
+    padding: 30px 15px 25px;
+    border-bottom: 7px double #5d4328;
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
+}
+
+.petit-titre {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #704d2b;
+}
+
+header h1 {
+    margin: 10px 0;
+    font-size: clamp(40px, 8vw, 72px);
+    line-height: 1;
+}
+
+header p {
+    margin: 8px 0;
+    font-style: italic;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    background: #241c16;
+    text-align: center;
+    padding: 14px 8px;
+    border-bottom: 3px solid #a17a38;
+}
+
+nav a {
+    color: #eee1c2;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 12px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #d5ad5b;
+}
+
+/* =========================
+   CONTENU
+========================= */
+
+main {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.introduction {
+    background: #eee1c2;
+    border: 1px solid #765532;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,.25);
+}
+
+.introduction h2 {
+    margin-top: 0;
+    font-size: clamp(28px, 5vw, 45px);
+}
+
+.introduction p {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+/* =========================
+   CARTE
+========================= */
+
+.carte-container {
+    margin-top: 25px;
+    background: #eee1c2;
+    border: 5px solid #60452a;
+    box-shadow: 0 7px 20px rgba(0,0,0,.35);
+    padding: 10px;
+}
+
+.carte {
+    width: 100%;
+    height: 75vh;
+    min-height: 500px;
+    border: 1px solid #765532;
+    background: #d8c79f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.carte-message {
+    max-width: 650px;
+    padding: 30px;
+}
+
+.carte-message h3 {
+    font-size: 28px;
+    margin-top: 0;
+}
+
+.carte-message p {
+    line-height: 1.7;
+}
+
+.bouton-carte {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 22px;
+    background: #762c27;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #51201c;
+}
+
+.bouton-carte:hover {
+    background: #54201c;
+}
+
+/* =========================
+   INFORMATIONS
+========================= */
+
+.informations {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.info {
+    background: #eee1c2;
+    border: 1px solid #765532;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+
+.info h3 {
+    margin-top: 0;
+    color: #7b2924;
+}
+
+.info p {
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+/* =========================
+   RETOUR
+========================= */
+
+.retour {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.retour a {
+    display: inline-block;
+    padding: 13px 22px;
+    background: #762c27;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #241c16;
+    color: #eee1c2;
+    text-align: center;
+    padding: 35px 15px;
+    margin-top: 50px;
+    border-top: 4px solid #a17a38;
+}
+
+footer h2 {
+    margin-top: 0;
+}
+
+footer p {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    nav a {
+        margin: 4px 7px;
+        font-size: 12px;
+    }
+
+    .carte {
+        height: 65vh;
+        min-height: 450px;
+    }
+
+    .informations {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="petit-titre">
+        L'Écho de Bretagne
+    </div>
+
+    <h1>
+        Carte des Royaumes
+    </h1>
+
+    <p>
+        Le monde connu des Royaumes Renaissants
+    </p>
+
+</header>
+
+
+<nav>
+
+    <a href="index.html">
+        À LA UNE
+    </a>
+
+    <a href="Archives.html">
+        ARCHIVES
+    </a>
+
+    <a href="Carte.html">
+        CARTE
+    </a>
+
+    <a href="index.html#rubriques">
+        RUBRIQUES
+    </a>
+
+    <a href="index.html#apropos">
+        À PROPOS
+    </a>
+
+</nav>
+
+
+<main>
+
+
+<section class="introduction">
+
+    <h2>
+        🗺️ La carte des Royaumes Renaissants
+    </h2>
+
+    <p>
+        Découvrez les terres connues des Royaumes Renaissants,
+        leurs royaumes, leurs provinces, leurs villes, leurs ports
+        et leurs routes.
+    </p>
+
+</section>
+
+
+<section class="carte-container">
+
+    <div class="carte">
+
+        <div class="carte-message">
+
+            <h3>
+                Carte interactive
+            </h3>
+
+            <p>
+                La carte interactive sera intégrée ici.
+                Elle permettra de parcourir le monde, de zoomer
+                et de consulter les différentes régions et villes.
+            </p>
+
+            <p>
+                Cette carte est une représentation générale du monde
+                des Royaumes Renaissants.
+            </p>
+
+            <a
+                class="bouton-carte"
+                href="https://rk-map.de/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                OUVRIR LA CARTE INTERACTIVE
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="informations">
+
+
+    <div class="info">
+
+        <h3>
+            🏰 Royaumes et provinces
+        </h3>
+
+        <p>
+            Explorez les différents royaumes et provinces qui
+            composent le monde des Royaumes Renaissants.
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <h3>
+            📍 Villes
+        </h3>
+
+        <p>
+            Retrouvez les villages et capitales qui parsèment
+            les terres connues.
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <h3>
+            ⚓ Ports et mers
+        </h3>
+
+        <p>
+            Les ports et les espaces maritimes permettent également
+            de comprendre les grandes routes du monde.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+<div class="retour">
+
+    <a href="index.html">
+        ← Retour à L'Écho de Bretagne
+    </a>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+    <h2>
+        L'Écho de Bretagne
+    </h2>
+
+    <p>
+        Journal libre et indépendant
+    </p>
+
+    <p>
+        © 1474 — L'Écho de Bretagne
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
