@@ -34,7 +34,9 @@ body {
     font-family: "Libre Baskerville", Georgia, serif;
 }
 
-/* ---------- EN-TÊTE ---------- */
+/* =========================
+   EN-TÊTE
+========================= */
 
 header {
     background: var(--parchemin);
@@ -76,7 +78,9 @@ header h1 {
     color: #705a3c;
 }
 
-/* ---------- NAVIGATION ---------- */
+/* =========================
+   NAVIGATION
+========================= */
 
 nav {
     background: var(--encre);
@@ -101,13 +105,19 @@ nav a:hover {
     color: #d8b96d;
 }
 
-/* ---------- CONTENU ---------- */
+/* =========================
+   CONTENU
+========================= */
 
 main {
     max-width: 1200px;
     margin: 35px auto;
     padding: 0 18px;
 }
+
+/* =========================
+   UNE
+========================= */
 
 .une {
     background: var(--parchemin);
@@ -146,7 +156,6 @@ main {
     min-height: 360px;
     object-fit: cover;
     border: 5px solid var(--brun);
-    box-shadow: inset 0 0 0 2px var(--parchemin-fonce);
 }
 
 .article-intro {
@@ -176,7 +185,9 @@ main {
     background: #531c19;
 }
 
-/* ---------- SÉPARATEUR ---------- */
+/* =========================
+   SÉPARATEURS
+========================= */
 
 .separateur {
     display: flex;
@@ -196,7 +207,9 @@ main {
     flex: 1;
 }
 
-/* ---------- ARTICLES ---------- */
+/* =========================
+   CARTES
+========================= */
 
 .articles {
     display: grid;
@@ -242,7 +255,9 @@ main {
     text-decoration: none;
 }
 
-/* ---------- RUBRIQUES ---------- */
+/* =========================
+   RUBRIQUES
+========================= */
 
 .rubriques {
     display: grid;
@@ -259,33 +274,25 @@ main {
     font-size: 15px;
 }
 
-/* ---------- ARCHIVES ---------- */
+/* =========================
+   DERNIÈRE ÉDITION
+========================= */
 
-.archives {
+.derniere-edition {
+    margin-top: 45px;
     background: var(--parchemin);
     border: 1px solid var(--brun);
     padding: 25px;
+    text-align: center;
 }
 
-.archive {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 14px 0;
-    border-bottom: 1px solid #b9a67d;
+.derniere-edition h2 {
+    font-family: "Cinzel", serif;
 }
 
-.archive:last-child {
-    border-bottom: none;
-}
-
-.archive a {
-    color: var(--rouge);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* ---------- PIED DE PAGE ---------- */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     margin-top: 55px;
@@ -308,7 +315,9 @@ footer p {
     margin: auto;
 }
 
-/* ---------- MOBILE ---------- */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 800px) {
 
@@ -338,10 +347,16 @@ footer p {
     .rubriques {
         grid-template-columns: 1fr 1fr;
     }
+}
 
-    .archive {
-        flex-direction: column;
-        gap: 6px;
+@media (max-width: 500px) {
+
+    .rubriques {
+        grid-template-columns: 1fr;
+    }
+
+    .une {
+        padding: 17px;
     }
 }
 </style>
@@ -349,7 +364,12 @@ footer p {
 
 <body>
 
+<!-- =========================
+     EN-TÊTE
+========================= -->
+
 <header>
+
     <div class="masthead">
 
         <div class="devise">
@@ -367,242 +387,268 @@ footer p {
         </div>
 
     </div>
+
 </header>
 
+
+<!-- =========================
+     MENU
+========================= -->
+
 <nav>
-    <a href="#une">À LA UNE</a>
-    <a href="#articles">ARTICLES</a>
-    <a href="#rubriques">RUBRIQUES</a>
-    <a href="archives.html">ARCHIVES</a>
-    <a href="#apropos">À PROPOS</a>
+
+    <a href="index.html">
+        À LA UNE
+    </a>
+
+    <a href="#articles">
+        ARTICLES
+    </a>
+
+    <a href="#rubriques">
+        RUBRIQUES
+    </a>
+
+    <a href="archives.html">
+        ARCHIVES
+    </a>
+
+    <a href="#apropos">
+        À PROPOS
+    </a>
+
 </nav>
+
 
 <main>
 
-    <!-- UNE -->
 
-    <section id="une" class="une">
+<!-- =========================
+     UNE
+========================= -->
 
-        <div class="une-label">
-            ÉDITION SPÉCIALE
-        </div>
+<section class="une">
 
-        <h2>Mishac : à quelques heures du départ</h2>
-
-        <div class="une-grid">
-
-            <img
-                src="article-depart.png"
-                alt="Illustration de Mishac avant son départ"
-                class="image-article"
-            >
-
-            <div class="article-intro">
-
-                <p class="chapeau">
-                    Après plusieurs années passées à Roc'han, entre
-                    Le Jardin des Simples, la maréchaussée, la Prévôté
-                    et les différentes responsabilités exercées au
-                    service de la Bretagne, l'heure est venue de prendre
-                    la route.
-                </p>
-
-                <p>
-                    Un départ pour découvrir d'autres terres,
-                    apprendre, rencontrer et peut-être revenir un jour
-                    avec de nouveaux objectifs.
-                </p>
-
-                <a class="lire" href="article-depart.html">
-                    LIRE L'ARTICLE
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ARTICLES -->
-
-    <div id="articles" class="separateur">
-        DERNIERS ARTICLES
+    <div class="une-label">
+        ÉDITION SPÉCIALE
     </div>
 
-    <section class="articles">
+    <h2>
+        Mishac : à quelques heures du départ
+    </h2>
 
-        <article class="carte">
+    <div class="une-grid">
 
-            <div class="categorie">
-                Chronique
-            </div>
+        <img
+            src="article-depart.png"
+            alt="Illustration de Mishac à quelques heures de son départ"
+            class="image-article"
+        >
 
-            <h3>
-                Quand les Bretons commencent à partir
-            </h3>
+        <div class="article-intro">
 
-            <p>
-                Une réflexion sur les départs, les chemins parcourus
-                et ce que l'on emporte avec soi lorsqu'une page
-                commence à se tourner.
+            <p class="chapeau">
+                Après plusieurs années passées à Roc'han, entre
+                Le Jardin des Simples, la maréchaussée, la Prévôté
+                et les différentes responsabilités exercées au
+                service de la Bretagne, l'heure est venue de prendre
+                la route.
             </p>
 
-            <a href="article-depart.html">
-                Lire la suite →
-            </a>
-
-        </article>
-
-
-        <article class="carte">
-
-            <div class="categorie">
-                À venir
-            </div>
-
-            <h3>
-                Les nouvelles de Bretagne
-            </h3>
-
             <p>
-                Les prochains événements, décisions et nouvelles
-                qui rythmeront la vie des villes et des duchés.
+                Un départ pour découvrir d'autres terres,
+                apprendre, rencontrer et peut-être revenir un jour
+                avec de nouveaux objectifs.
             </p>
 
-            <a href="#">
-                Bientôt disponible
+            <a class="lire" href="article-depart.html">
+                LIRE L'ARTICLE
             </a>
 
-        </article>
+        </div>
 
-
-        <article class="carte">
-
-            <div class="categorie">
-                Chroniques
-            </div>
-
-            <h3>
-                Regards sur les routes
-            </h3>
-
-            <p>
-                Carnets de voyage, rencontres et découvertes au fil
-                des chemins parcourus.
-            </p>
-
-            <a href="#">
-                Bientôt disponible
-            </a>
-
-        </article>
-
-    </section>
-
-
-    <!-- RUBRIQUES -->
-
-    <div id="rubriques" class="separateur">
-        RUBRIQUES
     </div>
 
-    <section class="rubriques">
+</section>
 
-        <div class="rubrique">
-            🏰<br>
-            Politique
+
+<!-- =========================
+     DERNIERS ARTICLES
+========================= -->
+
+<div id="articles" class="separateur">
+    DERNIERS ARTICLES
+</div>
+
+<section class="articles">
+
+
+    <article class="carte">
+
+        <div class="categorie">
+            Chronique
         </div>
 
-        <div class="rubrique">
-            ⚔️<br>
-            Défense
-        </div>
+        <h3>
+            Mishac : à quelques heures du départ
+        </h3>
 
-        <div class="rubrique">
-            🏘️<br>
+        <p>
+            Après plusieurs années passées à Roc'han et différentes
+            responsabilités exercées au service de la Bretagne,
+            l'heure est venue de prendre la route.
+        </p>
+
+        <a href="article-depart.html">
+            Lire la suite →
+        </a>
+
+    </article>
+
+
+    <article class="carte">
+
+        <div class="categorie">
             Vie des villes
         </div>
 
-        <div class="rubrique">
-            🌿<br>
+        <h3>
+            Les villes et ceux qui les font vivre
+        </h3>
+
+        <p>
+            Une ville ne vit véritablement que par les personnes
+            qui choisissent de s'y investir et de lui donner vie.
+        </p>
+
+        <a href="#">
+            Article à venir
+        </a>
+
+    </article>
+
+
+    <article class="carte">
+
+        <div class="categorie">
             Chroniques
         </div>
 
-    </section>
-
-
-    <!-- ARCHIVES -->
-
-    <div id="archives" class="separateur">
-        ARCHIVES
-    </div>
-
-    <section class="archives">
-
-        <div class="archive">
-            <span>
-                30 août 1474 — Mishac : à quelques heures du départ
-            </span>
-
-            <a href="article-depart.html">
-                Lire →
-            </a>
-        </div>
-
-        <div class="archive">
-            <span>
-                Prochainement — Nouvelles de Bretagne
-            </span>
-
-            <span>
-                À venir
-            </span>
-        </div>
-
-        <div class="archive">
-            <span>
-                Prochainement — Chroniques des routes
-            </span>
-
-            <span>
-                À venir
-            </span>
-        </div>
-
-    </section>
-
-
-    <!-- À PROPOS -->
-
-    <div id="apropos" class="separateur">
-        À PROPOS
-    </div>
-
-    <section class="carte">
-
-        <h3>L'Écho de Bretagne</h3>
+        <h3>
+            Les routes de demain
+        </h3>
 
         <p>
-            L'Écho de Bretagne est un journal consacré aux nouvelles,
-            aux chroniques et aux événements qui façonnent la vie
-            des terres bretonnes.
+            Voyages, découvertes, rencontres et nouvelles terres :
+            les prochaines pages de L'Écho restent encore à écrire.
         </p>
 
-        <p>
-            Articles, témoignages, réflexions et récits de voyage
-            trouveront ici leur place afin de conserver une trace
-            des événements et de ceux qui les vivent.
-        </p>
+        <a href="#">
+            Article à venir
+        </a>
 
-    </section>
+    </article>
+
+
+</section>
+
+
+<!-- =========================
+     RUBRIQUES
+========================= -->
+
+<div id="rubriques" class="separateur">
+    RUBRIQUES
+</div>
+
+<section class="rubriques">
+
+    <div class="rubrique">
+        🏰<br><br>
+        Politique
+    </div>
+
+    <div class="rubrique">
+        ⚔️<br><br>
+        Défense
+    </div>
+
+    <div class="rubrique">
+        🏘️<br><br>
+        Vie des villes
+    </div>
+
+    <div class="rubrique">
+        🌿<br><br>
+        Chroniques
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DERNIÈRE ÉDITION
+========================= -->
+
+<section class="derniere-edition">
+
+    <h2>
+        Les dernières nouvelles
+    </h2>
+
+    <p>
+        L'Écho de Bretagne évoluera au fil des événements,
+        des rencontres et des histoires qui feront l'actualité.
+    </p>
+
+    <a class="lire" href="archives.html">
+        CONSULTER LES ARCHIVES
+    </a>
+
+</section>
+
+
+<!-- =========================
+     À PROPOS
+========================= -->
+
+<div id="apropos" class="separateur">
+    À PROPOS
+</div>
+
+<section class="carte">
+
+    <h3>
+        L'Écho de Bretagne
+    </h3>
+
+    <p>
+        L'Écho de Bretagne est un journal consacré aux nouvelles,
+        aux chroniques et aux événements qui façonnent la vie
+        des terres bretonnes.
+    </p>
+
+    <p>
+        Articles, témoignages, réflexions et récits de voyage
+        trouveront ici leur place afin de conserver une trace
+        des événements et de ceux qui les vivent.
+    </p>
+
+</section>
+
 
 </main>
 
 
+<!-- =========================
+     PIED DE PAGE
+========================= -->
+
 <footer>
 
-    <h2>L'Écho de Bretagne</h2>
+    <h2>
+        L'Écho de Bretagne
+    </h2>
 
     <p>
         Journal libre et indépendant.
