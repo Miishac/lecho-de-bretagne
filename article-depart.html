@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mishac : à quelques heures du départ — L'Écho de Bretagne</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Libre+Baskerville:wght@400;700&display=swap');
+
+:root {
+    --parchemin: #eee2c4;
+    --parchemin-fonce: #d8c79f;
+    --encre: #241c16;
+    --brun: #6b4b2a;
+    --rouge: #7b2924;
+    --or: #a57b36;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at center, #d8c69d 0%, #bda878 100%);
+    color: var(--encre);
+    font-family: "Libre Baskerville", Georgia, serif;
+}
+
+header {
+    background: var(--parchemin);
+    border-bottom: 8px double var(--brun);
+    padding: 35px 20px 25px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0,0,0,.35);
+}
+
+header h1 {
+    margin: 8px 0 0;
+    font-family: "Cinzel", serif;
+    font-size: clamp(40px, 9vw, 75px);
+    line-height: 1;
+}
+
+.devise {
+    font-family: "Cinzel", serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--brun);
+}
+
+.sous-titre {
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.date {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #705a3c;
+}
+
+nav {
+    background: var(--encre);
+    border-bottom: 4px solid var(--or);
+    text-align: center;
+    padding: 13px 10px;
+}
+
+nav a {
+    color: var(--parchemin);
+    text-decoration: none;
+    font-family: "Cinzel", serif;
+    font-size: 13px;
+    margin: 0 12px;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 18px;
+}
+
+.article {
+    background: var(--parchemin);
+    border: 1px solid var(--brun);
+    box-shadow: 0 8px 25px rgba(0,0,0,.35);
+    padding: clamp(22px, 5vw, 55px);
+}
+
+.entete {
+    text-align: center;
+    border-bottom: 3px double var(--brun);
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+}
+
+.categorie {
+    color: var(--rouge);
+    font-family: "Cinzel", serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: "Cinzel", serif;
+    font-size: clamp(30px, 6vw, 52px);
+    line-height: 1.15;
+    margin: 15px 0;
+}
+
+.chapeau {
+    font-size: 19px;
+    line-height: 1.8;
+    font-style: italic;
+    text-align: center;
+}
+
+.illustration {
+    width: 100%;
+    margin: 20px 0 35px;
+    border: 5px solid var(--brun);
+}
+
+.texte p {
+    font-size: 16px;
+    line-height: 1.95;
+    text-align: justify;
+    margin: 0 0 24px;
+}
+
+.texte p:first-child::first-letter {
+    float: left;
+    font-family: "Cinzel", serif;
+    font-size: 58px;
+    line-height: .8;
+    padding: 8px 8px 0 0;
+    color: var(--rouge);
+}
+
+.signature {
+    text-align: right;
+    font-family: "Cinzel", serif;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--brun);
+}
+
+.retour {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
+    padding: 13px 20px;
+    background: var(--rouge);
+    color: white;
+    text-decoration: none;
+    font-family: "Cinzel", serif;
+}
+
+footer {
+    margin-top: 50px;
+    background: var(--encre);
+    color: var(--parchemin);
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 5px solid var(--or);
+}
+
+footer h3 {
+    font-family: "Cinzel", serif;
+}
+
+@media (max-width: 700px) {
+
+    nav a {
+        display: inline-block;
+        margin: 4px 7px;
+    }
+
+    .texte p {
+        text-align: left;
+        font-size: 15px;
+        line-height: 1.85;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="devise">
+        Journal libre de Bretagne
+    </div>
+
+    <h1>L'Écho de Bretagne</h1>
+
+    <div class="sous-titre">
+        Chroniques, nouvelles et regards sur les terres bretonnes
+    </div>
+
+    <div class="date">
+        Édition du 30 août 1474
+    </div>
+
+</header>
+
+<nav>
+    <a href="index.html">À LA UNE</a>
+    <a href="index.html#articles">ARTICLES</a>
+    <a href="index.html#rubriques">RUBRIQUES</a>
+    <a href="index.html#archives">ARCHIVES</a>
+</nav>
+
+<main>
+
+<section class="article">
+
+    <div class="entete">
+
+        <div class="categorie">
+            Chronique
+        </div>
+
+        <h2>
+            Mishac : à quelques heures du départ
+        </h2>
+
+        <div>
+            30 août 1474
+        </div>
+
+    </div>
+
+    <img
+        src="article-depart.png"
+        alt="Mishac à quelques heures de son départ"
+        class="illustration"
+    >
+
+    <p class="chapeau">
+        À quelques heures de prendre la route, il est temps de regarder
+        le chemin parcouru, les responsabilités assumées et ce que ce
+        départ pourrait apporter pour la suite.
+    </p>
+
+    <div class="texte">
+
+        <p>
+            Il paraît qu'un journaliste doit savoir rester objectif.
+            Pourtant, à quelques heures de prendre la route, j'ai
+            aujourd'hui envie de faire une exception et de raconter un
+            peu mon propre chemin. Non pas parce que mon histoire serait
+            plus importante que celle des autres, mais parce qu'il est
+            difficile de quitter une terre à laquelle on s'est attaché
+            sans prendre un instant pour regarder le chemin parcouru et
+            ce qu'il nous a appris.
+        </p>
+
+        <p>
+            Je suis arrivé à Roc'han avec l'envie de construire quelque
+            chose et j'y ai ouvert Le Jardin des Simples, une petite
+            échoppe consacrée aux plantes et aux remèdes. J'y ai rencontré
+            des habitants, des amis et des personnes de passage, découvrant
+            peu à peu une ville et une terre auxquelles je me suis attaché.
+        </p>
+
+        <p>
+            Puis sont venues les responsabilités et les différentes
+            fonctions que j'ai eu l'occasion d'exercer au service de la
+            Bretagne : la maréchaussée et la Prévôté, mais aussi les
+            charges administratives et économiques comme celles de Bailli
+            ou de Commissaire au Commerce, ainsi que les autres
+            responsabilités qui m'ont été confiées au fil du temps.
+            Il y eut les conseils, les rapports, les nuits de garde,
+            la gestion des affaires du Duché, les décisions à prendre
+            et parfois les désaccords avec ceux qui ne partageaient pas
+            ma manière de voir les choses.
+        </p>
+
+        <p>
+            Je ne prétendrai pas que tout a été facile. J'ai connu des
+            moments où j'étais fier de servir cette terre, d'autres où
+            je me suis demandé si cela en valait encore la peine.
+            J'ai parfois eu raison, certainement parfois eu tort, mais
+            je n'ai jamais considéré ces fonctions comme un simple titre.
+        </p>
+
+        <p>
+            Servir, pour moi, signifie être présent lorsque les autres
+            ont besoin de moi et accepter d'écouter, même lorsque ce que
+            l'on entend ne fait pas plaisir. Cette expérience m'a
+            finalement appris une chose essentielle : une terre ne se
+            résume jamais à ceux qui la gouvernent.
+        </p>
+
+        <p>
+            La Bretagne, ce n'est pas un conseil, un château ou quelques
+            noms connus dans les tavernes et les bureaux. La Bretagne,
+            ce sont ses habitants : ceux qui travaillent, tiennent une
+            échoppe, montent la garde, cultivent, voyagent, arrivent,
+            restent et même ceux qui partent.
+        </p>
+
+        <p>
+            Dans quelques heures, je quitterai mes fonctions et prendrai
+            la route. Ce départ n'est ni une fuite ni une volonté
+            d'effacer ce que j'ai construit ici ; j'ai simplement envie
+            de découvrir autre chose, de voyager, d'apprendre, de
+            rencontrer d'autres personnes et de voir comment vivent et
+            s'organisent d'autres communautés.
+        </p>
+
+        <p>
+            Après avoir consacré tant de temps à cette terre, j'éprouve
+            le besoin de prendre un peu de distance pour mieux comprendre
+            ce que je veux pour la suite.
+        </p>
+
+        <p>
+            Peut-être trouverai-je ailleurs ce que je cherche, peut-être
+            découvrirai-je simplement que certaines choses que l'on croit
+            meilleures ailleurs ne le sont pas. Je veux le découvrir par
+            moi-même.
+        </p>
+
+        <p>
+            Je ne pars donc pas avec la certitude que l'herbe sera plus
+            verte, mais avec l'envie de regarder ce qui pousse ailleurs
+            et d'en tirer mes propres leçons.
+        </p>
+
+        <p>
+            Quant à la Bretagne, je ne la considère certainement pas
+            comme une histoire définitivement close ; le temps, les
+            voyages et ce que j'y aurai appris décideront de la forme que
+            prendra la suite.
+        </p>
+
+        <p>
+            Je sais déjà que cette terre restera une partie de mon
+            histoire. Les rencontres que j'y ai faites, les responsabilités
+            que j'ai assumées, les difficultés traversées et les moments
+            plus heureux ne disparaîtront pas simplement parce que je
+            prendrai la route.
+        </p>
+
+        <p>
+            Ce voyage doit surtout me permettre d'acquérir de nouvelles
+            connaissances, de découvrir d'autres façons de vivre et de
+            construire, et de faire mûrir les objectifs que je souhaite
+            poursuivre à mon retour en Bretagne.
+        </p>
+
+        <p>
+            Ce que j'apprendrai ailleurs pourra peut-être un jour servir
+            à nouveau à ceux et celles qui m'ont accompagné.
+        </p>
+
+        <p>
+            À ceux avec qui j'ai travaillé, je veux dire merci. À ceux
+            qui m'ont fait confiance, merci également. À ceux qui m'ont
+            appris quelque chose, même sans le savoir, je garderai cette
+            leçon avec moi.
+        </p>
+
+        <p>
+            Et à ceux avec qui je me suis parfois opposé, je dirai la
+            même chose : les désaccords nous apprennent parfois davantage
+            que les compliments, à condition de savoir les dépasser.
+        </p>
+
+        <p>
+            À ceux qui pensent que mon départ signifie que j'abandonne
+            la Bretagne, je répondrai simplement qu'ils me connaissent
+            mal. Je prends la route, et c'est différent.
+        </p>
+
+        <p>
+            J'ai encore beaucoup à apprendre avant de décider ce que je
+            veux réellement construire pour la suite, et peut-être que
+            ce que je découvrirai ailleurs me permettra un jour de
+            regarder la Bretagne avec un œil nouveau.
+        </p>
+
+        <p>
+            Alors oui, une page se tourne. Le Jardin des Simples changera
+            peut-être de forme, Mishac changera certainement un peu et le
+            voyage fera son œuvre, mais l'histoire, elle, n'est pas
+            terminée.
+        </p>
+
+        <p>
+            Je quitte une Bretagne que j'ai connue, aimée, servie et
+            parfois combattue à ma manière, avec la conviction que les
+            chemins que l'on prend loin de chez soi peuvent aussi
+            préparer ceux que l'on empruntera plus tard.
+        </p>
+
+        <p>
+            Je ne sais pas encore ce que les routes me réserveront, mais
+            je sais que les expériences à venir façonneront mes choix
+            et mes ambitions.
+        </p>
+
+        <p>
+            Lorsque le moment sera venu d'écrire la suite, elle ne sera
+            probablement pas celle que j'aurais imaginée aujourd'hui.
+        </p>
+
+    </div>
+
+    <div class="signature">
+        — L'Écho de Bretagne
+    </div>
+
+    <a class="retour" href="index.html">
+        ← Retour à la une
+    </a>
+
+</section>
+
+</main>
+
+<footer>
+
+    <h3>L'Écho de Bretagne</h3>
+
+    <p>
+        Journal libre et indépendant.
+    </p>
+
+    <p>
+        © 1474 — L'Écho de Bretagne
+    </p>
+
+</footer>
+
+</body>
+</html>
