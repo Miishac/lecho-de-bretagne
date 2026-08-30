@@ -27,7 +27,6 @@ body {
     font-family: Georgia, "Times New Roman", serif;
 }
 
-
 /* =========================
    EN-TÊTE
 ========================= */
@@ -35,7 +34,7 @@ body {
 header {
     background: #eee1c2;
     text-align: center;
-    padding: 30px 15px 24px;
+    padding: 24px 15px 18px;
     border-bottom: 7px double #5d4328;
     box-shadow: 0 3px 12px rgba(0,0,0,.25);
 }
@@ -48,17 +47,16 @@ header {
 }
 
 header h1 {
-    margin: 10px 0;
-    font-size: clamp(40px, 8vw, 72px);
+    margin: 8px 0 6px;
+    font-size: clamp(36px, 7vw, 68px);
     line-height: 1;
 }
 
 header p {
-    margin: 10px 0 0;
+    margin: 0;
     font-style: italic;
-    font-size: 16px;
+    font-size: 15px;
 }
-
 
 /* =========================
    NAVIGATION
@@ -67,7 +65,7 @@ header p {
 nav {
     background: #241c16;
     text-align: center;
-    padding: 14px 8px;
+    padding: 12px 8px;
     border-bottom: 3px solid #a17a38;
 }
 
@@ -75,7 +73,7 @@ nav a {
     color: #eee1c2;
     text-decoration: none;
     display: inline-block;
-    margin: 4px 10px;
+    margin: 4px 9px;
     font-weight: bold;
     font-size: 13px;
 }
@@ -84,132 +82,108 @@ nav a:hover {
     color: #d5ad5b;
 }
 
-
 /* =========================
    INTRODUCTION
 ========================= */
 
-.introduction {
+.intro {
     background: #eee1c2;
     text-align: center;
-    padding: 25px 15px;
+    padding: 16px 12px;
+    border-bottom: 1px solid #765532;
 }
 
-.introduction h2 {
-    margin: 0 0 10px;
-    font-size: clamp(25px, 5vw, 40px);
+.intro h2 {
+    margin: 0 0 5px;
+    font-size: clamp(23px, 4vw, 34px);
 }
 
-.introduction p {
-    max-width: 750px;
-    margin: auto;
-    line-height: 1.7;
+.intro p {
+    margin: 0;
     font-style: italic;
+    font-size: 14px;
 }
-
 
 /* =========================
-   CARTE
+   ZONE CARTE
 ========================= */
 
-.carte-wrapper {
+.carte-zone {
+    position: relative;
     background: #60452a;
-    padding: 8px;
+    padding: 7px;
     box-shadow: 0 6px 20px rgba(0,0,0,.4);
 }
 
 .carte {
     width: 100%;
-    height: 78vh;
-    min-height: 550px;
+    height: calc(100vh - 190px);
+    min-height: 560px;
     border: 0;
     display: block;
     background: #d8c79f;
 }
 
-
 /* =========================
-   BARRE SOUS LA CARTE
+   ÉTIQUETTE
 ========================= */
 
-.commandes {
+.badge {
+    position: absolute;
+    z-index: 5;
+    top: 18px;
+    left: 18px;
+
+    background: rgba(238,225,194,.95);
+    border: 2px solid #60452a;
+
+    padding: 10px 14px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+
+    font-weight: bold;
+    color: #7b2924;
+}
+
+/* =========================
+   COMMANDES
+========================= */
+
+.actions {
     background: #eee1c2;
-    padding: 18px 15px;
     text-align: center;
+    padding: 14px;
     border-bottom: 1px solid #765532;
 }
 
-.commandes p {
-    margin: 0 0 15px;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.boutons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
+.actions p {
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.5;
 }
 
 .bouton {
     display: inline-block;
-    padding: 13px 20px;
+
+    padding: 11px 17px;
+    margin: 3px;
+
     background: #762c27;
-    color: white;
+    color: #fff;
+
     text-decoration: none;
     font-weight: bold;
+
     border: 2px solid #51201c;
+
     cursor: pointer;
+
+    font-family: Georgia, "Times New Roman", serif;
 }
 
 .bouton:hover {
     background: #54201c;
 }
-
-
-/* =========================
-   INFORMATIONS
-========================= */
-
-.informations {
-    max-width: 1200px;
-    margin: 35px auto;
-    padding: 0 15px;
-}
-
-.informations h2 {
-    text-align: center;
-    color: #5d4328;
-    letter-spacing: 2px;
-    font-size: 22px;
-}
-
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 20px;
-}
-
-.info {
-    background: #eee1c2;
-    border: 1px solid #765532;
-    padding: 22px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.2);
-}
-
-.info h3 {
-    margin-top: 0;
-    color: #7b2924;
-    font-size: 19px;
-}
-
-.info p {
-    font-size: 14px;
-    line-height: 1.7;
-}
-
 
 /* =========================
    RETOUR
@@ -217,9 +191,8 @@ nav a:hover {
 
 .retour {
     text-align: center;
-    padding: 10px 15px 35px;
+    padding: 22px 15px;
 }
-
 
 /* =========================
    FOOTER
@@ -229,104 +202,57 @@ footer {
     background: #241c16;
     color: #eee1c2;
     text-align: center;
-    padding: 35px 15px;
+
+    padding: 28px 15px;
+
     border-top: 4px solid #a17a38;
 }
 
 footer h2 {
-    margin-top: 0;
+    margin: 0 0 8px;
 }
 
 footer p {
-    font-size: 13px;
-    line-height: 1.6;
+    font-size: 12px;
+    margin: 5px;
 }
-
-
-/* =========================
-   MODE PLEIN ÉCRAN
-========================= */
-
-body.mode-plein-ecran {
-    overflow: hidden;
-}
-
-body.mode-plein-ecran header,
-body.mode-plein-ecran nav,
-body.mode-plein-ecran .introduction,
-body.mode-plein-ecran .commandes,
-body.mode-plein-ecran .informations,
-body.mode-plein-ecran .retour,
-body.mode-plein-ecran footer {
-    display: none;
-}
-
-body.mode-plein-ecran .carte-wrapper {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    padding: 0;
-    background: #000;
-}
-
-body.mode-plein-ecran .carte {
-    width: 100vw;
-    height: 100vh;
-    min-height: 100vh;
-}
-
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
 
     nav a {
-        margin: 4px 6px;
         font-size: 11px;
+        margin: 3px 5px;
     }
 
-    .carte {
-        height: 70vh;
-        min-height: 500px;
-    }
-
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-@media (max-width: 500px) {
-
-    header {
-        padding: 25px 12px 20px;
-    }
-
-    header h1 {
-        font-size: 40px;
-    }
-
-    .introduction {
-        padding: 20px 12px;
-    }
-
-    .carte-wrapper {
+    .carte-zone {
         padding: 4px;
     }
 
     .carte {
-        height: 72vh;
-        min-height: 450px;
+        height: calc(100vh - 205px);
+        min-height: 500px;
     }
 
-    .boutons {
-        flex-direction: column;
+    .badge {
+        top: 10px;
+        left: 10px;
+
+        font-size: 12px;
+
+        padding: 8px 10px;
+    }
+
+    .actions {
+        padding: 10px;
     }
 
     .bouton {
         width: 100%;
+        max-width: 330px;
     }
 
 }
@@ -393,15 +319,14 @@ body.mode-plein-ecran .carte {
      INTRODUCTION
 ========================= -->
 
-<section class="introduction">
+<section class="intro">
 
     <h2>
         🗺️ Carte des Royaumes Renaissants
     </h2>
 
     <p>
-        Explorez les royaumes, provinces, villes, ports et autres
-        territoires du monde connu.
+        Explorez les royaumes, provinces et villes du monde connu.
     </p>
 
 </section>
@@ -411,7 +336,11 @@ body.mode-plein-ecran .carte {
      CARTE RK KARTE
 ========================= -->
 
-<div class="carte-wrapper">
+<main class="carte-zone">
+
+    <div class="badge">
+        🗺️ CARTE DES ROYAUMES
+    </div>
 
     <iframe
         id="carteRR"
@@ -422,97 +351,38 @@ body.mode-plein-ecran .carte {
         allowfullscreen>
     </iframe>
 
-</div>
+</main>
 
 
 <!-- =========================
      COMMANDES
 ========================= -->
 
-<section class="commandes">
+<section class="actions">
 
     <p>
-        Utilisez la carte pour vous déplacer, zoomer et consulter
-        les différentes informations disponibles.
+        La carte est interactive : zoomez, déplacez-vous et
+        utilisez ses différentes couches.
     </p>
 
-    <div class="boutons">
+    <button
+        class="bouton"
+        onclick="pleinEcran()">
 
-        <button
-            class="bouton"
-            onclick="activerPleinEcran()">
-            ⛶ CARTE PLEIN ÉCRAN
-        </button>
+        ⛶ CARTE PLEIN ÉCRAN
 
-        <a
-            class="bouton"
-            href="https://rk-map.de/"
-            target="_blank"
-            rel="noopener noreferrer">
-            ↗ OUVRIR LA CARTE SEULE
-        </a>
-
-    </div>
-
-</section>
+    </button>
 
 
-<!-- =========================
-     INFORMATIONS
-========================= -->
+    <a
+        class="bouton"
+        href="https://rk-map.de/"
+        target="_blank"
+        rel="noopener noreferrer">
 
-<section class="informations">
+        ↗ OUVRIR LA CARTE SEULE
 
-    <h2>
-        À PROPOS DE LA CARTE
-    </h2>
-
-    <div class="info-grid">
-
-
-        <article class="info">
-
-            <h3>
-                🏰 Royaumes
-            </h3>
-
-            <p>
-                Découvrez les différents royaumes qui composent
-                le monde des Royaumes Renaissants.
-            </p>
-
-        </article>
-
-
-        <article class="info">
-
-            <h3>
-                📍 Villes
-            </h3>
-
-            <p>
-                Consultez les villes et villages répartis
-                à travers les différentes provinces.
-            </p>
-
-        </article>
-
-
-        <article class="info">
-
-            <h3>
-                ⚓ Ports et mines
-            </h3>
-
-            <p>
-                Retrouvez également les ports et les mines
-                représentés sur la carte.
-            </p>
-
-        </article>
-
-
-    </div>
+    </a>
 
 </section>
 
@@ -526,7 +396,9 @@ body.mode-plein-ecran .carte {
     <a
         class="bouton"
         href="index.html">
+
         ← RETOUR À L'ÉCHO DE BRETAGNE
+
     </a>
 
 </div>
@@ -563,52 +435,21 @@ body.mode-plein-ecran .carte {
    PLEIN ÉCRAN
 ========================= */
 
-function activerPleinEcran() {
+function pleinEcran() {
 
-    document.body.classList.add("mode-plein-ecran");
+    const carte = document.getElementById("carteRR");
+
+    if (carte.requestFullscreen) {
+
+        carte.requestFullscreen();
+
+    } else if (carte.webkitRequestFullscreen) {
+
+        carte.webkitRequestFullscreen();
+
+    }
 
 }
-
-
-/* =========================
-   QUITTER LE PLEIN ÉCRAN
-========================= */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-
-        document.body.classList.remove("mode-plein-ecran");
-
-    }
-
-});
-
-
-/*
-   Double clic/tap sur la zone de carte :
-   permet de revenir à la page normale
-   lorsqu'on est en mode plein écran.
-*/
-
-document.getElementById("carteRR").addEventListener(
-    "dblclick",
-    function() {
-
-        if (
-            document.body.classList.contains(
-                "mode-plein-ecran"
-            )
-        ) {
-
-            document.body.classList.remove(
-                "mode-plein-ecran"
-            );
-
-        }
-
-    }
-);
 
 </script>
 
