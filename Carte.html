@@ -4,9 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Carte des Royaumes — L'Écho de Bretagne</title>
 
@@ -37,8 +35,9 @@ body {
 header {
     background: #eee1c2;
     text-align: center;
-    padding: 28px 15px 22px;
+    padding: 30px 15px 24px;
     border-bottom: 7px double #5d4328;
+    box-shadow: 0 3px 12px rgba(0,0,0,.25);
 }
 
 .petit-titre {
@@ -49,14 +48,15 @@ header {
 }
 
 header h1 {
-    margin: 8px 0;
-    font-size: clamp(38px, 8vw, 68px);
+    margin: 10px 0;
+    font-size: clamp(40px, 8vw, 72px);
     line-height: 1;
 }
 
 header p {
-    margin: 8px 0 0;
+    margin: 10px 0 0;
     font-style: italic;
+    font-size: 16px;
 }
 
 
@@ -86,22 +86,24 @@ nav a:hover {
 
 
 /* =========================
-   TITRE
+   INTRODUCTION
 ========================= */
 
 .introduction {
     background: #eee1c2;
     text-align: center;
-    padding: 20px 15px;
+    padding: 25px 15px;
 }
 
 .introduction h2 {
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     font-size: clamp(25px, 5vw, 40px);
 }
 
 .introduction p {
-    margin: 0;
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.7;
     font-style: italic;
 }
 
@@ -110,42 +112,112 @@ nav a:hover {
    CARTE
 ========================= */
 
-.carte-container {
+.carte-wrapper {
     background: #60452a;
     padding: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.4);
 }
 
 .carte {
     width: 100%;
-    height: calc(100vh - 245px);
-    min-height: 600px;
+    height: 78vh;
+    min-height: 550px;
     border: 0;
     display: block;
+    background: #d8c79f;
 }
 
 
 /* =========================
-   BOUTON PLEIN ÉCRAN
+   BARRE SOUS LA CARTE
 ========================= */
 
 .commandes {
     background: #eee1c2;
+    padding: 18px 15px;
     text-align: center;
-    padding: 15px;
+    border-bottom: 1px solid #765532;
+}
+
+.commandes p {
+    margin: 0 0 15px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.boutons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .bouton {
     display: inline-block;
-    padding: 12px 20px;
+    padding: 13px 20px;
     background: #762c27;
     color: white;
     text-decoration: none;
     font-weight: bold;
     border: 2px solid #51201c;
+    cursor: pointer;
 }
 
 .bouton:hover {
     background: #54201c;
+}
+
+
+/* =========================
+   INFORMATIONS
+========================= */
+
+.informations {
+    max-width: 1200px;
+    margin: 35px auto;
+    padding: 0 15px;
+}
+
+.informations h2 {
+    text-align: center;
+    color: #5d4328;
+    letter-spacing: 2px;
+    font-size: 22px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.info {
+    background: #eee1c2;
+    border: 1px solid #765532;
+    padding: 22px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+
+.info h3 {
+    margin-top: 0;
+    color: #7b2924;
+    font-size: 19px;
+}
+
+.info p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   RETOUR
+========================= */
+
+.retour {
+    text-align: center;
+    padding: 10px 15px 35px;
 }
 
 
@@ -157,7 +229,7 @@ footer {
     background: #241c16;
     color: #eee1c2;
     text-align: center;
-    padding: 30px 15px;
+    padding: 35px 15px;
     border-top: 4px solid #a17a38;
 }
 
@@ -167,6 +239,40 @@ footer h2 {
 
 footer p {
     font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   MODE PLEIN ÉCRAN
+========================= */
+
+body.mode-plein-ecran {
+    overflow: hidden;
+}
+
+body.mode-plein-ecran header,
+body.mode-plein-ecran nav,
+body.mode-plein-ecran .introduction,
+body.mode-plein-ecran .commandes,
+body.mode-plein-ecran .informations,
+body.mode-plein-ecran .retour,
+body.mode-plein-ecran footer {
+    display: none;
+}
+
+body.mode-plein-ecran .carte-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    padding: 0;
+    background: #000;
+}
+
+body.mode-plein-ecran .carte {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
 }
 
 
@@ -174,7 +280,7 @@ footer p {
    MOBILE
 ========================= */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
     nav a {
         margin: 4px 6px;
@@ -182,8 +288,45 @@ footer p {
     }
 
     .carte {
-        height: calc(100vh - 260px);
+        height: 70vh;
         min-height: 500px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    header {
+        padding: 25px 12px 20px;
+    }
+
+    header h1 {
+        font-size: 40px;
+    }
+
+    .introduction {
+        padding: 20px 12px;
+    }
+
+    .carte-wrapper {
+        padding: 4px;
+    }
+
+    .carte {
+        height: 72vh;
+        min-height: 450px;
+    }
+
+    .boutons {
+        flex-direction: column;
+    }
+
+    .bouton {
+        width: 100%;
     }
 
 }
@@ -195,6 +338,10 @@ footer p {
 
 <body>
 
+
+<!-- =========================
+     EN-TÊTE
+========================= -->
 
 <header>
 
@@ -212,6 +359,10 @@ footer p {
 
 </header>
 
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
@@ -238,6 +389,10 @@ footer p {
 </nav>
 
 
+<!-- =========================
+     INTRODUCTION
+========================= -->
+
 <section class="introduction">
 
     <h2>
@@ -245,15 +400,21 @@ footer p {
     </h2>
 
     <p>
-        Explorez les royaumes, provinces et villes du monde connu.
+        Explorez les royaumes, provinces, villes, ports et autres
+        territoires du monde connu.
     </p>
 
 </section>
 
 
-<div class="carte-container">
+<!-- =========================
+     CARTE RK KARTE
+========================= -->
+
+<div class="carte-wrapper">
 
     <iframe
+        id="carteRR"
         class="carte"
         src="https://rk-map.de/"
         title="Carte interactive des Royaumes Renaissants"
@@ -264,18 +425,116 @@ footer p {
 </div>
 
 
-<div class="commandes">
+<!-- =========================
+     COMMANDES
+========================= -->
+
+<section class="commandes">
+
+    <p>
+        Utilisez la carte pour vous déplacer, zoomer et consulter
+        les différentes informations disponibles.
+    </p>
+
+    <div class="boutons">
+
+        <button
+            class="bouton"
+            onclick="activerPleinEcran()">
+            ⛶ CARTE PLEIN ÉCRAN
+        </button>
+
+        <a
+            class="bouton"
+            href="https://rk-map.de/"
+            target="_blank"
+            rel="noopener noreferrer">
+            ↗ OUVRIR LA CARTE SEULE
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INFORMATIONS
+========================= -->
+
+<section class="informations">
+
+    <h2>
+        À PROPOS DE LA CARTE
+    </h2>
+
+    <div class="info-grid">
+
+
+        <article class="info">
+
+            <h3>
+                🏰 Royaumes
+            </h3>
+
+            <p>
+                Découvrez les différents royaumes qui composent
+                le monde des Royaumes Renaissants.
+            </p>
+
+        </article>
+
+
+        <article class="info">
+
+            <h3>
+                📍 Villes
+            </h3>
+
+            <p>
+                Consultez les villes et villages répartis
+                à travers les différentes provinces.
+            </p>
+
+        </article>
+
+
+        <article class="info">
+
+            <h3>
+                ⚓ Ports et mines
+            </h3>
+
+            <p>
+                Retrouvez également les ports et les mines
+                représentés sur la carte.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RETOUR
+========================= -->
+
+<div class="retour">
 
     <a
         class="bouton"
-        href="https://rk-map.de/"
-        target="_blank"
-        rel="noopener noreferrer">
-        OUVRIR LA CARTE EN PLEIN ÉCRAN
+        href="index.html">
+        ← RETOUR À L'ÉCHO DE BRETAGNE
     </a>
 
 </div>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -288,10 +547,70 @@ footer p {
     </p>
 
     <p>
+        Chroniquer le présent pour ne pas oublier l'histoire.
+    </p>
+
+    <p>
         © 1474 — L'Écho de Bretagne
     </p>
 
 </footer>
+
+
+<script>
+
+/* =========================
+   PLEIN ÉCRAN
+========================= */
+
+function activerPleinEcran() {
+
+    document.body.classList.add("mode-plein-ecran");
+
+}
+
+
+/* =========================
+   QUITTER LE PLEIN ÉCRAN
+========================= */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        document.body.classList.remove("mode-plein-ecran");
+
+    }
+
+});
+
+
+/*
+   Double clic/tap sur la zone de carte :
+   permet de revenir à la page normale
+   lorsqu'on est en mode plein écran.
+*/
+
+document.getElementById("carteRR").addEventListener(
+    "dblclick",
+    function() {
+
+        if (
+            document.body.classList.contains(
+                "mode-plein-ecran"
+            )
+        ) {
+
+            document.body.classList.remove(
+                "mode-plein-ecran"
+            );
+
+        }
+
+    }
+);
+
+</script>
 
 
 </body>
