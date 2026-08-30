@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Archives — L'Écho de Bretagne</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Libre+Baskerville:wght@400;700&display=swap');
+
+:root {
+    --parchemin: #eee2c4;
+    --parcheminFonce: #d8c79f;
+    --encre: #241c16;
+    --brun: #6b4b2a;
+    --rouge: #7b2924;
+    --or: #a57b36;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at center, #d8c69d 0%, #bda878 100%);
+    color: var(--encre);
+    font-family: "Libre Baskerville", Georgia, serif;
+}
+
+header {
+    background: var(--parchemin);
+    border-bottom: 8px double var(--brun);
+    padding: 35px 20px 25px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0,0,0,.35);
+}
+
+.devise {
+    font-family: "Cinzel", serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--brun);
+}
+
+header h1 {
+    margin: 8px 0 0;
+    font-family: "Cinzel", serif;
+    font-size: clamp(42px, 9vw, 80px);
+    line-height: 1;
+}
+
+.sous-titre {
+    margin-top: 15px;
+    font-style: italic;
+}
+
+nav {
+    background: var(--encre);
+    border-bottom: 4px solid var(--or);
+    text-align: center;
+    padding: 13px 10px;
+}
+
+nav a {
+    color: var(--parchemin);
+    text-decoration: none;
+    font-family: "Cinzel", serif;
+    font-size: 13px;
+    margin: 0 13px;
+}
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 18px;
+}
+
+.introduction {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.introduction h2 {
+    font-family: "Cinzel", serif;
+    font-size: clamp(32px, 6vw, 52px);
+    margin-bottom: 10px;
+}
+
+.introduction p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.annee {
+    font-family: "Cinzel", serif;
+    font-size: 28px;
+    margin: 40px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 4px double var(--brun);
+}
+
+.archive {
+    background: var(--parchemin);
+    border: 1px solid var(--brun);
+    box-shadow: 0 5px 15px rgba(0,0,0,.25);
+    padding: 25px;
+    margin-bottom: 18px;
+}
+
+.archiveMeta {
+    color: var(--rouge);
+    font-family: "Cinzel", serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.archive h3 {
+    font-family: "Cinzel", serif;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.archive p {
+    line-height: 1.7;
+}
+
+.archive a {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--rouge);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.archive a:hover {
+    text-decoration: underline;
+}
+
+.avenir {
+    opacity: .72;
+}
+
+.retour {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0;
+    padding: 13px 20px;
+    background: var(--rouge);
+    color: white;
+    text-decoration: none;
+    font-family: "Cinzel", serif;
+}
+
+footer {
+    margin-top: 55px;
+    background: var(--encre);
+    color: var(--parchemin);
+    text-align: center;
+    padding: 35px 20px;
+    border-top: 5px solid var(--or);
+}
+
+footer h3 {
+    font-family: "Cinzel", serif;
+    margin-top: 0;
+}
+
+footer p {
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    nav a {
+        display: inline-block;
+        margin: 4px 7px;
+    }
+
+    .archive {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="devise">
+        Journal libre de Bretagne
+    </div>
+
+    <h1>L'Écho de Bretagne</h1>
+
+    <div class="sous-titre">
+        Chroniques, nouvelles et regards sur les terres bretonnes
+    </div>
+
+</header>
+
+<nav>
+    <a href="index.html">À LA UNE</a>
+    <a href="index.html#articles">ARTICLES</a>
+    <a href="index.html#rubriques">RUBRIQUES</a>
+    <a href="archives.html">ARCHIVES</a>
+    <a href="index.html#apropos">À PROPOS</a>
+</nav>
+
+<main>
+
+<section class="introduction">
+
+    <h2>Les Archives</h2>
+
+    <p>
+        Les pages passent, les événements demeurent.
+        Retrouvez ici les éditions, chroniques et articles
+        publiés par L'Écho de Bretagne.
+    </p>
+
+</section>
+
+<h2 class="annee">1474</h2>
+
+<article class="archive">
+
+    <div class="archiveMeta">
+        30 août 1474 · Chronique
+    </div>
+
+    <h3>
+        Mishac : à quelques heures du départ
+    </h3>
+
+    <p>
+        Après plusieurs années passées à Roc'han et différentes
+        responsabilités exercées au service de la Bretagne,
+        Mishac s'apprête à prendre la route.
+    </p>
+
+    <a href="article-depart.html">
+        Lire l'article →
+    </a>
+
+</article>
+
+
+<article class="archive avenir">
+
+    <div class="archiveMeta">
+        Prochaine édition
+    </div>
+
+    <h3>
+        La prochaine page reste à écrire
+    </h3>
+
+    <p>
+        Politique, vie des villes, voyages, économie ou simples
+        histoires bretonnes : les prochains événements trouveront
+        leur place dans les archives de L'Écho.
+    </p>
+
+</article>
+
+
+<a class="retour" href="index.html">
+    ← Retour à la une
+</a>
+
+</main>
+
+
+<footer>
+
+    <h3>L'Écho de Bretagne</h3>
+
+    <p>
+        Journal libre et indépendant
+    </p>
+
+    <p>
+        Chroniquer le présent pour ne pas oublier l'histoire.
+    </p>
+
+    <p>
+        © 1474 — L'Écho de Bretagne
+    </p>
+
+</footer>
+
+</body>
+</html>
