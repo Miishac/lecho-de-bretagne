@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Carte des Royaumes — L'Écho de Bretagne</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    background: #c7b07d;
+    color: #261c14;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* =========================
+   EN-TÊTE
+========================= */
+
+header {
+    background: #eee1c2;
+    text-align: center;
+    padding: 24px 15px 18px;
+    border-bottom: 7px double #5d4328;
+    box-shadow: 0 3px 12px rgba(0,0,0,.25);
+}
+
+.petit-titre {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #704d2b;
+}
+
+header h1 {
+    margin: 8px 0 6px;
+    font-size: clamp(36px, 7vw, 68px);
+    line-height: 1;
+}
+
+header p {
+    margin: 0;
+    font-style: italic;
+    font-size: 15px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    background: #241c16;
+    text-align: center;
+    padding: 12px 8px;
+    border-bottom: 3px solid #a17a38;
+}
+
+nav a {
+    color: #eee1c2;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 9px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: #d5ad5b;
+}
+
+/* =========================
+   INTRODUCTION
+========================= */
+
+.intro {
+    background: #eee1c2;
+    text-align: center;
+    padding: 16px 12px;
+    border-bottom: 1px solid #765532;
+}
+
+.intro h2 {
+    margin: 0 0 5px;
+    font-size: clamp(23px, 4vw, 34px);
+}
+
+.intro p {
+    margin: 0;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* =========================
+   ZONE CARTE
+========================= */
+
+.carte-zone {
+    position: relative;
+    background: #60452a;
+    padding: 7px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.4);
+}
+
+.carte {
+    width: 100%;
+    height: calc(100vh - 190px);
+    min-height: 560px;
+    border: 0;
+    display: block;
+    background: #d8c79f;
+}
+
+/* =========================
+   ÉTIQUETTE
+========================= */
+
+.badge {
+    position: absolute;
+    z-index: 5;
+    top: 18px;
+    left: 18px;
+
+    background: rgba(238,225,194,.95);
+    border: 2px solid #60452a;
+
+    padding: 10px 14px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+
+    font-weight: bold;
+    color: #7b2924;
+}
+
+/* =========================
+   COMMANDES
+========================= */
+
+.actions {
+    background: #eee1c2;
+    text-align: center;
+    padding: 14px;
+    border-bottom: 1px solid #765532;
+}
+
+.actions p {
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.bouton {
+    display: inline-block;
+
+    padding: 11px 17px;
+    margin: 3px;
+
+    background: #762c27;
+    color: #fff;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border: 2px solid #51201c;
+
+    cursor: pointer;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.bouton:hover {
+    background: #54201c;
+}
+
+/* =========================
+   RETOUR
+========================= */
+
+.retour {
+    text-align: center;
+    padding: 22px 15px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #241c16;
+    color: #eee1c2;
+    text-align: center;
+
+    padding: 28px 15px;
+
+    border-top: 4px solid #a17a38;
+}
+
+footer h2 {
+    margin: 0 0 8px;
+}
+
+footer p {
+    font-size: 12px;
+    margin: 5px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    nav a {
+        font-size: 11px;
+        margin: 3px 5px;
+    }
+
+    .carte-zone {
+        padding: 4px;
+    }
+
+    .carte {
+        height: calc(100vh - 205px);
+        min-height: 500px;
+    }
+
+    .badge {
+        top: 10px;
+        left: 10px;
+
+        font-size: 12px;
+
+        padding: 8px 10px;
+    }
+
+    .actions {
+        padding: 10px;
+    }
+
+    .bouton {
+        width: 100%;
+        max-width: 330px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     EN-TÊTE
+========================= -->
+
+<header>
+
+    <div class="petit-titre">
+        L'Écho de Bretagne
+    </div>
+
+    <h1>
+        Carte des Royaumes
+    </h1>
+
+    <p>
+        Le monde connu des Royaumes Renaissants
+    </p>
+
+</header>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <a href="index.html">
+        À LA UNE
+    </a>
+
+    <a href="Archives.html">
+        ARCHIVES
+    </a>
+
+    <a href="Carte.html">
+        CARTE
+    </a>
+
+    <a href="index.html#rubriques">
+        RUBRIQUES
+    </a>
+
+    <a href="index.html#apropos">
+        À PROPOS
+    </a>
+
+</nav>
+
+
+<!-- =========================
+     INTRODUCTION
+========================= -->
+
+<section class="intro">
+
+    <h2>
+        🗺️ Carte des Royaumes Renaissants
+    </h2>
+
+    <p>
+        Explorez les royaumes, provinces et villes du monde connu.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     CARTE RK KARTE
+========================= -->
+
+<main class="carte-zone">
+
+    <div class="badge">
+        🗺️ CARTE DES ROYAUMES
+    </div>
+
+    <iframe
+        id="carteRR"
+        class="carte"
+        src="https://rk-map.de/"
+        title="Carte interactive des Royaumes Renaissants"
+        loading="eager"
+        allowfullscreen>
+    </iframe>
+
+</main>
+
+
+<!-- =========================
+     COMMANDES
+========================= -->
+
+<section class="actions">
+
+    <p>
+        La carte est interactive : zoomez, déplacez-vous et
+        utilisez ses différentes couches.
+    </p>
+
+    <button
+        class="bouton"
+        onclick="pleinEcran()">
+
+        ⛶ CARTE PLEIN ÉCRAN
+
+    </button>
+
+
+    <a
+        class="bouton"
+        href="https://rk-map.de/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        ↗ OUVRIR LA CARTE SEULE
+
+    </a>
+
+</section>
+
+
+<!-- =========================
+     RETOUR
+========================= -->
+
+<div class="retour">
+
+    <a
+        class="bouton"
+        href="index.html">
+
+        ← RETOUR À L'ÉCHO DE BRETAGNE
+
+    </a>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h2>
+        L'Écho de Bretagne
+    </h2>
+
+    <p>
+        Journal libre et indépendant
+    </p>
+
+    <p>
+        Chroniquer le présent pour ne pas oublier l'histoire.
+    </p>
+
+    <p>
+        © 1474 — L'Écho de Bretagne
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   PLEIN ÉCRAN
+========================= */
+
+function pleinEcran() {
+
+    const carte = document.getElementById("carteRR");
+
+    if (carte.requestFullscreen) {
+
+        carte.requestFullscreen();
+
+    } else if (carte.webkitRequestFullscreen) {
+
+        carte.webkitRequestFullscreen();
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
