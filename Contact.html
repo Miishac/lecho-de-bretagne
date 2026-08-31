@@ -162,6 +162,64 @@ p{
   background:#4752C4;
 }
 
+.contact-form{
+  max-width:600px;
+  margin:0 auto;
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:8px;
+  font-size:16px;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid var(--ligne);
+  background:var(--papier);
+  color:var(--brun);
+  font-family:Georgia, serif;
+  font-size:15px;
+  box-sizing:border-box;
+}
+
+.form-group textarea{
+  resize:vertical;
+  min-height:150px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--bordeaux);
+  box-shadow:0 0 5px rgba(118,44,39,.2);
+}
+
+.button{
+  display:inline-block;
+  color:var(--papier);
+  background:var(--bordeaux);
+  border:2px solid #51201c;
+  padding:12px 30px;
+  text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:16px;
+  transition:background 0.2s;
+  margin-top:10px;
+}
+
+.button:hover{
+  background:#54201c;
+}
+
 footer{
   text-align:center;
   padding:35px 15px;
@@ -213,6 +271,45 @@ footer .ornement{
     ✓ Réponses rapides<br>
     ✓ Échanges directs avec l'équipe<br>
     ✓ Propositions de chroniques bienvenues
+  </p>
+</section>
+
+<section class="paper">
+  <div class="section-label">✉ Formulaire ✉</div>
+  <h2>Ou envoyez-nous un message</h2>
+  <p>
+    Vous préférez un formulaire? Remplissez le formulaire ci-dessous
+    et nous vous répondrons dans les meilleurs délais.
+  </p>
+
+  <form class="contact-form" method="POST" action="https://formspree.io/f/xzebdyzk">
+    <div class="form-group">
+      <label for="name">Nom</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Sujet</label>
+      <input type="text" id="subject" name="subject" placeholder="Chronique, question, proposition..." required>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+
+    <button type="submit" class="button">Envoyer →</button>
+  </form>
+
+  <p style="font-size:14px;color:#6f604c;margin-top:20px;">
+    ✓ Votre message sera envoyé directement à notre équipe<br>
+    ✓ Vos données restent confidentielles<br>
+    ✓ Réponse rapide garantie
   </p>
 </section>
 
