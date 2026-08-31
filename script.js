@@ -156,3 +156,27 @@ function loadReactions() {
     });
   });
 }
+
+/**
+ * Enregistre le Service Worker au chargement
+ */
+function registerServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      // Chemin relatif pour GitHub Pages
+      const swPath = './service-worker.js';
+      
+      navigator.serviceWorker.register(swPath)
+        .then(function(registration) {
+          console.log('✓ Service Worker enregistré:', registration.scope);
+          return registration.update();
+        })
+        .catch(function(err) {
+          console.log('Service Worker erreur:', err);
+        });
+    });
+  }
+}
+
+// Enregistrer le Service Worker au chargement de la page
+registerServiceWorker();
