@@ -5,6 +5,16 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Initialiser la date RP
   initDateRP();
+  // Initialiser réactions
+  initReactions();
+  // Charger réactions sauvegardées
+  loadReactions();
+  // Initialiser scroll to top
+  initScrollToTop();
+  // Calculer temps de lecture
+  calculateReadingTime();
+  // Initialiser TOC si présent
+  initTableOfContents();
 });
 
 /**
@@ -45,7 +55,6 @@ function pleinEcran(iframeId = "carteRR") {
 
 /**
  * Initialise la recherche simple dans les articles
- * À appeler dans les pages Archives
  */
 function initSearch(containerId = "articles-list") {
   const searchInput = document.getElementById("search-input");
@@ -77,10 +86,195 @@ function filterArticles(filterType, filterValue) {
       shouldShow = article.dataset.type === filterValue || filterValue === "all";
     } else if (filterType === "royaume") {
       shouldShow = article.dataset.royaume === filterValue || filterValue === "all";
+    } else if (filterType === "auteur") {
+      shouldShow = article.dataset.auteur === filterValue || filterValue === "all";
     }
     
     article.style.display = shouldShow ? "block" : "none";
   });
+}
+
+/**
+ * Système de notation/réaction avancé
+ */
+function initReactions() {
+  const reactions = document.querySelectorAll(".reaction-btn");
+  
+  reactions.forEach(btn => {
+    btn.addEventListener("click", function() {
+      const type = this.dataset.reaction;
+      const count = this.querySelector(".reaction-count");
+      let current = parseInt(count.textContent) || 0;
+      
+      // Toggle: si déjà cliqué, diminuer sinon augmenter
+      if (this.classList.contains("active")) {
+        current--;
+        this.classList.remove("active");
+      } else {
+        current++;
+        this.classList.add("active");
+      }
+      
+      count.textContent = current;
+      
+      // Sauvegarder en localStorage
+      const articleId = this.closest(".article")?.dataset.articleId || 
+                        this.closest(".paper")?.id || "global";
+      localStorage.setItem(`reaction-${articleId}-${type}`, current);
+    });
+  });
+}
+
+/**
+ * Charge les réactions depuis localStorage
+ */
+function loadReactions() {
+  const articles = document.querySelectorAll(".article[data-article-id], .paper[id]");
+  
+  articles.forEach(article => {
+    const articleId = article.dataset.articleId || article.id;
+    if (!articleId) return;
+    
+    const reactions = article.querySelectorAll(".reaction-btn");
+    
+    reactions.forEach(btn => {
+      const type = btn.dataset.reaction;
+      const saved = localStorage.getItem(`reaction-${articleId}-${type}`);
+      
+      if (saved) {
+        btn.querySelector(".reaction-count").textContent = saved;
+        if (parseInt(saved) > 0) {
+          btn.classList.add("active");
+        }
+      }
+    });
+  });
+}
+
+/**
+ * Initialise le bouton scroll to top
+ */
+function initScrollToTop() {
+  const scrollBtn = document.getElementById("scroll-to-top");
+  
+  if (!scrollBtn) {
+    // Créer le bouton s'il n'existe pas
+    const btn = document.createElement("button");
+    btn.id = "scroll-to-top";
+    btn.innerHTML = "⬆️";
+    btn.style.cssText = `
+      position:fixed;
+      bottom:30px;
+      right:30px;
+      width:50px;
+      height:50px;
+      background:#762c27;
+      color:#f6ecd5;
+      border:2px solid #51201c;
+      border-radius:50%;
+      font-size:24px;
+      cursor:pointer;
+      display:none;
+      z-index:1000;
+      transition:all 0.3s;
+    `;
+    document.body.appendChild(btn);
+  }
+  
+  const btn = document.getElementById("scroll-to-top");
+  
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 300) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  });
+  
+  btn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}
+
+/**
+ * Calcule et affiche le temps de lecture
+ */
+function calculateReadingTime() {
+  const articles = document.querySelectorAll(".article, .article-item");
+  const wordsPerMinute = 200;
+  
+  articles.forEach(article => {
+    const text = article.innerText || article.textContent;
+    const wordCount = text.trim().split(/\s+/).length;
+    const readingTime = Math.ceil(wordCount / wordsPerMinute);
+    
+    // Insérer avant le premier <p>
+    const firstP = article.querySelector("p");
+    if (firstP && !article.querySelector(".reading-time")) {
+      const readingTimeSpan = document.createElement("span");
+      readingTimeSpan.className = "reading-time";
+      readingTimeSpan.style.cssText = `
+        display:block;
+        font-size:13px;
+        color:#6f604c;
+        font-style:italic;
+        margin-bottom:15px;
+      `;
+      readingTimeSpan.textContent = `⏱️ Temps de lecture: ${readingTime} min`;
+      firstP.parentNode.insertBefore(readingTimeSpan, firstP);
+    }
+  });
+}
+
+/**
+ * Initialise Table of Contents
+ */
+function initTableOfContents() {
+  const tocContainer = document.getElementById("table-of-contents");
+  if (!tocContainer) return;
+  
+  const headings = document.querySelectorAll(".paper h2, .paper h3, .article h2, .article h3");
+  if (headings.length === 0) return;
+  
+  const ul = document.createElement("ul");
+  ul.style.cssText = `
+    list-style:none;
+    padding:0;
+    margin:0;
+  `;
+  
+  headings.forEach((heading, index) => {
+    if (!heading.id) {
+      heading.id = `heading-${index}`;
+    }
+    
+    const li = document.createElement("li");
+    li.style.marginBottom = "8px";
+    const level = parseInt(heading.tagName[1]);
+    li.style.marginLeft = (level - 2) * 20 + "px";
+    
+    const link = document.createElement("a");
+    link.href = `#${heading.id}`;
+    link.textContent = heading.textContent;
+    link.style.cssText = `
+      color:#762c27;
+      text-decoration:none;
+      font-size:14px;
+    `;
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      heading.scrollIntoView({ behavior: "smooth" });
+    });
+    
+    li.appendChild(link);
+    ul.appendChild(li);
+  });
+  
+  tocContainer.innerHTML = "<strong>Table des matières</strong>";
+  tocContainer.appendChild(ul);
 }
 
 /**
@@ -107,63 +301,11 @@ function generateRSSFeed(articles) {
 }
 
 /**
- * Système de notation/réaction simple
- */
-function initReactions() {
-  const reactions = document.querySelectorAll(".reaction-btn");
-  
-  reactions.forEach(btn => {
-    btn.addEventListener("click", function() {
-      const type = this.dataset.reaction;
-      const count = this.querySelector(".reaction-count");
-      let current = parseInt(count.textContent) || 0;
-      
-      // Toggle: si déjà cliqué, diminuer sinon augmenter
-      if (this.classList.contains("active")) {
-        current--;
-        this.classList.remove("active");
-      } else {
-        current++;
-        this.classList.add("active");
-      }
-      
-      count.textContent = current;
-      
-      // Sauvegarder en localStorage
-      const articleId = this.closest(".article").dataset.articleId;
-      localStorage.setItem(`reaction-${articleId}-${type}`, current);
-    });
-  });
-}
-
-/**
- * Charge les réactions depuis localStorage
- */
-function loadReactions() {
-  const articles = document.querySelectorAll(".article[data-article-id]");
-  
-  articles.forEach(article => {
-    const articleId = article.dataset.articleId;
-    const reactions = article.querySelectorAll(".reaction-btn");
-    
-    reactions.forEach(btn => {
-      const type = btn.dataset.reaction;
-      const saved = localStorage.getItem(`reaction-${articleId}-${type}`);
-      
-      if (saved) {
-        btn.querySelector(".reaction-count").textContent = saved;
-      }
-    });
-  });
-}
-
-/**
  * Enregistre le Service Worker au chargement
  */
 function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-      // Chemin relatif pour GitHub Pages
       const swPath = './service-worker.js';
       
       navigator.serviceWorker.register(swPath)
@@ -178,5 +320,5 @@ function registerServiceWorker() {
   }
 }
 
-// Enregistrer le Service Worker au chargement de la page
+// Enregistrer le Service Worker
 registerServiceWorker();
