@@ -1,32 +1,43 @@
 {
   "version": "1.0",
   "title": "L'Écho de Bretagne et Lorraine",
-  "link": "https://miishac.github.io/lecho-de-bretagne",
+  "link": "https://lechodebretagne.fr",
   "description": "Journal libre et indépendant des Royaumes Renaissants",
   "language": "fr",
-  "lastBuildDate": "2026-08-31T11:32:00Z",
+  "lastBuildDate": "2026-08-31T12:00:00Z",
   "items": [
     {
       "id": "article-001",
       "title": "À quelques heures du départ",
-      "link": "https://miishac.github.io/lecho-de-bretagne/Bretagne.html#article",
-      "description": "Un regard personnel sur plusieurs années passées au service de la Bretagne. Mishac s'apprête à quitter Roc'han pour un voyage en Lorraine.",
+      "link": "https://lechodebretagne.fr/Bretagne.html#article",
+      "description": "Un regard personnel sur plusieurs années passées au service de la Bretagne. Mishac s'apprête à quitter Roc'han pour un voyage en Lorraine, porteur de nouvelles ambitions et d'une quête de connaissances.",
       "pubDate": "2026-08-31T00:00:00Z",
       "author": "Mishac",
       "category": "Chronique",
       "royaume": "Bretagne",
-      "image": null
+      "type": "chronique"
     },
     {
       "id": "article-002",
       "title": "Bienvenue en Lorraine",
-      "link": "https://miishac.github.io/lecho-de-bretagne/Lorraine.html#article",
-      "description": "Les premières impressions de voyageurs arrivant en terre lorraine. Une nouvelle page de L'Écho s'ouvre.",
+      "link": "https://lechodebretagne.fr/Lorraine.html#article",
+      "description": "Les premières impressions de voyageurs arrivant en terre lorraine. Une nouvelle page de L'Écho s'ouvre avec les récits et rencontres qui naissent de cette contrée.",
       "pubDate": "2026-08-31T00:00:00Z",
       "author": "Chroniqueurs",
       "category": "Chronique",
       "royaume": "Lorraine",
-      "image": null
+      "type": "chronique"
+    },
+    {
+      "id": "article-003",
+      "title": "Quand les Bretons commencent à partir",
+      "link": "https://lechodebretagne.fr/Bretagne.html#articles",
+      "description": "Une réflexion sur les départs et l'avenir des villes bretonnes. Comment les terres s'adaptent quand leurs habitants cherchent de nouveaux horizons.",
+      "pubDate": "2026-08-31T00:00:00Z",
+      "author": "L'Écho de Bretagne",
+      "category": "Vie des villes",
+      "royaume": "Bretagne",
+      "type": "vie-villes"
     }
   ]
 }
