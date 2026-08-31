@@ -177,63 +177,6 @@ main{
   color:var(--brun);
 }
 
-.contact-form{
-  max-width:600px;
-  margin:0 auto;
-}
-
-.form-group{
-  margin-bottom:20px;
-}
-
-.form-group label{
-  display:block;
-  font-weight:bold;
-  margin-bottom:8px;
-  font-size:16px;
-}
-
-.form-group input,
-.form-group textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid var(--ligne);
-  background:var(--papier);
-  color:var(--brun);
-  font-family:Georgia, serif;
-  font-size:15px;
-  box-sizing:border-box;
-}
-
-.form-group textarea{
-  resize:vertical;
-  min-height:150px;
-}
-
-.form-group input:focus,
-.form-group textarea:focus{
-  outline:none;
-  border-color:var(--bordeaux);
-  box-shadow:0 0 5px rgba(118,44,39,.2);
-}
-
-.button{
-  display:inline-block;
-  color:var(--papier);
-  background:var(--bordeaux);
-  border:2px solid #51201c;
-  padding:12px 30px;
-  text-decoration:none;
-  font-weight:bold;
-  cursor:pointer;
-  font-size:16px;
-  margin-top:10px;
-}
-
-.button:hover{
-  background:#54201c;
-}
-
 .credits{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
@@ -349,37 +292,6 @@ footer .ornement{
 </section>
 
 <section class="section-heading">
-  <div class="section-label">✦ Nous contacter ✦</div>
-  <h2>Contact</h2>
-  <p>Vous avez une histoire à raconter ou une question?</p>
-</section>
-
-<section class="paper">
-  <form class="contact-form" method="POST" action="https://formspree.io/f/xyzabcdef">
-    <div class="form-group">
-      <label for="name">Votre nom</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Votre email</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="subject">Sujet</label>
-      <input type="text" id="subject" name="subject" placeholder="Chronique, question, proposition..." required>
-    </div>
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-    </div>
-    <button type="submit" class="button">Envoyer →</button>
-  </form>
-  <p style="text-align:center;margin-top:25px;font-size:14px;color:#6f604c;">
-    Vous pouvez aussi nous contacter par email: <strong>contact@lechodebretagne.fr</strong>
-  </p>
-</section>
-
-<section class="section-heading">
   <div class="section-label">✦ Crédits ✦</div>
   <h2>Qui nous sommes</h2>
 </section>
@@ -421,7 +333,7 @@ footer .ornement{
   <h3>Accessibilité</h3>
   <p>
     Nous nous efforçons de rendre L'Écho accessible à tous. Si vous rencontrez des difficultés,
-    n'hésitez pas à nous le signaler via le formulaire de contact.
+    n'hésitez pas à nous le signaler.
   </p>
 </section>
 
