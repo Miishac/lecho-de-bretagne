@@ -3,6 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="L'Écho de Bretagne — Chroniques, nouvelles et regards sur les terres bretonnes. Découvrez la vie des villes, les événements et les histoires qui façonnent la Bretagne.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lechodebretagne.fr/Bretagne.html">
+<meta property="og:title" content="L'Écho de Bretagne">
+<meta property="og:description" content="Chroniques, nouvelles et regards sur les terres bretonnes">
+<meta property="og:image" content="https://lechodebretagne.fr/og-image.png">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lechodebretagne.fr/Bretagne.html">
+<meta property="twitter:title" content="L'Écho de Bretagne">
+<meta property="twitter:description" content="Chroniques et récits des terres bretonnes">
+<meta property="twitter:image" content="https://lechodebretagne.fr/og-image.png">
+<link rel="canonical" href="https://lechodebretagne.fr/Bretagne.html">
 <title>L'Écho de Bretagne</title>
 
 <style>
@@ -24,6 +36,17 @@ body{
   background:var(--ocre);
   color:var(--brun);
   font-family:Georgia,"Times New Roman",serif;
+  transition:background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode{
+  --parchemin:#2a2a2a;
+  --papier:#1f1f1f;
+  --ocre:#3a3a3a;
+  --brun:#e0e0e0;
+  --brun2:#1a1a1a;
+  --bordeaux:#b8704b;
+  --ligne:#555;
 }
 
 /* =========================
@@ -93,6 +116,10 @@ nav{
   text-align:center;
   padding:14px 8px;
   border-bottom:3px solid var(--or);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
 nav a{
@@ -107,6 +134,44 @@ nav a{
 
 nav a:hover{
   color:#d5ad5b;
+}
+
+.theme-toggle{
+  margin-left:auto;
+  margin-right:10px;
+  padding:8px 12px;
+  background:#555;
+  border:none;
+  color:#eadfc9;
+  cursor:pointer;
+  border-radius:4px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.theme-toggle:hover{
+  background:#777;
+}
+
+/* =========================
+   BREADCRUMBS
+========================= */
+
+.breadcrumbs{
+  background:var(--brun2);
+  padding:10px 15px;
+  font-size:12px;
+  color:#999;
+  border-bottom:1px solid var(--ligne);
+}
+
+.breadcrumbs a{
+  color:#d5ad5b;
+  text-decoration:none;
+}
+
+.breadcrumbs a:hover{
+  text-decoration:underline;
 }
 
 /* =========================
@@ -185,6 +250,7 @@ main{
   text-decoration:none;
   margin-top:18px;
   font-weight:bold;
+  cursor:pointer;
 }
 
 .button:hover{
@@ -297,7 +363,7 @@ main{
   margin:28px auto !important;
   padding:18px 22px;
   border-left:4px solid var(--bordeaux);
-  background:#eee1c5;
+  background:var(--papier);
   font-size:20px !important;
   font-style:italic;
 }
@@ -349,6 +415,39 @@ main{
 }
 
 /* =========================
+   RETOUR AU TOP
+========================= */
+
+#scroll-to-top{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:50px;
+  height:50px;
+  background:var(--bordeaux);
+  color:var(--papier);
+  border:none;
+  border-radius:50%;
+  font-size:24px;
+  cursor:pointer;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  z-index:999;
+  transition:background 0.3s, transform 0.3s;
+}
+
+#scroll-to-top:hover{
+  background:#54201c;
+  transform:translateY(-3px);
+}
+
+#scroll-to-top.show{
+  display:flex;
+}
+
+/* =========================
    PIED DE PAGE
 ========================= */
 
@@ -356,6 +455,7 @@ footer{
   text-align:center;
   padding:35px 15px;
   color:#5f513e;
+  margin-top:42px;
 }
 
 footer .ornement{
@@ -401,12 +501,11 @@ footer .ornement{
   }
 
   nav{
-    padding:11px 5px;
+    flex-direction:column;
   }
 
-  nav a{
-    margin:3px 5px;
-    font-size:11px;
+  .theme-toggle{
+    margin:10px auto;
   }
 
   main{
@@ -438,6 +537,14 @@ footer .ornement{
   .article-nav{
     grid-template-columns:1fr;
   }
+
+  #scroll-to-top{
+    bottom:20px;
+    right:20px;
+    width:45px;
+    height:45px;
+    font-size:20px;
+  }
 }
 </style>
 </head>
@@ -467,7 +574,6 @@ footer .ornement{
   </div>
 
 </header>
-
 
 <nav>
 
@@ -499,8 +605,13 @@ footer .ornement{
     L'Écho de Lorraine
   </a>
 
+  <button class="theme-toggle" id="theme-toggle">🌙 Sombre</button>
+
 </nav>
 
+<div class="breadcrumbs">
+  <a href="index.html">Portail</a> > <strong>Bretagne</strong>
+</div>
 
 <main>
 
@@ -948,6 +1059,8 @@ footer .ornement{
 
 </main>
 
+<!-- Bouton retour au top -->
+<button id="scroll-to-top" title="Retour au sommet">⬆</button>
 
 <!-- =========================
      PIED DE PAGE
@@ -969,6 +1082,48 @@ footer .ornement{
 
 </footer>
 
+
+<script>
+// Thème sombre
+const themeToggle = document.getElementById('theme-toggle');
+const isDark = localStorage.getItem('dark-mode') === 'true';
+if (isDark) {
+  document.body.classList.add('dark-mode');
+  themeToggle.textContent = '☀️ Clair';
+}
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const isDarkNow = document.body.classList.contains('dark-mode');
+  localStorage.setItem('dark-mode', isDarkNow);
+  themeToggle.textContent = isDarkNow ? '☀️ Clair' : '🌙 Sombre';
+});
+
+// Retour au top
+const scrollBtn = document.getElementById('scroll-to-top');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollBtn.classList.add('show');
+  } else {
+    scrollBtn.classList.remove('show');
+  }
+});
+scrollBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Date RP
+document.addEventListener("DOMContentLoaded", function () {
+  const mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+  const aujourdHui = new Date();
+  const jour = aujourdHui.getDate();
+  const moisActuel = mois[aujourdHui.getMonth()];
+  const anneeRP = 1474;
+  const dateTexte = `${jour} ${moisActuel} ${anneeRP}`;
+  document.querySelectorAll(".date-rp").forEach(function (element) {
+    element.textContent = dateTexte;
+  });
+});
+</script>
 
 <script src="script.js"></script>
 
