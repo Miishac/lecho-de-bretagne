@@ -362,3 +362,22 @@ function registerServiceWorker() {
 
 // Enregistrer le Service Worker
 registerServiceWorker();
+
+// Écho V1.2.1 — thème partagé, y compris le portail.
+(function(){
+  const KEY='lecho-theme';
+  function applyTheme(){
+    const theme=localStorage.getItem(KEY)||'light';
+    document.documentElement.dataset.theme=theme;
+    document.body?.classList.toggle('dark-mode',theme==='dark');
+  }
+  document.addEventListener('click',function(e){
+    const btn=e.target.closest('[data-theme-toggle],#theme-toggle,.theme-toggle');
+    if(!btn)return;
+    const dark=(localStorage.getItem(KEY)||'light')!=='dark';
+    localStorage.setItem(KEY,dark?'dark':'light');
+    applyTheme();
+  });
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',applyTheme);
+  else applyTheme();
+})();
