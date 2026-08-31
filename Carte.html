@@ -136,12 +136,15 @@ main{
   height:600px;
   border:1px solid var(--ligne);
   margin:28px 0;
-  background:#f0f0f0;
   display:flex;
   align-items:center;
   justify-content:center;
-  color:#999;
-  font-style:italic;
+}
+
+.carte-container iframe{
+  width:100%;
+  height:100%;
+  border:none;
 }
 
 .button{
@@ -158,6 +161,17 @@ main{
 
 .button:hover{
   background:#54201c;
+}
+
+.actions{
+  text-align:center;
+  margin:25px 0;
+}
+
+.actions p{
+  font-size:16px;
+  color:#6f604c;
+  margin-bottom:20px;
 }
 
 footer{
@@ -212,10 +226,20 @@ footer .ornement{
 </section>
 
 <section class="paper">
-  <div class="carte-container" id="carteRR">🗺️ Carte interactive Royaumes Renaissants — Bretagne</div>
-  <p>Cette carte interactive vous permet d'explorer les différentes zones de la Bretagne. Utilisez les contrôles pour zoomer, vous déplacer et découvrir les particularités de chaque région.</p>
-  <p>Les villes, routes et lieux importants sont marqués pour vous aider à naviguer dans ces terres. N'hésitez pas à consulter les archives pour découvrir les histoires attachées à chaque localité.</p>
-  <button class="button" onclick="pleinEcran('carteRR')">Plein écran 🖥️</button>
+  <div class="carte-container" id="carteRR">
+    <iframe
+      src="https://rk-map.de/"
+      title="Carte interactive des Royaumes Renaissants"
+      loading="eager"
+      allowfullscreen>
+    </iframe>
+  </div>
+  
+  <div class="actions">
+    <p>La carte est interactive : zoomez, déplacez-vous et utilisez ses différentes couches.</p>
+    <button class="button" onclick="document.getElementById('carteRR').firstChild.requestFullscreen()">⛶ Plein écran 🖥️</button>
+    <a class="button" href="https://rk-map.de/" target="_blank" rel="noopener noreferrer">↗ Ouvrir seule</a>
+  </div>
 </section>
 
 <section style="margin-top:42px;">
