@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>L’Écho — Portail des journaux</title>
+<title>L'Écho — Portail des journaux</title>
 
 <style>
 *{
@@ -374,7 +374,7 @@ footer p{
   </div>
 
   <h1>
-    L’Écho
+    L'Écho
   </h1>
 
   <p>
@@ -410,6 +410,10 @@ footer p{
     Lorraine
   </a>
 
+  <a href="Galerie.html">
+    Galerie
+  </a>
+
 </nav>
 
 
@@ -429,7 +433,7 @@ footer p{
     </div>
 
     <h2>
-      L’Écho des terres
+      L'Écho des terres
     </h2>
 
     <p>
@@ -459,7 +463,7 @@ footer p{
       </div>
 
       <h2>
-        L’Écho de Bretagne
+        L'Écho de Bretagne
       </h2>
 
       <p>
@@ -488,7 +492,7 @@ footer p{
       </div>
 
       <h2>
-        L’Écho de Lorraine
+        L'Écho de Lorraine
       </h2>
 
       <p>
@@ -512,7 +516,7 @@ footer p{
   <section class="presentation">
 
     <div class="section-label">
-      ✦ L’Écho ✦
+      ✦ L'Écho ✦
     </div>
 
     <h2>
@@ -520,7 +524,7 @@ footer p{
     </h2>
 
     <p>
-      L’Écho souhaite raconter les terres et ceux qui les habitent,
+      L'Écho souhaite raconter les terres et ceux qui les habitent,
       donner la parole aux événements et conserver la mémoire
       des histoires qui traversent les années.
     </p>
@@ -542,7 +546,7 @@ footer p{
   </div>
 
   <p>
-    L’Écho · Journaux libres et indépendants
+    L'Écho · Journaux libres et indépendants
   </p>
 
   <p>
@@ -610,6 +614,22 @@ footer p{
     }
 
 })();
+
+/* =========================
+   SERVICE WORKER
+========================= */
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(function(registration) {
+        console.log('✓ Service Worker enregistré');
+      })
+      .catch(function(err) {
+        console.log('Service Worker erreur:', err);
+      });
+  });
+}
 
 </script>
 
