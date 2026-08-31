@@ -32,6 +32,27 @@
   --bordeaux:#762c27;
   --or:#a17a38;
   --ligne:#927d5b;
+  --header-border:#806d50;
+  --text-muted:#6f604c;
+  --text-soft:#514433;
+  --text-subtle:#765f3f;
+  --nav-text:#eadfc9;
+  --nav-hover:#d5ad5b;
+  --ui-muted:#999;
+  --toggle-bg:#555;
+  --toggle-hover:#777;
+  --button-border:#51201c;
+  --button-hover:#54201c;
+  --input-bg:#2a2a2a;
+  --input-border:#555;
+  --footer-text:#5f513e;
+  --shadow-header:0 3px 12px rgba(0,0,0,.18);
+  --shadow-panel:0 8px 25px rgba(107,87,54,.35);
+  --shadow-surface:0 7px 20px rgba(107,87,54,.28);
+  --shadow-surface-hover:0 11px 25px rgba(107,87,54,.38);
+  --shadow-card:0 5px 15px rgba(107,87,54,.24);
+  --shadow-image:0 4px 14px rgba(0,0,0,.22);
+  --shadow-floating:0 4px 12px rgba(0,0,0,.3);
 }
 
 body{
@@ -49,23 +70,77 @@ body.dark-mode{
   --brun:#e0e0e0;
   --brun2:#1a1a1a;
   --bordeaux:#b8704b;
+  --or:#c9a76a;
   --ligne:#555;
+  --header-border:#6a5a45;
+  --text-muted:#cbbca6;
+  --text-soft:#bcae98;
+  --text-subtle:#b39b79;
+  --nav-text:#f1e7d3;
+  --nav-hover:#f0c978;
+  --ui-muted:#b7ab99;
+  --toggle-bg:#6a5b49;
+  --toggle-hover:#85725d;
+  --button-border:#3a2c26;
+  --button-hover:#8a553f;
+  --input-bg:#151515;
+  --input-border:#6c6256;
+  --footer-text:#cabba5;
+  --shadow-header:0 3px 12px rgba(0,0,0,.45);
+  --shadow-panel:0 8px 25px rgba(0,0,0,.45);
+  --shadow-surface:0 7px 20px rgba(0,0,0,.4);
+  --shadow-surface-hover:0 11px 25px rgba(0,0,0,.55);
+  --shadow-card:0 5px 15px rgba(0,0,0,.38);
+  --shadow-image:0 4px 14px rgba(0,0,0,.5);
+  --shadow-floating:0 4px 12px rgba(0,0,0,.45);
+}
+
+header,
+header p,
+.masthead-kicker,
+.edition-date,
+nav,
+nav a,
+footer,
+.breadcrumbs,
+.breadcrumbs a,
+.paper,
+.introduction,
+.journal,
+.presentation,
+.card,
+.credit-item,
+.button,
+.theme-toggle,
+.search-bar input,
+.hero img,
+#scroll-to-top,
+.section-heading p,
+.meta,
+.article-head p,
+.actions p,
+.article-item-date,
+.article-item-meta,
+.no-results{
+  transition:background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 header{
   text-align:center;
   background:var(--parchemin);
   padding:35px 15px 25px;
-  border-bottom:7px double #806d50;
-  box-shadow:0 3px 12px rgba(0,0,0,.18);
+  border-bottom:7px double var(--header-border);
+  box-shadow:var(--shadow-header);
 }
 
 .masthead-kicker{
   font-size:12px;
   letter-spacing:4px;
   text-transform:uppercase;
-  color:#6f604c;
+  color:var(--text-muted);
+  margin-bottom:10px;
 }
+
 
 header h1{
   font-size:clamp(55px,10vw,100px);
@@ -78,13 +153,13 @@ header p{
   margin:0;
   font-size:clamp(17px,3vw,24px);
   font-style:italic;
-  color:#514433;
+  color:var(--text-soft);
 }
 
 .edition-date{
   margin-top:16px;
   font-size:14px;
-  color:#765f3f;
+  color:var(--text-subtle);
   letter-spacing:1px;
 }
 
@@ -102,7 +177,7 @@ header p{
 .ornement:after{
   content:"";
   height:1px;
-  background:#927d5b;
+  background:var(--ligne);
   flex:1;
 }
 
@@ -118,7 +193,7 @@ nav{
 }
 
 nav a{
-  color:#eadfc9;
+  color:var(--nav-text);
   text-decoration:none;
   margin:4px 12px;
   text-transform:uppercase;
@@ -128,7 +203,7 @@ nav a{
 }
 
 nav a:hover{
-  color:#d5ad5b;
+  color:var(--nav-hover);
 }
 
 .search-bar{
@@ -140,16 +215,16 @@ nav a:hover{
 
 .search-bar input{
   padding:8px 12px;
-  border:1px solid #555;
-  background:#2a2a2a;
-  color:#eadfc9;
+  border:1px solid var(--input-border);
+  background:var(--input-bg);
+  color:var(--nav-text);
   border-radius:4px;
   font-size:12px;
   min-width:150px;
 }
 
 .search-bar input::placeholder{
-  color:#999;
+  color:var(--ui-muted);
 }
 
 .search-bar input:focus{
@@ -159,9 +234,9 @@ nav a:hover{
 
 .theme-toggle{
   padding:8px 12px;
-  background:#555;
+  background:var(--toggle-bg);
   border:none;
-  color:#eadfc9;
+  color:var(--nav-text);
   cursor:pointer;
   border-radius:4px;
   font-size:14px;
@@ -169,7 +244,7 @@ nav a:hover{
 }
 
 .theme-toggle:hover{
-  background:#777;
+  background:var(--toggle-hover);
 }
 
 main{
@@ -181,7 +256,7 @@ main{
 .introduction{
   background:var(--papier);
   border:1px solid var(--ligne);
-  box-shadow:0 8px 25px rgba(107,87,54,.35);
+  box-shadow:var(--shadow-panel);
   padding:35px 28px;
   text-align:center;
 }
@@ -218,14 +293,14 @@ main{
   background:var(--papier);
   border:1px solid var(--ligne);
   padding:35px 28px;
-  box-shadow:0 7px 20px rgba(107,87,54,.28);
+  box-shadow:var(--shadow-surface);
   text-align:center;
   transition:transform .2s, box-shadow .2s;
 }
 
 .journal:hover{
   transform:translateY(-4px);
-  box-shadow:0 11px 25px rgba(107,87,54,.38);
+  box-shadow:var(--shadow-surface-hover);
 }
 
 .journal-symbol{
@@ -255,7 +330,7 @@ main{
   display:inline-block;
   color:var(--papier);
   background:var(--bordeaux);
-  border:2px solid #51201c;
+  border:2px solid var(--button-border);
   padding:13px 20px;
   text-decoration:none;
   font-weight:bold;
@@ -263,14 +338,14 @@ main{
 }
 
 .button:hover{
-  background:#54201c;
+  background:var(--button-hover);
 }
 
 .presentation{
   margin-top:35px;
   background:var(--papier);
   border:1px solid var(--ligne);
-  box-shadow:0 7px 20px rgba(107,87,54,.25);
+  box-shadow:var(--shadow-surface);
   padding:30px 28px;
   text-align:center;
 }
@@ -290,7 +365,7 @@ main{
 footer{
   text-align:center;
   padding:35px 15px;
-  color:#5f513e;
+  color:var(--footer-text);
 }
 
 footer .ornement{
@@ -550,21 +625,8 @@ footer p{
   })();
 </script>
 
+<script src="dark-mode.js"></script>
 <script>
-  // Thème sombre
-  const themeToggle = document.getElementById('theme-toggle');
-  const isDark = localStorage.getItem('dark-mode') === 'true';
-  if (isDark) {
-    document.body.classList.add('dark-mode');
-    themeToggle.textContent = '☀️ Clair';
-  }
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const isDarkNow = document.body.classList.contains('dark-mode');
-    localStorage.setItem('dark-mode', isDarkNow);
-    themeToggle.textContent = isDarkNow ? '☀️ Clair' : '🌙 Sombre';
-  });
-
   // Recherche globale
   const searchInput = document.getElementById('global-search');
   searchInput.addEventListener('keypress', (e) => {
