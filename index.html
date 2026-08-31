@@ -3,8 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lechodebretagne.fr/">
+<meta property="og:title" content="L'Écho — Journaux libres de Bretagne et Lorraine">
+<meta property="og:description" content="Chroniques, nouvelles et regards sur les terres de Bretagne et Lorraine. Journal libre et indépendant.">
+<meta property="og:image" content="https://lechodebretagne.fr/og-image.png">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lechodebretagne.fr/">
+<meta property="twitter:title" content="L'Écho — Journaux de Bretagne et Lorraine">
+<meta property="twitter:description" content="Découvrez les chroniques et récits des terres de Bretagne et Lorraine.">
+<meta property="twitter:image" content="https://lechodebretagne.fr/og-image.png">
 <link rel="manifest" href="./manifest.json">
 <meta name="theme-color" content="#762c27">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%23cbb88f' width='192' height='192'/><text x='50%' y='50%' font-size='120' font-family='Georgia' fill='%23762c27' text-anchor='middle' dominant-baseline='middle'>L</text></svg>">
 <title>L'Écho — Portail des journaux</title>
 
 <style>
@@ -401,8 +412,8 @@ footer p{
   <a href="Lorraine.html">
     Lorraine
   </a>
-  <a href="Carte.html">
-    Carte
+  <a href="Sitemap.html">
+    Plan du site
   </a>
   <a href="About.html">
     À propos
@@ -559,8 +570,7 @@ footer p{
   searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
       const query = searchInput.value.toLowerCase();
-      // Redirection vers Archives avec paramètre
-      window.location.href = `Archives.html?search=${encodeURIComponent(query)}`;
+      window.location.href = `search-advanced.html?search=${encodeURIComponent(query)}`;
     }
   });
 </script>

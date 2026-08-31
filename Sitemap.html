@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plan du site — L'Écho</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --parchemin:#eee1c5;
+  --papier:#f6ecd5;
+  --ocre:#cbb88f;
+  --brun:#2d251c;
+  --brun2:#191510;
+  --bordeaux:#762c27;
+  --or:#a17a38;
+  --ligne:#927d5b;
+}
+body{
+  margin:0;
+  background:var(--ocre);
+  color:var(--brun);
+  font-family:Georgia,"Times New Roman",serif;
+}
+header{
+  text-align:center;
+  background:var(--parchemin);
+  padding:28px 15px 20px;
+  border-bottom:7px double #806d50;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+header h1{
+  font-size:clamp(46px,9vw,88px);
+  line-height:.95;
+  margin:10px 0 12px;
+  letter-spacing:-2px;
+}
+nav{
+  background:var(--brun2);
+  text-align:center;
+  padding:14px 8px;
+  border-bottom:3px solid var(--or);
+}
+nav a{
+  color:#eadfc9;
+  text-decoration:none;
+  margin:4px 10px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+  display:inline-block;
+}
+main{
+  max-width:900px;
+  margin:28px auto;
+  padding:0 15px;
+}
+.paper{
+  background:var(--papier);
+  border:1px solid var(--ligne);
+  box-shadow:0 8px 25px rgba(107,87,54,.35);
+  padding:28px;
+}
+.section-label{
+  color:var(--bordeaux);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+}
+h2{
+  font-size:34px;
+  margin:15px 0;
+}
+.site-map{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.site-map li{
+  margin:12px 0;
+}
+.site-map a{
+  color:var(--bordeaux);
+  text-decoration:none;
+  font-weight:bold;
+  font-size:16px;
+}
+.site-map a:hover{
+  text-decoration:underline;
+}
+.breadcrumb{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  color:#6f604c;
+  margin-bottom:20px;
+}
+.breadcrumb a{
+  color:var(--bordeaux);
+  text-decoration:none;
+}
+.breadcrumb a:hover{
+  text-decoration:underline;
+}
+footer{
+  text-align:center;
+  padding:35px 15px;
+  color:#5f513e;
+  margin-top:42px;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Plan du site</h1>
+  <p style="margin:0;font-size:18px;font-style:italic;color:#514433;">Explorez tous les contenus</p>
+</header>
+
+<nav>
+  <a href="index.html">← Accueil</a>
+  <a href="Archives.html">Archives</a>
+  <a href="About.html">À propos</a>
+</nav>
+
+<main>
+
+<div class="breadcrumb">
+  <a href="index.html">Accueil</a> > <span>Plan du site</span>
+</div>
+
+<section class="paper">
+  <div class="section-label">🗺️ Navigation 🗺️</div>
+  <h2>Toutes les pages</h2>
+
+  <h3 style="font-size:20px;margin-top:25px;color:var(--bordeaux);">📰 Journaux</h3>
+  <ul class="site-map">
+    <li><a href="index.html">Accueil — Portail principal</a></li>
+    <li><a href="Bretagne.html">L'Écho de Bretagne</a></li>
+    <li><a href="Lorraine.html">L'Écho de Lorraine</a></li>
+  </ul>
+
+  <h3 style="font-size:20px;margin-top:25px;color:var(--bordeaux);">🗂️ Contenu</h3>
+  <ul class="site-map">
+    <li><a href="Archives.html">Archives — Tous les articles</a></li>
+    <li><a href="Tags.html">Tags & Catégories</a></li>
+    <li><a href="Carte.html">Carte interactive</a></li>
+  </ul>
+
+  <h3 style="font-size:20px;margin-top:25px;color:var(--bordeaux);">ℹ️ Informations</h3>
+  <ul class="site-map">
+    <li><a href="About.html">À propos</a></li>
+    <li><a href="Contact.html">Contact — Discord</a></li>
+    <li><a href="Newsletter.html">Newsletter</a></li>
+  </ul>
+
+  <h3 style="font-size:20px;margin-top:25px;color:var(--bordeaux);">🔍 Ressources</h3>
+  <ul class="site-map">
+    <li><a href="search-advanced.html">Recherche avancée</a></li>
+    <li><a href="feed.json">Flux RSS (JSON)</a></li>
+    <li><a href="sitemap.xml">Sitemap XML</a></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>L'Écho de Bretagne et Lorraine · Plan du site</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

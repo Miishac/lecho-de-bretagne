@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recherche avancée — L'Écho</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --parchemin:#eee1c5;
+  --papier:#f6ecd5;
+  --ocre:#cbb88f;
+  --brun:#2d251c;
+  --brun2:#191510;
+  --bordeaux:#762c27;
+  --or:#a17a38;
+  --ligne:#927d5b;
+}
+body{
+  margin:0;
+  background:var(--ocre);
+  color:var(--brun);
+  font-family:Georgia,"Times New Roman",serif;
+}
+header{
+  text-align:center;
+  background:var(--parchemin);
+  padding:28px 15px 20px;
+  border-bottom:7px double #806d50;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+header h1{
+  font-size:clamp(46px,9vw,88px);
+  line-height:.95;
+  margin:10px 0 12px;
+  letter-spacing:-2px;
+}
+nav{
+  background:var(--brun2);
+  text-align:center;
+  padding:14px 8px;
+  border-bottom:3px solid var(--or);
+}
+nav a{
+  color:#eadfc9;
+  text-decoration:none;
+  margin:4px 10px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+  display:inline-block;
+}
+main{
+  max-width:900px;
+  margin:28px auto;
+  padding:0 15px;
+}
+.paper{
+  background:var(--papier);
+  border:1px solid var(--ligne);
+  box-shadow:0 8px 25px rgba(107,87,54,.35);
+  padding:28px;
+}
+.section-label{
+  color:var(--bordeaux);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+}
+h2{
+  font-size:34px;
+  margin:15px 0;
+}
+.filters{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+  margin:20px 0;
+}
+.filter-group{
+  display:flex;
+  flex-direction:column;
+}
+.filter-group label{
+  font-weight:bold;
+  margin-bottom:5px;
+  font-size:14px;
+}
+.filter-group input,
+.filter-group select{
+  padding:10px;
+  border:1px solid var(--ligne);
+  background:#f9f7f2;
+  color:var(--brun);
+  font-family:Georgia, serif;
+}
+.results{
+  margin-top:25px;
+}
+.result-item{
+  border-bottom:1px solid var(--ligne);
+  padding:15px 0;
+}
+.result-item:last-child{
+  border-bottom:none;
+}
+.result-title{
+  font-size:18px;
+  font-weight:bold;
+  color:var(--brun);
+  margin:0 0 8px;
+}
+.result-meta{
+  font-size:13px;
+  color:#6f604c;
+  margin:0 0 8px;
+}
+.result-excerpt{
+  font-size:15px;
+  line-height:1.6;
+  margin:0;
+}
+.button{
+  display:inline-block;
+  background:var(--bordeaux);
+  color:var(--papier);
+  padding:10px 18px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:10px;
+}
+footer{
+  text-align:center;
+  padding:35px 15px;
+  color:#5f513e;
+  margin-top:42px;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Recherche avancée</h1>
+  <p style="margin:0;font-size:18px;font-style:italic;color:#514433;">Filtrez par thème, date, auteur</p>
+</header>
+
+<nav>
+  <a href="index.html">← Accueil</a>
+  <a href="Archives.html">Archives</a>
+  <a href="Sitemap.html">Plan du site</a>
+</nav>
+
+<main>
+<section class="paper">
+  <div class="section-label">🔍 Filtres 🔍</div>
+  <h2>Recherche avancée</h2>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label for="search-query">Mot-clé</label>
+      <input type="text" id="search-query" placeholder="Titre, auteur...">
+    </div>
+    <div class="filter-group">
+      <label for="filter-type">Type</label>
+      <select id="filter-type">
+        <option value="all">Tous les types</option>
+        <option value="chronique">Chroniques</option>
+        <option value="vie-villes">Vie des villes</option>
+        <option value="voyage">Voyages</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="filter-royaume">Royaume</label>
+      <select id="filter-royaume">
+        <option value="all">Tous les royaumes</option>
+        <option value="bretagne">Bretagne</option>
+        <option value="lorraine">Lorraine</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="filter-auteur">Auteur</label>
+      <select id="filter-auteur">
+        <option value="all">Tous les auteurs</option>
+        <option value="mishac">Mishac</option>
+        <option value="chroniqueurs">Chroniqueurs</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="results" id="results">
+    <p style="text-align:center;color:#6f604c;font-style:italic;">Effectuez une recherche pour voir les résultats...</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>L'Écho de Bretagne et Lorraine · Recherche avancée</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Base d'articles pour la recherche
+const articles = [
+  {
+    title: "À quelques heures du départ",
+    excerpt: "Un regard personnel sur plusieurs années passées au service de la Bretagne.",
+    link: "Bretagne.html#article",
+    type: "chronique",
+    royaume: "bretagne",
+    auteur: "mishac",
+    date: "31 août 1474"
+  },
+  {
+    title: "Bienvenue en Lorraine",
+    excerpt: "Les premières impressions de voyageurs arrivant en terre lorraine.",
+    link: "Lorraine.html#article",
+    type: "chronique",
+    royaume: "lorraine",
+    auteur: "chroniqueurs",
+    date: "31 août 1474"
+  },
+  {
+    title: "Quand les Bretons commencent à partir",
+    excerpt: "Une réflexion sur les départs et l'avenir des villes bretonnes.",
+    link: "Bretagne.html#articles",
+    type: "vie-villes",
+    royaume: "bretagne",
+    auteur: "chroniqueurs",
+    date: "31 août 1474"
+  }
+];
+
+function performSearch() {
+  const query = document.getElementById('search-query').value.toLowerCase();
+  const typeFilter = document.getElementById('filter-type').value;
+  const royaumeFilter = document.getElementById('filter-royaume').value;
+  const auteurFilter = document.getElementById('filter-auteur').value;
+
+  let results = articles.filter(article => {
+    const matchQuery = article.title.toLowerCase().includes(query) || 
+                       article.excerpt.toLowerCase().includes(query) ||
+                       article.auteur.toLowerCase().includes(query);
+    const matchType = typeFilter === 'all' || article.type === typeFilter;
+    const matchRoyaume = royaumeFilter === 'all' || article.royaume === royaumeFilter;
+    const matchAuteur = auteurFilter === 'all' || article.auteur === auteurFilter;
+    
+    return matchQuery && matchType && matchRoyaume && matchAuteur;
+  });
+
+  const resultsDiv = document.getElementById('results');
+  
+  if (results.length === 0) {
+    resultsDiv.innerHTML = '<p style="text-align:center;color:#6f604c;font-style:italic;">Aucun résultat trouvé.</p>';
+    return;
+  }
+
+  resultsDiv.innerHTML = results.map(article => `
+    <div class="result-item">
+      <p class="result-title">${article.title}</p>
+      <p class="result-meta">${article.type} • ${article.royaume} • ${article.auteur} • ${article.date}</p>
+      <p class="result-excerpt">${article.excerpt}</p>
+      <a href="${article.link}" class="button">Lire l'article →</a>
+    </div>
+  `).join('');
+}
+
+document.getElementById('search-query').addEventListener('input', performSearch);
+document.getElementById('filter-type').addEventListener('change', performSearch);
+document.getElementById('filter-royaume').addEventListener('change', performSearch);
+document.getElementById('filter-auteur').addEventListener('change', performSearch);
+</script>
+</body>
+</html>
