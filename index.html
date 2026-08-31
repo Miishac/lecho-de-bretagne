@@ -314,6 +314,50 @@ footer p{
   }
 
 }
+
+/* =========================
+   FEUILLES D'AUTOMNE
+========================= */
+
+.feuilles-conteneur{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:999;
+}
+
+.feuille{
+  position:absolute;
+  top:-40px;
+  font-size:22px;
+  opacity:0.75;
+  animation-name:chute, balancement;
+  animation-timing-function:linear, ease-in-out;
+  animation-iteration-count:infinite, infinite;
+  user-select:none;
+}
+
+@keyframes chute{
+  0%{
+    transform:translateY(-40px);
+  }
+  100%{
+    transform:translateY(110vh);
+  }
+}
+
+@keyframes balancement{
+  0%,100%{
+    margin-left:0;
+  }
+  50%{
+    margin-left:40px;
+  }
+}
 </style>
 </head>
 
@@ -508,6 +552,9 @@ footer p{
 </footer>
 
 
+<div class="feuilles-conteneur" id="feuillesConteneur"></div>
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const mois = [
@@ -528,6 +575,43 @@ footer p{
   });
 </script>
 
+
+<script>
+
+/* =========================
+   FEUILLES D'AUTOMNE
+========================= */
+
+(function () {
+
+    const conteneur = document.getElementById("feuillesConteneur");
+    const emojis = ["🍂", "🍁"];
+    const nombreFeuilles = 15;
+
+    for (let i = 0; i < nombreFeuilles; i++) {
+
+        const feuille = document.createElement("div");
+        feuille.className = "feuille";
+        feuille.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+        const positionGauche = Math.random() * 100;
+        const dureeChute = 10 + Math.random() * 12;
+        const dureeBalancement = 3 + Math.random() * 3;
+        const delai = Math.random() * 15;
+        const taille = 16 + Math.random() * 14;
+
+        feuille.style.left = positionGauche + "vw";
+        feuille.style.fontSize = taille + "px";
+        feuille.style.animationDuration = dureeChute + "s, " + dureeBalancement + "s";
+        feuille.style.animationDelay = delai + "s, " + delai + "s";
+
+        conteneur.appendChild(feuille);
+
+    }
+
+})();
+
+</script>
+
 </body>
 </html>
-  
