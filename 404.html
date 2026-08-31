@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Page introuvable — L'Écho</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+:root{
+  --parchemin:#eee1c5;
+  --papier:#f6ecd5;
+  --ocre:#cbb88f;
+  --brun:#2d251c;
+  --brun2:#191510;
+  --bordeaux:#762c27;
+  --or:#a17a38;
+  --ligne:#927d5b;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:var(--ocre);
+  color:var(--brun);
+  font-family:Georgia,"Times New Roman",serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.erreur-parchemin{
+  background:var(--papier);
+  border:1px solid var(--ligne);
+  box-shadow:0 8px 25px rgba(107,87,54,.35);
+  padding:50px 35px;
+  max-width:560px;
+  text-align:center;
+}
+
+.section-label{
+  color:var(--bordeaux);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.symbole-erreur{
+  font-size:52px;
+  margin:15px 0;
+  color:var(--bordeaux);
+}
+
+.erreur-parchemin h1{
+  font-size:clamp(30px,5vw,44px);
+  line-height:1.15;
+  margin:10px 0 18px;
+}
+
+.erreur-parchemin p{
+  font-size:17px;
+  line-height:1.7;
+  margin:0 0 30px;
+}
+
+.ornement{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  max-width:300px;
+  margin:0 auto 25px;
+  color:var(--bordeaux);
+  font-size:13px;
+}
+
+.ornement:before,
+.ornement:after{
+  content:"";
+  height:1px;
+  background:#927d5b;
+  flex:1;
+}
+
+.button{
+  display:inline-block;
+  color:var(--papier);
+  background:var(--bordeaux);
+  border:2px solid #51201c;
+  padding:13px 22px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:background .2s;
+}
+
+.button:hover{
+  background:#54201c;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="erreur-parchemin">
+
+  <div class="section-label">
+    ✦ L'Écho ✦
+  </div>
+
+  <div class="symbole-erreur">
+    🕯️
+  </div>
+
+  <h1>
+    Ce parchemin s'est perdu
+  </h1>
+
+  <p>
+    La page que vous cherchez n'existe pas, ou a été
+    égarée quelque part entre la Bretagne et la Lorraine.
+  </p>
+
+  <div class="ornement">
+    ✦
+  </div>
+
+  <a class="button" href="/">
+    ← Retour au portail
+  </a>
+
+</div>
+
+</body>
+</html>
