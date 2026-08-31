@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "title": "L'Écho de Bretagne et Lorraine",
+  "link": "https://miishac.github.io/lecho-de-bretagne",
+  "description": "Journal libre et indépendant des Royaumes Renaissants",
+  "language": "fr",
+  "lastBuildDate": "2026-08-31T11:32:00Z",
+  "items": [
+    {
+      "id": "article-001",
+      "title": "À quelques heures du départ",
+      "link": "https://miishac.github.io/lecho-de-bretagne/Bretagne.html#article",
+      "description": "Un regard personnel sur plusieurs années passées au service de la Bretagne. Mishac s'apprête à quitter Roc'han pour un voyage en Lorraine.",
+      "pubDate": "2026-08-31T00:00:00Z",
+      "author": "Mishac",
+      "category": "Chronique",
+      "royaume": "Bretagne",
+      "image": null
+    },
+    {
+      "id": "article-002",
+      "title": "Bienvenue en Lorraine",
+      "link": "https://miishac.github.io/lecho-de-bretagne/Lorraine.html#article",
+      "description": "Les premières impressions de voyageurs arrivant en terre lorraine. Une nouvelle page de L'Écho s'ouvre.",
+      "pubDate": "2026-08-31T00:00:00Z",
+      "author": "Chroniqueurs",
+      "category": "Chronique",
+      "royaume": "Lorraine",
+      "image": null
+    }
+  ]
+}
