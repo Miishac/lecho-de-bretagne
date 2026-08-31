@@ -126,109 +126,40 @@ p{
   margin:0 0 20px;
 }
 
-.contact-methods{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  margin:25px 0;
-}
-
 .contact-card{
   background:#eee1c5;
   border:1px solid var(--ligne);
-  padding:20px;
+  padding:40px 20px;
   text-align:center;
   border-radius:4px;
+  margin:25px 0;
 }
 
 .contact-card h3{
-  font-size:18px;
-  margin:0 0 10px;
+  font-size:24px;
+  margin:0 0 15px;
   color:var(--bordeaux);
 }
 
 .contact-card p{
-  margin:0;
-  font-size:15px;
-}
-
-.contact-card a{
-  color:var(--bordeaux);
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.contact-card a:hover{
-  text-decoration:underline;
+  margin:0 0 20px;
+  font-size:16px;
 }
 
 .discord-link{
   display:inline-block;
-  padding:12px 20px;
+  padding:14px 28px;
   background:#5865F2;
   color:white;
   text-decoration:none;
   font-weight:bold;
   border-radius:4px;
-  margin-top:8px;
+  font-size:16px;
   transition:background 0.2s;
 }
 
 .discord-link:hover{
   background:#4752C4;
-}
-
-.form-group{
-  margin-bottom:20px;
-}
-
-label{
-  display:block;
-  font-weight:bold;
-  margin-bottom:8px;
-  font-size:16px;
-}
-
-input[type="email"],
-input[type="text"],
-textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid var(--ligne);
-  background:#f9f7f2;
-  color:var(--brun);
-  font-family:Georgia, serif;
-  font-size:15px;
-  box-sizing:border-box;
-}
-
-input:focus,
-textarea:focus{
-  outline:none;
-  border-color:var(--bordeaux);
-  box-shadow:0 0 5px rgba(118,44,39,.2);
-}
-
-textarea{
-  resize:vertical;
-  min-height:150px;
-}
-
-.button{
-  display:inline-block;
-  color:var(--papier);
-  background:var(--bordeaux);
-  border:2px solid #51201c;
-  padding:12px 30px;
-  text-decoration:none;
-  font-weight:bold;
-  cursor:pointer;
-  font-size:16px;
-  transition:background 0.2s;
-}
-
-.button:hover{
-  background:#54201c;
 }
 
 footer{
@@ -246,12 +177,12 @@ footer .ornement{
 <body>
 <header>
   <div class="masthead-kicker" style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#6f604c;margin-bottom:10px;">
-    Écrivez-nous
+    Rejoignez-nous
   </div>
   <h1>Contact</h1>
-  <p>Nous sommes à votre écoute</p>
+  <p>Discutez avec notre équipe</p>
   <div class="edition-date">Éd. du <span class="date-rp"></span></div>
-  <div class="ornement">✉</div>
+  <div class="ornement">💬</div>
 </header>
 
 <nav>
@@ -264,72 +195,31 @@ footer .ornement{
 <main>
 
 <section class="paper">
-  <div class="section-label">✉ Nous contacter ✉</div>
-  <h2>Envoyez-nous un message</h2>
+  <div class="section-label">💬 Nous rejoindre 💬</div>
+  <h2>Discutez avec L'Écho</h2>
   <p>
-    L'Écho de Bretagne et Lorraine est toujours à l'écoute de ses lecteurs.
-    Vous avez une histoire à partager? Une chronique à proposer? Une question?
-    Contactez-nous par Discord ou par formulaire ci-dessous.
+    L'Écho de Bretagne et Lorraine accueille tous ses lecteurs sur Discord.
+    Vous avez une question? Une histoire à partager? Une chronique à proposer?
+    Rejoignez-nous pour discuter directement avec notre équipe.
   </p>
 
-  <div class="contact-methods">
-    <div class="contact-card">
-      <h3>💬 Discord</h3>
-      <p>Rejoignez-nous directement sur Discord</p>
-      <a href="https://discord.com/users/Matiasu" class="discord-link">Discord — Matiasu</a>
-    </div>
-    <div class="contact-card">
-      <h3>📨 Email</h3>
-      <p>Envoyez-nous un email direct</p>
-      <p style="margin-top:12px;"><a href="mailto:contact@lechodebretagne.fr">contact@lechodebretagne.fr</a></p>
-    </div>
-    <div class="contact-card">
-      <h3>📰 Proposer</h3>
-      <p>Vous êtes chroniqueur?</p>
-      <p style="margin-top:12px;"><a href="mailto:redaction@lechodebretagne.fr">redaction@lechodebretagne.fr</a></p>
-    </div>
+  <div class="contact-card">
+    <h3>💬 Rejoindre Discord</h3>
+    <p>Le moyen le plus rapide de nous contacter et de discuter</p>
+    <a href="https://discord.com/users/Matiasu" class="discord-link">Discord — Matiasu →</a>
   </div>
-</section>
 
-<section class="paper">
-  <div class="section-label">✉ Formulaire ✉</div>
-  <h2>Écrivez votre message</h2>
-
-  <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-    <div class="form-group">
-      <label for="name">Nom</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-
-    <div class="form-group">
-      <label for="subject">Sujet</label>
-      <input type="text" id="subject" name="subject" required>
-    </div>
-
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-    </div>
-
-    <button type="submit" class="button">Envoyer →</button>
-  </form>
-
-  <p style="font-size:14px;color:#6f604c;margin-top:20px;">
-    ✓ Nous répondrons à votre message dans les meilleurs délais<br>
-    ✓ Vos données restent confidentielles<br>
-    ✓ Discord est le moyen le plus rapide de nous contacter
+  <p style="text-align:center;color:#6f604c;margin-top:25px;">
+    ✓ Réponses rapides<br>
+    ✓ Échanges directs avec l'équipe<br>
+    ✓ Propositions de chroniques bienvenues
   </p>
 </section>
 
 </main>
 
 <footer>
-  <div class="ornement">✉</div>
+  <div class="ornement">💬</div>
   <p>L'Écho de Bretagne et Lorraine · Journal libre et indépendant</p>
   <p>Bretagne · Lorraine · 1474</p>
 </footer>
