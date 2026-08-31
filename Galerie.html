@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galerie — L'Écho de Bretagne et Lorraine</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+  --parchemin:#eee1c5;
+  --papier:#f6ecd5;
+  --ocre:#cbb88f;
+  --brun:#2d251c;
+  --brun2:#191510;
+  --bordeaux:#762c27;
+  --or:#a17a38;
+  --ligne:#927d5b;
+}
+
+body{
+  margin:0;
+  background:var(--ocre);
+  color:var(--brun);
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+header{
+  text-align:center;
+  background:var(--parchemin);
+  padding:28px 15px 20px;
+  border-bottom:7px double #806d50;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+
+header h1{
+  font-size:clamp(46px,9vw,88px);
+  line-height:.95;
+  margin:10px 0 12px;
+  letter-spacing:-2px;
+}
+
+header p{
+  margin:0;
+  font-size:clamp(17px,3vw,24px);
+  font-style:italic;
+  color:#514433;
+}
+
+nav{
+  background:var(--brun2);
+  text-align:center;
+  padding:14px 8px;
+  border-bottom:3px solid var(--or);
+}
+
+nav a{
+  color:#eadfc9;
+  text-decoration:none;
+  margin:4px 10px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+  display:inline-block;
+}
+
+nav a:hover{
+  color:#d5ad5b;
+}
+
+main{
+  max-width:1150px;
+  margin:28px auto;
+  padding:0 15px;
+}
+
+.paper{
+  background:var(--papier);
+  border:1px solid var(--ligne);
+  box-shadow:0 8px 25px rgba(107,87,54,.35);
+  padding:28px;
+  margin-bottom:28px;
+}
+
+.section-heading{
+  text-align:center;
+  margin:0 0 28px;
+}
+
+.section-heading h2{
+  margin:8px 0;
+  font-size:clamp(30px,5vw,48px);
+}
+
+.section-label{
+  color:var(--bordeaux);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+}
+
+/* GALERIE */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+  margin-bottom:28px;
+}
+
+.gallery-item{
+  background:var(--papier);
+  border:1px solid var(--ligne);
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(107,87,54,.2);
+  transition:transform 0.3s ease;
+}
+
+.gallery-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 6px 16px rgba(107,87,54,.3);
+}
+
+.gallery-item-image{
+  width:100%;
+  height:250px;
+  background:#d4c4a8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#927d5b;
+  font-size:48px;
+  border-bottom:1px solid var(--ligne);
+}
+
+.gallery-item-content{
+  padding:16px;
+}
+
+.gallery-item h3{
+  margin:0 0 8px;
+  font-size:18px;
+  color:var(--brun);
+}
+
+.gallery-item .artist{
+  font-size:13px;
+  color:#6f604c;
+  font-style:italic;
+  margin-bottom:8px;
+}
+
+.gallery-item p{
+  font-size:14px;
+  line-height:1.6;
+  color:var(--brun);
+  margin:0;
+}
+
+.gallery-item .credit{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--ligne);
+  font-size:12px;
+  color:#927d5b;
+  font-style:italic;
+}
+
+/* SECTION CRÉDITS */
+.credits-section{
+  background:var(--papier);
+  border:1px solid var(--ligne);
+  padding:24px;
+}
+
+.credits-section h2{
+  margin-top:0;
+  color:var(--bordeaux);
+  font-size:24px;
+}
+
+.credits-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.credits-list li{
+  padding:12px 0;
+  border-bottom:1px solid var(--ligne);
+}
+
+.credits-list li:last-child{
+  border-bottom:none;
+}
+
+.credits-list strong{
+  color:var(--bordeaux);
+}
+
+footer{
+  text-align:center;
+  padding:35px 15px;
+  color:#5f513e;
+}
+
+footer .ornement{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  max-width:520px;
+  margin:14px auto 0;
+  color:var(--bordeaux);
+  font-size:13px;
+  justify-content:center;
+  margin-bottom:18px;
+}
+
+footer .ornement:before,
+footer .ornement:after{
+  content:"";
+  height:1px;
+  background:#927d5b;
+  flex:1;
+}
+
+@media(max-width:600px){
+  .gallery{
+    grid-template-columns:1fr;
+  }
+  main{
+    padding:0 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="masthead-kicker">L'Écho de Bretagne et Lorraine</div>
+  <h1>Galerie</h1>
+  <p>Illustrations et œuvres d'art</p>
+</header>
+
+<nav>
+  <a href="index.html">← Bretagne</a>
+  <a href="Lorraine.html">Lorraine</a>
+  <a href="Galerie.html">Galerie</a>
+  <a href="Archives.html">Archives</a>
+</nav>
+
+<main>
+
+<div class="paper">
+  <div class="section-heading">
+    <div class="section-label">✦ Portfolio ✦</div>
+    <h2>Galerie d'illustrations</h2>
+    <p>Les œuvres et illustrations qui incarnent L'Écho</p>
+  </div>
+</div>
+
+<!-- GALERIE D'IMAGES -->
+<div class="gallery">
+
+  <!-- ILLUSTRATION 1 -->
+  <div class="gallery-item">
+    <div class="gallery-item-image">🎨</div>
+    <div class="gallery-item-content">
+      <h3>Le départ de Mishac</h3>
+      <div class="artist">Illustrateur</div>
+      <p>
+        Une représentation du moment où Mishac quitte Roc'han pour son voyage en Lorraine.
+      </p>
+      <div class="credit">
+        Crédit: [Artiste] · 1474
+      </div>
+    </div>
+  </div>
+
+  <!-- ILLUSTRATION 2 -->
+  <div class="gallery-item">
+    <div class="gallery-item-image">🏰</div>
+    <div class="gallery-item-content">
+      <h3>Les terres bretonnes</h3>
+      <div class="artist">Illustrateur</div>
+      <p>
+        Panorama des villes et villages de Bretagne à travers les saisons.
+      </p>
+      <div class="credit">
+        Crédit: [Artiste] · 1474
+      </div>
+    </div>
+  </div>
+
+  <!-- ILLUSTRATION 3 -->
+  <div class="gallery-item">
+    <div class="gallery-item-image">🗺️</div>
+    <div class="gallery-item-content">
+      <h3>Carte des Royaumes</h3>
+      <div class="artist">Cartographe</div>
+      <p>
+        Une représentation artistique du monde connu des Royaumes Renaissants.
+      </p>
+      <div class="credit">
+        Crédit: [Cartographe] · 1474
+      </div>
+    </div>
+  </div>
+
+  <!-- ILLUSTRATION 4 -->
+  <div class="gallery-item">
+    <div class="gallery-item-image">📖</div>
+    <div class="gallery-item-content">
+      <h3>L'Écho dans la Lorraine</h3>
+      <div class="artist">Illustrateur</div>
+      <p>
+        Les paysages et habitants de Lorraine, découverts à travers les yeux d'un voyageur.
+      </p>
+      <div class="credit">
+        Crédit: [Artiste] · 1474
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SECTION CRÉDITS -->
+<div class="paper">
+  <div class="section-heading">
+    <div class="section-label">✦ Remerciements ✦</div>
+    <h2>Crédits & Contributeurs</h2>
+  </div>
+</div>
+
+<div class="paper credits-section">
+
+  <h2>Illustrateurs & Artistes</h2>
+
+  <ul class="credits-list">
+    <li>
+      <strong>[Nom de l'illustrateur]</strong> — Illustrations générales et couvertures
+    </li>
+    <li>
+      <strong>[Cartographe]</strong> — Cartes et représentations géographiques
+    </li>
+    <li>
+      <strong>[Artiste]</strong> — Scènes et personnages
+    </li>
+  </ul>
+
+  <h2 style="margin-top:24px;">Contributeurs</h2>
+
+  <ul class="credits-list">
+    <li>
+      <strong>Mishac</strong> — Fondateur et chroniqueur principal
+    </li>
+    <li>
+      <strong>Les habitants de Bretagne et Lorraine</strong> — Inspirateurs et contributeurs
+    </li>
+  </ul>
+
+  <h2 style="margin-top:24px;">Mentions & Licences</h2>
+
+  <p style="margin:12px 0;font-size:14px;">
+    L'Écho de Bretagne et Lorraine est un projet de chronicle roleplay pour les Royaumes Renaissants.
+    Tous les contenus sont publiés sous licence créative commune.
+  </p>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="ornement">
+    ✦
+  </div>
+  <p>L'Écho de Bretagne et Lorraine · Galerie d'illustrations</p>
+  <p>1474</p>
+</footer>
+
+</body>
+</html>
