@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>L’Écho de Bretagne</title>
+<title>L'Écho de Bretagne</title>
 
 <style>
 *{box-sizing:border-box}
@@ -303,6 +303,34 @@ main{
 }
 
 /* =========================
+   NAVIGATION ARTICLES
+========================= */
+
+.article-nav{
+  max-width:820px;
+  margin:42px auto 0;
+  padding-top:24px;
+  border-top:1px solid var(--ligne);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  text-align:center;
+}
+
+.article-nav a{
+  display:block;
+  color:var(--bordeaux);
+  text-decoration:none;
+  font-size:14px;
+  font-style:italic;
+  padding:10px;
+}
+
+.article-nav a:hover{
+  text-decoration:underline;
+}
+
+/* =========================
    INFORMATIONS
 ========================= */
 
@@ -406,6 +434,10 @@ footer .ornement{
   .article .phrase-forte{
     font-size:18px !important;
   }
+
+  .article-nav{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -419,7 +451,7 @@ footer .ornement{
   </div>
 
   <h1>
-    L’Écho de Bretagne
+    L'Écho de Bretagne
   </h1>
 
   <p>
@@ -464,7 +496,7 @@ footer .ornement{
   </a>
 
   <a href="Lorraine.html">
-    L’Écho de Lorraine
+    L'Écho de Lorraine
   </a>
 
 </nav>
@@ -494,13 +526,13 @@ footer .ornement{
 
     <p class="chapo">
       Après plusieurs années passées à servir la Bretagne,
-      Mishac s’apprête à prendre la route. Entre responsabilités,
+      Mishac s'apprête à prendre la route. Entre responsabilités,
       rencontres, désillusions et nouvelles ambitions, il revient
       sur le chemin parcouru.
     </p>
 
     <a class="button" href="#article">
-      Lire l’article complet →
+      Lire l'article complet →
     </a>
 
   </div>
@@ -509,7 +541,7 @@ footer .ornement{
 
     <img
       src="article-depart.png"
-      alt="Illustration de L’Écho de Bretagne"
+      alt="Illustration de L'Écho de Bretagne"
     >
 
   </div>
@@ -534,7 +566,7 @@ footer .ornement{
     </h2>
 
     <p>
-      Les nouvelles, chroniques et récits de L’Écho de Bretagne
+      Les nouvelles, chroniques et récits de L'Écho de Bretagne
     </p>
 
   </div>
@@ -576,7 +608,7 @@ footer .ornement{
       </h3>
 
       <p>
-        Une réflexion sur les départs et l’avenir des villes
+        Une réflexion sur les départs et l'avenir des villes
         bretonnes.
       </p>
 
@@ -631,7 +663,7 @@ footer .ornement{
     </h2>
 
     <p>
-      Les différents regards de L’Écho sur le monde
+      Les différents regards de L'Écho sur le monde
     </p>
 
   </div>
@@ -652,7 +684,7 @@ footer .ornement{
 
       <p>
         Les histoires personnelles et les événements
-        qui méritent d’être racontés.
+        qui méritent d'être racontés.
       </p>
 
     </article>
@@ -716,7 +748,7 @@ footer .ornement{
     </h2>
 
     <p>
-      Par Mishac · L’Écho de Bretagne
+      Par Mishac · L'Écho de Bretagne
     </p>
 
   </div>
@@ -829,6 +861,15 @@ footer .ornement{
     et mes ambitions.
   </p>
 
+  <!-- Navigation entre articles -->
+  <div class="article-nav">
+    <a href="Lorraine.html">
+      ← Nouvelles de Lorraine
+    </a>
+    <a href="#articles">
+      Retour aux articles →
+    </a>
+  </div>
 
 </section>
 
@@ -855,7 +896,7 @@ footer .ornement{
   <div class="paper">
 
     <p>
-      Retrouvez les anciennes éditions de L’Écho de Bretagne
+      Retrouvez les anciennes éditions de L'Écho de Bretagne
       dans les archives du journal.
     </p>
 
@@ -890,9 +931,9 @@ footer .ornement{
   <div class="paper">
 
     <p>
-      L’Écho de Bretagne est un journal libre et indépendant consacré
+      L'Écho de Bretagne est un journal libre et indépendant consacré
       à la vie des terres bretonnes, à leurs habitants et aux histoires
-      qui méritent d’être conservées.
+      qui méritent d'être conservées.
     </p>
 
     <p>
@@ -919,7 +960,7 @@ footer .ornement{
   </div>
 
   <p>
-    L’Écho de Bretagne · Journal libre et indépendant
+    L'Écho de Bretagne · Journal libre et indépendant
   </p>
 
   <p>
@@ -929,25 +970,7 @@ footer .ornement{
 </footer>
 
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const mois = [
-      "janvier", "février", "mars", "avril", "mai", "juin",
-      "juillet", "août", "septembre", "octobre", "novembre", "décembre"
-    ];
-
-    const aujourdHui = new Date();
-    const jour = aujourdHui.getDate();
-    const moisActuel = mois[aujourdHui.getMonth()];
-    const anneeRP = 1474;
-
-    const dateTexte = `${jour} ${moisActuel} ${anneeRP}`;
-
-    document.querySelectorAll(".date-rp").forEach(function (element) {
-      element.textContent = dateTexte;
-    });
-  });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
