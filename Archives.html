@@ -3,6 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Archives de Bretagne — Parcourez l'histoire complète de L'Écho de Bretagne à travers toutes les éditions passées. Recherche, filtres et chronologie interactive.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lechodebretagne.fr/Archives.html">
+<meta property="og:title" content="Archives — L'Écho de Bretagne">
+<meta property="og:description" content="Archives complètes de L'Écho de Bretagne">
+<meta property="og:image" content="https://lechodebretagne.fr/og-image.png">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lechodebretagne.fr/Archives.html">
+<meta property="twitter:title" content="Archives — L'Écho de Bretagne">
+<meta property="twitter:image" content="https://lechodebretagne.fr/og-image.png">
+<link rel="canonical" href="https://lechodebretagne.fr/Archives.html">
 <title>Archives — L'Écho de Bretagne</title>
 
 <style>
@@ -24,6 +35,17 @@ body{
   background:var(--ocre);
   color:var(--brun);
   font-family:Georgia,"Times New Roman",serif;
+  transition:background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode{
+  --parchemin:#2a2a2a;
+  --papier:#1f1f1f;
+  --ocre:#3a3a3a;
+  --brun:#e0e0e0;
+  --brun2:#1a1a1a;
+  --bordeaux:#b8704b;
+  --ligne:#555;
 }
 
 header{
@@ -78,6 +100,10 @@ nav{
   text-align:center;
   padding:14px 8px;
   border-bottom:3px solid var(--or);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
 nav a{
@@ -92,6 +118,40 @@ nav a{
 
 nav a:hover{
   color:#d5ad5b;
+}
+
+.theme-toggle{
+  margin-left:auto;
+  margin-right:10px;
+  padding:8px 12px;
+  background:#555;
+  border:none;
+  color:#eadfc9;
+  cursor:pointer;
+  border-radius:4px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.theme-toggle:hover{
+  background:#777;
+}
+
+.breadcrumbs{
+  background:var(--brun2);
+  padding:10px 15px;
+  font-size:12px;
+  color:#999;
+  border-bottom:1px solid var(--ligne);
+}
+
+.breadcrumbs a{
+  color:#d5ad5b;
+  text-decoration:none;
+}
+
+.breadcrumbs a:hover{
+  text-decoration:underline;
 }
 
 main{
@@ -246,6 +306,35 @@ main{
   font-style:italic;
 }
 
+#scroll-to-top{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:50px;
+  height:50px;
+  background:var(--bordeaux);
+  color:var(--papier);
+  border:none;
+  border-radius:50%;
+  font-size:24px;
+  cursor:pointer;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  z-index:999;
+  transition:background 0.3s, transform 0.3s;
+}
+
+#scroll-to-top:hover{
+  background:#54201c;
+  transform:translateY(-3px);
+}
+
+#scroll-to-top.show{
+  display:flex;
+}
+
 footer{
   text-align:center;
   padding:35px 15px;
@@ -297,6 +386,13 @@ footer .ornement{
   .article-item-title{
     font-size:18px;
   }
+  #scroll-to-top{
+    bottom:20px;
+    right:20px;
+    width:45px;
+    height:45px;
+    font-size:20px;
+  }
 }
 </style>
 </head>
@@ -316,7 +412,12 @@ footer .ornement{
   <a href="Bretagne.html">Bretagne</a>
   <a href="Carte.html">Carte</a>
   <a href="Lorraine.html">Lorraine</a>
+  <button class="theme-toggle" id="theme-toggle">🌙 Sombre</button>
 </nav>
+
+<div class="breadcrumbs">
+  <a href="index.html">Portail</a> > <a href="Bretagne.html">Bretagne</a> > <strong>Archives</strong>
+</div>
 
 <main>
 
@@ -364,7 +465,7 @@ footer .ornement{
       <div class="article-item-date">31 août 1474</div>
       <div class="article-item-title">Bienvenue en Lorraine</div>
       <div class="article-item-meta">Par Chroniqueurs • Chronique</div>
-      <div class="article-item-excerpt">Les premières impressions de voyageurs arrivant en terre lorraine. Une nouvelle page de L'Écho s'ouvre avec les récits et rencontres qui naissent de cette contrée.</div>
+      <div class="article-item-excerpt">Les premières impressions de voyageurs arrivant en terre lorraine. Une nouvelle page de L'Écho s'ouvre avec les récits et rencontres qui naissent de cette découverte.</div>
       <a href="Lorraine.html#article" class="article-item-link">Lire l'article complet →</a>
     </div>
     <div class="article-item" data-type="vie-villes" data-auteur="Chroniqueurs" data-royaume="Bretagne">
@@ -394,17 +495,58 @@ footer .ornement{
 
 </main>
 
+<button id="scroll-to-top" title="Retour au sommet">⬆</button>
+
 <footer>
   <div class="ornement">✦</div>
   <p>L'Écho de Bretagne · Journal libre et indépendant</p>
   <p>Bretagne · 1474</p>
 </footer>
 
-<script src="script.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    initSearch("articles-list");
+// Thème sombre
+const themeToggle = document.getElementById('theme-toggle');
+const isDark = localStorage.getItem('dark-mode') === 'true';
+
+if (isDark) {
+  document.body.classList.add('dark-mode');
+  themeToggle.textContent = '☀️ Clair';
+}
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const isDarkNow = document.body.classList.contains('dark-mode');
+  localStorage.setItem('dark-mode', isDarkNow);
+  themeToggle.textContent = isDarkNow ? '☀️ Clair' : '🌙 Sombre';
+});
+
+// Retour au top
+const scrollBtn = document.getElementById('scroll-to-top');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollBtn.classList.add('show');
+  } else {
+    scrollBtn.classList.remove('show');
+  }
+});
+scrollBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Date RP
+document.addEventListener("DOMContentLoaded", function() {
+  const mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+  const aujourdHui = new Date();
+  const jour = aujourdHui.getDate();
+  const moisActuel = mois[aujourdHui.getMonth()];
+  const anneeRP = 1474;
+  const dateTexte = `${jour} ${moisActuel} ${anneeRP}`;
+  document.querySelectorAll(".date-rp").forEach(function (element) {
+    element.textContent = dateTexte;
   });
+  initSearch("articles-list");
+});
+
 const originalInitSearch = initSearch;
 initSearch = function(containerId = "articles-list") {
   originalInitSearch(containerId);
@@ -430,6 +572,7 @@ initSearch = function(containerId = "articles-list") {
     updateNoResults();
   });
 };
+
 const originalFilterArticles = filterArticles;
 filterArticles = function(filterType, filterValue) {
   originalFilterArticles(filterType, filterValue);
@@ -443,5 +586,6 @@ filterArticles = function(filterType, filterValue) {
   noResults.style.display = visibleCount === 0 ? "block" : "none";
 };
 </script>
+<script src="script.js"></script>
 </body>
 </html>
