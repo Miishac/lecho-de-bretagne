@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
   initReactions();
   // Charger réactions sauvegardées
   loadReactions();
+  // Initialiser thème sombre
+  initTheme();
+  // Initialiser recherche globale si présente
+  initGlobalSearch();
   // Initialiser scroll to top
   initScrollToTop();
   // Calculer temps de lecture
@@ -35,6 +39,42 @@ function initDateRP() {
 
   document.querySelectorAll(".date-rp").forEach(function (element) {
     element.textContent = dateTexte;
+  });
+}
+
+
+/**
+ * Initialise le thème sombre partagé par toutes les pages.
+ */
+function initTheme() {
+  const themeToggle = document.getElementById("theme-toggle");
+  if (!themeToggle) return;
+
+  const isDark = localStorage.getItem("dark-mode") === "true";
+  document.body.classList.toggle("dark-mode", isDark);
+  themeToggle.textContent = isDark ? "☀️ Clair" : "🌙 Sombre";
+
+  themeToggle.addEventListener("click", () => {
+    const isDarkNow = document.body.classList.toggle("dark-mode");
+    localStorage.setItem("dark-mode", isDarkNow);
+    themeToggle.textContent = isDarkNow ? "☀️ Clair" : "🌙 Sombre";
+  });
+}
+
+/**
+ * Initialise la recherche globale depuis la page d'accueil.
+ */
+function initGlobalSearch() {
+  const searchInput = document.getElementById("global-search");
+  if (!searchInput) return;
+
+  searchInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      const query = searchInput.value.trim().toLowerCase();
+      if (query) {
+        window.location.href = `search-advanced.html?search=${encodeURIComponent(query)}`;
+      }
+    }
   });
 }
 

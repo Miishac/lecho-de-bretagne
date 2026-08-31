@@ -2,7 +2,7 @@
 // Service Worker - L'Écho
 // ========================
 
-const CACHE_NAME = 'lecho-v1';
+const CACHE_NAME = 'lecho-v1.2';
 const urlsToCache = [
   './',
   './index.html',
@@ -10,10 +10,13 @@ const urlsToCache = [
   './Lorraine.html',
   './Carte.html',
   './Archives.html',
+  './Archives-Lorraine.html',
   './About.html',
   './script.js',
+  './journal.css',
   './feed.json',
-  './manifest.json'
+  './manifest.json',
+  './styles-print.css'
 ];
 
 // Installation du Service Worker

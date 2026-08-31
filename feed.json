@@ -15,18 +15,6 @@
   },
   "items": [
     {
-      "id": "article-001",
-      "title": "À quelques heures du départ",
-      "author": "Mishac",
-      "link": "https://lechodebretagne.fr/Bretagne.html#article",
-      "published": "2026-08-31",
-      "updated": "2026-08-31",
-      "summary": "Un regard personnel sur plusieurs années passées au service de la Bretagne. Mishac s'apprête à quitter ses fonctions et prendre la route, porteur de nouvelles ambitions.",
-      "content": "Arriver en Bretagne, c'est franchir les portes d'une nouvelle histoire. Ces terres, moins connues que certaines, n'en demeurent pas moins riches de cultures, de traditions et de rencontres singulières.",
-      "category": ["chronique", "bretagne"],
-      "kingdom": "bretagne"
-    },
-    {
       "id": "article-002",
       "title": "Bienvenue en Lorraine",
       "author": "Chroniqueurs",
@@ -35,7 +23,10 @@
       "updated": "2026-08-31",
       "summary": "Les premières impressions de voyageurs arrivant en terre lorraine. Une nouvelle page de L'Écho s'ouvre avec les récits et rencontres qui naissent de cette contrée.",
       "content": "Les villes lorraines s'organisent selon leurs propres rythmes, leurs propres besoins et leurs propres ambitions. Chacune porte en elle une identité particulière, forgée par les habitants qui y vivent.",
-      "category": ["chronique", "lorraine"],
+      "category": [
+        "chronique",
+        "lorraine"
+      ],
       "kingdom": "lorraine"
     },
     {
@@ -47,7 +38,10 @@
       "updated": "2026-08-31",
       "summary": "Une réflexion sur les départs et l'avenir des villes bretonnes. Comment les terres s'adaptent quand leurs habitants cherchent de nouveaux horizons.",
       "content": "La vie quotidienne, les cités, les métiers et celles et ceux qui font vivre la Bretagne. Les routes, les terres lointaines et les découvertes qui nourriront les prochaines éditions.",
-      "category": ["vie-villes", "bretagne"],
+      "category": [
+        "vie-villes",
+        "bretagne"
+      ],
       "kingdom": "bretagne"
     }
   ],
