@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>L’Écho de Lorraine</title>
+<title>L'Écho de Lorraine</title>
 
 <style>
 *{box-sizing:border-box}
@@ -304,6 +304,34 @@ main{
 }
 
 /* =========================
+   NAVIGATION ARTICLES
+========================= */
+
+.article-nav{
+  max-width:820px;
+  margin:42px auto 0;
+  padding-top:24px;
+  border-top:1px solid var(--ligne);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  text-align:center;
+}
+
+.article-nav a{
+  display:block;
+  color:var(--bordeaux);
+  text-decoration:none;
+  font-size:14px;
+  font-style:italic;
+  padding:10px;
+}
+
+.article-nav a:hover{
+  text-decoration:underline;
+}
+
+/* =========================
    INFORMATIONS
 ========================= */
 
@@ -407,6 +435,10 @@ footer .ornement{
   .article .phrase-forte{
     font-size:18px !important;
   }
+
+  .article-nav{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -420,7 +452,7 @@ footer .ornement{
   </div>
 
   <h1>
-    L’Écho de Lorraine
+    L'Écho de Lorraine
   </h1>
 
   <p>
@@ -465,7 +497,7 @@ footer .ornement{
   </a>
 
   <a href="Bretagne.html">
-    L’Écho de Bretagne
+    L'Écho de Bretagne
   </a>
 
 </nav>
@@ -490,18 +522,18 @@ footer .ornement{
     </div>
 
     <h2>
-      L’Écho ouvre ses pages en Lorraine
+      L'Écho ouvre ses pages en Lorraine
     </h2>
 
     <p class="chapo">
-      Une nouvelle voix rejoint aujourd’hui les terres de Lorraine.
-      L’Écho de Lorraine ouvre ses pages afin de raconter les villes,
+      Une nouvelle voix rejoint aujourd'hui les terres de Lorraine.
+      L'Écho de Lorraine ouvre ses pages afin de raconter les villes,
       les habitants, les événements et les histoires qui façonnent
       cette terre.
     </p>
 
     <a class="button" href="#article">
-      Lire l’article complet →
+      Lire l'article complet →
     </a>
 
   </div>
@@ -510,7 +542,7 @@ footer .ornement{
 
     <img
       src="lorraine.png"
-      alt="Illustration de L’Écho de Lorraine"
+      alt="Illustration de L'Écho de Lorraine"
     >
 
   </div>
@@ -535,7 +567,7 @@ footer .ornement{
     </h2>
 
     <p>
-      Les nouvelles, chroniques et récits de L’Écho de Lorraine
+      Les nouvelles, chroniques et récits de L'Écho de Lorraine
     </p>
 
   </div>
@@ -551,7 +583,7 @@ footer .ornement{
       </div>
 
       <h3>
-        L’Écho arrive en Lorraine
+        L'Écho arrive en Lorraine
       </h3>
 
       <p>
@@ -632,7 +664,7 @@ footer .ornement{
     </h2>
 
     <p>
-      Les différents regards de L’Écho sur les terres lorraines
+      Les différents regards de L'Écho sur les terres lorraines
     </p>
 
   </div>
@@ -653,7 +685,7 @@ footer .ornement{
 
       <p>
         Les histoires personnelles, les témoignages et les événements
-        qui méritent d’être racontés.
+        qui méritent d'être racontés.
       </p>
 
     </article>
@@ -713,26 +745,26 @@ footer .ornement{
     </div>
 
     <h2>
-      L’Écho ouvre ses pages en Lorraine
+      L'Écho ouvre ses pages en Lorraine
     </h2>
 
     <p>
-      L’Écho de Lorraine · Première édition
+      L'Écho de Lorraine · Première édition
     </p>
 
   </div>
 
 
   <p>
-    Une nouvelle voix vient aujourd’hui rejoindre les terres de Lorraine.
-    L’Écho de Lorraine ouvre ses pages avec une ambition simple :
+    Une nouvelle voix vient aujourd'hui rejoindre les terres de Lorraine.
+    L'Écho de Lorraine ouvre ses pages avec une ambition simple :
     raconter ce qui se passe autour de nous et conserver la mémoire
     de celles et ceux qui font vivre ces terres.
   </p>
 
 
   <p>
-    Un journal n’est pas seulement une succession de nouvelles.
+    Un journal n'est pas seulement une succession de nouvelles.
     Il est aussi un témoin de son époque, une manière de regarder
     les événements et de donner une place aux histoires qui pourraient
     autrement disparaître avec le temps.
@@ -742,7 +774,7 @@ footer .ornement{
   <p>
     La Lorraine possède ses villes, ses villages, ses routes,
     ses marchés, ses métiers et ses habitants. Chacun participe,
-    à sa manière, à l’histoire de cette terre.
+    à sa manière, à l'histoire de cette terre.
   </p>
 
 
@@ -753,7 +785,7 @@ footer .ornement{
 
 
   <p>
-    L’Écho de Lorraine cherchera donc à regarder au-delà des grandes
+    L'Écho de Lorraine cherchera donc à regarder au-delà des grandes
     décisions et des événements officiels afin de raconter également
     la vie quotidienne, les rencontres, les voyages et les histoires
     personnelles.
@@ -763,8 +795,8 @@ footer .ornement{
   <p>
     Les temps changent, les hommes voyagent et les frontières
     ne sont jamais complètement immobiles. Les nouvelles venues
-    d’autres terres pourront également trouver leur place dans
-    nos pages lorsqu’elles auront une importance pour nos lecteurs.
+    d'autres terres pourront également trouver leur place dans
+    nos pages lorsqu'elles auront une importance pour nos lecteurs.
   </p>
 
 
@@ -776,7 +808,7 @@ footer .ornement{
 
 
   <p>
-    Cette première édition n’est donc que le début.
+    Cette première édition n'est donc que le début.
   </p>
 
 
@@ -788,10 +820,19 @@ footer .ornement{
 
 
   <p class="phrase-forte">
-    Aujourd’hui, une nouvelle page s’ouvre.
-    À nous désormais de la remplir d’histoires.
+    Aujourd'hui, une nouvelle page s'ouvre.
+    À nous désormais de la remplir d'histoires.
   </p>
 
+  <!-- Navigation entre articles -->
+  <div class="article-nav">
+    <a href="Bretagne.html">
+      ← Retour en Bretagne
+    </a>
+    <a href="#articles">
+      Retour aux articles →
+    </a>
+  </div>
 
 </section>
 
@@ -818,7 +859,7 @@ footer .ornement{
   <div class="paper">
 
     <p>
-      Retrouvez les anciennes éditions de L’Écho de Lorraine
+      Retrouvez les anciennes éditions de L'Écho de Lorraine
       dans les archives du journal.
     </p>
 
@@ -853,7 +894,7 @@ footer .ornement{
   <div class="paper">
 
     <p>
-      L’Écho de Lorraine est un journal libre et indépendant consacré
+      L'Écho de Lorraine est un journal libre et indépendant consacré
       aux terres lorraines, à leurs habitants et aux événements
       qui façonnent leur histoire.
     </p>
@@ -883,7 +924,7 @@ footer .ornement{
   </div>
 
   <p>
-    L’Écho de Lorraine · Journal libre et indépendant
+    L'Écho de Lorraine · Journal libre et indépendant
   </p>
 
   <p>
@@ -893,25 +934,7 @@ footer .ornement{
 </footer>
 
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const mois = [
-      "janvier", "février", "mars", "avril", "mai", "juin",
-      "juillet", "août", "septembre", "octobre", "novembre", "décembre"
-    ];
-
-    const aujourdHui = new Date();
-    const jour = aujourdHui.getDate();
-    const moisActuel = mois[aujourdHui.getMonth()];
-    const anneeRP = 1474;
-
-    const dateTexte = `${jour} ${moisActuel} ${anneeRP}`;
-
-    document.querySelectorAll(".date-rp").forEach(function (element) {
-      element.textContent = dateTexte;
-    });
-  });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
