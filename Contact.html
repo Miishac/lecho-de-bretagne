@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Contact — L'Écho</title>
-<link rel="stylesheet" href="styles-print.css" media="print">
+
 <style>
 *{box-sizing:border-box}
 
@@ -105,6 +105,7 @@ main{
   box-shadow:0 8px 25px rgba(107,87,54,.35);
   padding:28px;
   margin-bottom:28px;
+  text-align:center;
 }
 
 .section-label{
@@ -162,64 +163,6 @@ p{
   background:#4752C4;
 }
 
-.contact-form{
-  max-width:600px;
-  margin:0 auto;
-}
-
-.form-group{
-  margin-bottom:20px;
-}
-
-.form-group label{
-  display:block;
-  font-weight:bold;
-  margin-bottom:8px;
-  font-size:16px;
-}
-
-.form-group input,
-.form-group textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid var(--ligne);
-  background:var(--papier);
-  color:var(--brun);
-  font-family:Georgia, serif;
-  font-size:15px;
-  box-sizing:border-box;
-}
-
-.form-group textarea{
-  resize:vertical;
-  min-height:150px;
-}
-
-.form-group input:focus,
-.form-group textarea:focus{
-  outline:none;
-  border-color:var(--bordeaux);
-  box-shadow:0 0 5px rgba(118,44,39,.2);
-}
-
-.button{
-  display:inline-block;
-  color:var(--papier);
-  background:var(--bordeaux);
-  border:2px solid #51201c;
-  padding:12px 30px;
-  text-decoration:none;
-  font-weight:bold;
-  cursor:pointer;
-  font-size:16px;
-  transition:background 0.2s;
-  margin-top:10px;
-}
-
-.button:hover{
-  background:#54201c;
-}
-
 footer{
   text-align:center;
   padding:35px 15px;
@@ -238,7 +181,7 @@ footer .ornement{
     Rejoignez-nous
   </div>
   <h1>Contact</h1>
-  <p>Discutez avec notre équipe</p>
+  <p>Discutez avec nous</p>
   <div class="edition-date">Éd. du <span class="date-rp"></span></div>
   <div class="ornement">💬</div>
 </header>
@@ -246,8 +189,8 @@ footer .ornement{
 <nav>
   <a href="index.html">← Portail</a>
   <a href="About.html">À propos</a>
-  <a href="Newsletter.html">Newsletter</a>
-  <a href="Tags.html">Tags</a>
+  <a href="Bretagne.html">Bretagne</a>
+  <a href="Lorraine.html">Lorraine</a>
 </nav>
 
 <main>
@@ -256,60 +199,22 @@ footer .ornement{
   <div class="section-label">💬 Nous rejoindre 💬</div>
   <h2>Discutez avec L'Écho</h2>
   <p>
-    L'Écho de Bretagne et Lorraine accueille tous ses lecteurs sur Discord.
+    L'Écho de Bretagne et Lorraine accueille tous ses lecteurs sur Discord
+    et dans le jeu Royaumes Renaissants.
     Vous avez une question? Une histoire à partager? Une chronique à proposer?
-    Rejoignez-nous pour discuter directement avec notre équipe.
+    Rejoignez-nous pour discuter directement.
   </p>
 
   <div class="contact-card">
-    <h3>💬 Rejoindre Discord</h3>
-    <p>Le moyen le plus rapide de nous contacter et de discuter</p>
-    <a href="https://discord.com/users/Matiasu" class="discord-link">Discord — Matiasu →</a>
+    <h3>💬 Me contacter</h3>
+    <p>Le moyen le plus rapide de nous contacter</p>
+    <a href="https://discord.com/users/Matiasu" class="discord-link">💬 Discord — Matiasu →</a>
   </div>
 
   <p style="text-align:center;color:#6f604c;margin-top:25px;">
     ✓ Réponses rapides<br>
-    ✓ Échanges directs avec l'équipe<br>
+    ✓ Échanges directs<br>
     ✓ Propositions de chroniques bienvenues
-  </p>
-</section>
-
-<section class="paper">
-  <div class="section-label">✉ Formulaire ✉</div>
-  <h2>Ou envoyez-nous un message</h2>
-  <p>
-    Vous préférez un formulaire? Remplissez le formulaire ci-dessous
-    et nous vous répondrons dans les meilleurs délais.
-  </p>
-
-  <form class="contact-form" method="POST" action="https://formspree.io/f/xzebdyzk">
-    <div class="form-group">
-      <label for="name">Nom</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-
-    <div class="form-group">
-      <label for="subject">Sujet</label>
-      <input type="text" id="subject" name="subject" placeholder="Chronique, question, proposition..." required>
-    </div>
-
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-    </div>
-
-    <button type="submit" class="button">Envoyer →</button>
-  </form>
-
-  <p style="font-size:14px;color:#6f604c;margin-top:20px;">
-    ✓ Votre message sera envoyé directement à notre équipe<br>
-    ✓ Vos données restent confidentielles<br>
-    ✓ Réponse rapide garantie
   </p>
 </section>
 
