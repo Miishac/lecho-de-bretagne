@@ -1,188 +1,243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carte — L'Écho de Bretagne</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{box-sizing:border-box}
 
-<title>Carte des Royaumes — L'Écho de Bretagne</title>
+:root{
+  --parchemin:#eee1c5;
+  --papier:#f6ecd5;
+  --ocre:#cbb88f;
+  --brun:#2d251c;
+  --brun2:#191510;
+  --bordeaux:#762c27;
+  --or:#a17a38;
+  --ligne:#927d5b;
+}
 
-<link rel="stylesheet" href="style.css">
+body{
+  margin:0;
+  background:var(--ocre);
+  color:var(--brun);
+  font-family:Georgia,"Times New Roman",serif;
+}
 
+header{
+  text-align:center;
+  background:var(--parchemin);
+  padding:28px 15px 20px;
+  border-bottom:7px double #806d50;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+
+header h1{
+  font-size:clamp(46px,9vw,88px);
+  line-height:.95;
+  margin:10px 0 12px;
+  letter-spacing:-2px;
+}
+
+header p{
+  margin:0;
+  font-size:clamp(17px,3vw,24px);
+  font-style:italic;
+  color:#514433;
+}
+
+.edition-date{
+  margin-top:14px;
+  font-size:14px;
+  color:#765f3f;
+  letter-spacing:1px;
+}
+
+.ornement{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  max-width:520px;
+  margin:14px auto 0;
+  color:var(--bordeaux);
+  font-size:13px;
+}
+
+.ornement:before,
+.ornement:after{
+  content:"";
+  height:1px;
+  background:#927d5b;
+  flex:1;
+}
+
+nav{
+  background:var(--brun2);
+  text-align:center;
+  padding:14px 8px;
+  border-bottom:3px solid var(--or);
+}
+
+nav a{
+  color:#eadfc9;
+  text-decoration:none;
+  margin:4px 10px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+  display:inline-block;
+}
+
+nav a:hover{
+  color:#d5ad5b;
+}
+
+main{
+  max-width:1150px;
+  margin:28px auto;
+  padding:0 15px;
+}
+
+.paper{
+  background:var(--papier);
+  border:1px solid var(--ligne);
+  box-shadow:0 8px 25px rgba(107,87,54,.35);
+  padding:28px;
+}
+
+.section-heading{
+  text-align:center;
+  margin:45px 0 20px;
+}
+
+.section-label{
+  color:var(--bordeaux);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.section-heading h2{
+  margin:8px 0;
+  font-size:clamp(30px,5vw,48px);
+}
+
+.section-heading p{
+  margin:0;
+  font-style:italic;
+  color:#6f604c;
+}
+
+.carte-container{
+  width:100%;
+  height:600px;
+  border:1px solid var(--ligne);
+  margin:28px 0;
+  background:#f0f0f0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#999;
+  font-style:italic;
+}
+
+.button{
+  display:inline-block;
+  color:var(--papier);
+  background:var(--bordeaux);
+  border:2px solid #51201c;
+  padding:12px 18px;
+  text-decoration:none;
+  margin-top:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.button:hover{
+  background:#54201c;
+}
+
+footer{
+  text-align:center;
+  padding:35px 15px;
+  color:#5f513e;
+  margin-top:42px;
+}
+
+footer .ornement{
+  margin-bottom:18px;
+}
+
+@media(max-width:600px){
+  .carte-container{
+    height:400px;
+  }
+  main{
+    margin:20px auto;
+    padding:0 10px;
+  }
+  .paper{
+    padding:20px 17px;
+  }
+}
+</style>
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     EN-TÊTE
-========================= -->
-
 <header>
-
-    <div class="petit-titre">
-        L'Écho de Bretagne
-    </div>
-
-    <h1>
-        Carte des Royaumes
-    </h1>
-
-    <p>
-        Le monde connu des Royaumes Renaissants
-    </p>
-
+  <div style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#6f604c;margin-bottom:10px;">Journal libre et indépendant</div>
+  <h1>Carte de Bretagne</h1>
+  <p>Explorer les terres bretonnes</p>
+  <div class="edition-date">Édition du <span class="date-rp"></span></div>
+  <div class="ornement">✦</div>
 </header>
 
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
 <nav>
-
-    <a href="index.html">
-        À LA UNE
-    </a>
-
-    <a href="Archives.html">
-        ARCHIVES
-    </a>
-
-    <a href="Carte.html">
-        CARTE
-    </a>
-
-    <a href="index.html#rubriques">
-        RUBRIQUES
-    </a>
-
-    <a href="index.html#apropos">
-        À PROPOS
-    </a>
-
+  <a href="index.html">← Portail</a>
+  <a href="Bretagne.html">Bretagne</a>
+  <a href="Archives.html">Archives</a>
+  <a href="Lorraine.html">Lorraine</a>
 </nav>
 
+<main>
 
-<!-- =========================
-     INTRODUCTION
-========================= -->
-
-<section class="intro">
-
-    <h2>
-        🗺️ Carte des Royaumes Renaissants
-    </h2>
-
-    <p>
-        Explorez les royaumes, provinces et villes du monde connu.
-    </p>
-
+<section class="section-heading">
+  <div class="section-label">✦ Explorer ✦</div>
+  <h2>Carte interactive de Bretagne</h2>
+  <p>Découvrez les différentes régions et localités bretonnes</p>
 </section>
 
+<section class="paper">
+  <div class="carte-container" id="carteRR">🗺️ Carte interactive Royaumes Renaissants — Bretagne</div>
+  <p>Cette carte interactive vous permet d'explorer les différentes zones de la Bretagne. Utilisez les contrôles pour zoomer, vous déplacer et découvrir les particularités de chaque région.</p>
+  <p>Les villes, routes et lieux importants sont marqués pour vous aider à naviguer dans ces terres. N'hésitez pas à consulter les archives pour découvrir les histoires attachées à chaque localité.</p>
+  <button class="button" onclick="pleinEcran('carteRR')">Plein écran 🖥️</button>
+</section>
 
-<!-- =========================
-     CARTE RK KARTE
-========================= -->
-
-<main class="carte-zone">
-
-    <div class="badge">
-        🗺️ CARTE DES ROYAUMES
-    </div>
-
-    <iframe
-        id="carteRR"
-        class="carte"
-        src="https://rk-map.de/"
-        title="Carte interactive des Royaumes Renaissants"
-        loading="eager"
-        allowfullscreen>
-    </iframe>
+<section style="margin-top:42px;">
+  <div class="section-heading">
+    <div class="section-label">✦ Localités ✦</div>
+    <h2>Principales villes de Bretagne</h2>
+  </div>
+  <div class="paper">
+    <p><strong>Roc'han</strong> — Cité côtière, point de départ pour les aventuriers. Connue pour son port actif et ses opportunités commerciales.</p>
+    <p><strong>Autres localités</strong> — La Bretagne compte nombreuses villes et villages, chacun avec sa propre identité et ses particularités. Explorez la carte pour les découvrir.</p>
+    <p>Plus d'informations disponibles dans les <a href="Archives.html" style="color:var(--bordeaux);font-weight:bold;">archives du journal</a>.</p>
+  </div>
+</section>
 
 </main>
 
-
-<!-- =========================
-     COMMANDES
-========================= -->
-
-<section class="actions">
-
-    <p>
-        La carte est interactive : zoomez, déplacez-vous et
-        utilisez ses différentes couches.
-    </p>
-
-    <button
-        class="bouton"
-        onclick="pleinEcran()">
-
-        ⛶ CARTE PLEIN ÉCRAN
-
-    </button>
-
-
-    <a
-        class="bouton"
-        href="https://rk-map.de/"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        ↗ OUVRIR LA CARTE SEULE
-
-    </a>
-
-</section>
-
-
-<!-- =========================
-     RETOUR
-========================= -->
-
-<div class="retour">
-
-    <a
-        class="bouton"
-        href="index.html">
-
-        ← RETOUR À L'ÉCHO DE BRETAGNE
-
-    </a>
-
-</div>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
-
-    <h2>
-        L'Écho de Bretagne
-    </h2>
-
-    <p>
-        Journal libre et indépendant
-    </p>
-
-    <p>
-        Chroniquer le présent pour ne pas oublier l'histoire.
-    </p>
-
-    <p>
-        © 1474 — L'Écho de Bretagne
-    </p>
-
+  <div class="ornement">✦</div>
+  <p>L'Écho de Bretagne · Journal libre et indépendant</p>
+  <p>Bretagne · 1474</p>
 </footer>
 
-
 <script src="script.js"></script>
-
-
 </body>
-
 </html>

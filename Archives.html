@@ -48,6 +48,31 @@ header p{
   color:#514433;
 }
 
+.edition-date{
+  margin-top:14px;
+  font-size:14px;
+  color:#765f3f;
+  letter-spacing:1px;
+}
+
+.ornement{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  max-width:520px;
+  margin:14px auto 0;
+  color:var(--bordeaux);
+  font-size:13px;
+}
+
+.ornement:before,
+.ornement:after{
+  content:"";
+  height:1px;
+  background:#927d5b;
+  flex:1;
+}
+
 nav{
   background:var(--brun2);
   text-align:center;
@@ -80,17 +105,11 @@ main{
   border:1px solid var(--ligne);
   box-shadow:0 8px 25px rgba(107,87,54,.35);
   padding:28px;
-  margin-bottom:28px;
 }
 
 .section-heading{
   text-align:center;
-  margin:0;
-}
-
-.section-heading h2{
-  margin:8px 0;
-  font-size:clamp(30px,5vw,48px);
+  margin:45px 0 20px;
 }
 
 .section-label{
@@ -101,172 +120,182 @@ main{
   font-weight:bold;
 }
 
-/* FILTRES */
+.section-heading h2{
+  margin:8px 0;
+  font-size:clamp(30px,5vw,48px);
+}
+
+.section-heading p{
+  margin:0;
+  font-style:italic;
+  color:#6f604c;
+}
+
 .filters{
   display:flex;
-  gap:16px;
-  margin-bottom:28px;
+  gap:15px;
+  margin-bottom:25px;
   flex-wrap:wrap;
-  justify-content:center;
 }
 
 .filter-group{
   display:flex;
-  gap:8px;
+  gap:10px;
   align-items:center;
 }
 
 .filter-group label{
   font-weight:bold;
-  color:#514433;
+  font-size:14px;
 }
 
 .filter-group select,
-#search-input{
+.filter-group input{
   padding:8px 12px;
   border:1px solid var(--ligne);
   background:var(--papier);
   color:var(--brun);
-  font-family:Georgia,"Times New Roman",serif;
+  font-family:Georgia, serif;
+}
+
+.filter-group input[type="text"]{
+  width:200px;
+}
+
+.filter-group select{
+  min-width:150px;
   cursor:pointer;
 }
 
-#search-input{
-  flex:1;
-  min-width:250px;
-}
-
-/* TIMELINE */
 .timeline{
   position:relative;
   padding:20px 0;
 }
 
-.timeline-item{
-  margin-bottom:32px;
-  padding-left:40px;
-  position:relative;
-}
-
-.timeline-item:before{
+.timeline:before{
   content:"";
   position:absolute;
-  left:0;
+  left:20px;
   top:0;
-  width:16px;
-  height:16px;
-  background:var(--bordeaux);
-  border:3px solid var(--papier);
-  border-radius:50%;
-  box-shadow:0 0 0 2px var(--ligne);
-}
-
-.timeline-item:after{
-  content:"";
-  position:absolute;
-  left:7px;
-  top:16px;
+  bottom:0;
   width:2px;
-  height:100%;
   background:var(--ligne);
 }
 
-.timeline-item:last-child:after{
-  display:none;
+.article-item{
+  margin-bottom:30px;
+  margin-left:70px;
+  position:relative;
 }
 
-.timeline-date{
-  font-weight:bold;
-  color:var(--bordeaux);
-  font-size:14px;
-  margin-bottom:4px;
+.article-item:before{
+  content:"";
+  position:absolute;
+  left:-54px;
+  top:5px;
+  width:14px;
+  height:14px;
+  background:var(--bordeaux);
+  border:3px solid var(--papier);
+  border-radius:50%;
 }
 
-.timeline-title{
-  font-size:18px;
+.article-item-date{
+  font-size:13px;
+  color:#6f604c;
   font-weight:bold;
-  margin:8px 0;
+  margin-bottom:5px;
+}
+
+.article-item-title{
+  font-size:22px;
   color:var(--brun);
+  margin:8px 0;
+  font-weight:bold;
 }
 
-.timeline-meta{
+.article-item-meta{
   font-size:13px;
   color:#6f604c;
   font-style:italic;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
-.timeline-excerpt{
+.article-item-excerpt{
   font-size:15px;
-  line-height:1.6;
+  line-height:1.7;
   color:var(--brun);
-  margin-bottom:12px;
 }
 
-.timeline-excerpt a{
+.article-item-link{
+  display:inline-block;
   color:var(--bordeaux);
   text-decoration:none;
   font-weight:bold;
+  margin-top:10px;
 }
 
-.timeline-excerpt a:hover{
+.article-item-link:hover{
   text-decoration:underline;
 }
 
-.article-item{
-  background:var(--papier);
-  border:1px solid var(--ligne);
-  padding:21px;
-}
-
-.article-item .badge{
-  display:inline-block;
-  background:var(--bordeaux);
-  color:var(--papier);
-  padding:3px 8px;
-  font-size:11px;
-  margin-right:8px;
+.no-results{
+  text-align:center;
+  padding:40px 20px;
+  color:#6f604c;
+  font-style:italic;
 }
 
 footer{
   text-align:center;
   padding:35px 15px;
   color:#5f513e;
+  margin-top:42px;
 }
 
 footer .ornement{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  max-width:520px;
-  margin:14px auto 0;
-  color:var(--bordeaux);
-  font-size:13px;
-  justify-content:center;
   margin-bottom:18px;
 }
 
-footer .ornement:before,
-footer .ornement:after{
-  content:"";
-  height:1px;
-  background:#927d5b;
-  flex:1;
-}
-
-@media(max-width:600px){
-  main{
-    padding:0 10px;
-  }
+@media(max-width:800px){
   .filters{
     flex-direction:column;
+    gap:10px;
   }
   .filter-group{
     flex-direction:column;
+    align-items:flex-start;
+  }
+  .filter-group input[type="text"]{
     width:100%;
   }
-  #search-input{
-    width:100%;
+  .article-item{
+    margin-left:40px;
+  }
+  .article-item:before{
+    left:-24px;
+  }
+}
+
+@media(max-width:600px){
+  .timeline:before{
+    left:10px;
+  }
+  .article-item{
+    margin-left:35px;
+  }
+  .article-item:before{
+    left:-20px;
+  }
+  main{
+    margin:20px auto;
+    padding:0 10px;
+  }
+  .paper{
+    padding:20px 17px;
+  }
+  .article-item-title{
+    font-size:18px;
   }
 }
 </style>
@@ -275,75 +304,98 @@ footer .ornement:after{
 <body>
 
 <header>
-  <div class="masthead-kicker">L'Écho de Bretagne</div>
+  <div style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#6f604c;margin-bottom:10px;">Journal libre et indépendant</div>
   <h1>Archives</h1>
-  <p>La mémoire du journal</p>
+  <p>La mémoire de L'Écho de Bretagne</p>
+  <div class="edition-date">Édition du <span class="date-rp"></span></div>
+  <div class="ornement">✦</div>
 </header>
 
 <nav>
   <a href="index.html">← Portail</a>
-  <a href="Bretagne.html#articles">Articles</a>
-  <a href="Archives.html">Archives</a>
-  <a href="Lorraine.html">L'Écho de Lorraine</a>
+  <a href="Bretagne.html">Bretagne</a>
+  <a href="Carte.html">Carte</a>
+  <a href="Lorraine.html">Lorraine</a>
 </nav>
 
 <main>
 
-<div class="paper">
-  <div class="section-heading">
-    <div class="section-label">✦ La mémoire du journal ✦</div>
-    <h2>Archives de Bretagne</h2>
-    <p>Explorez tous les articles publiés en Bretagne</p>
-  </div>
-</div>
+<section class="section-heading">
+  <div class="section-label">✦ La mémoire du journal ✦</div>
+  <h2>Archives de Bretagne</h2>
+  <p>Parcourez l'histoire de L'Écho de Bretagne à travers les éditions passées</p>
+</section>
 
-<!-- FILTRES & RECHERCHE -->
-<div class="paper filters">
-  <input 
-    type="text" 
-    id="search-input" 
-    placeholder="Rechercher un article..."
-  >
-  <div class="filter-group">
-    <label for="filter-type">Type:</label>
-    <select id="filter-type" onchange="filterArticles('type', this.value)">
-      <option value="all">Tous</option>
-      <option value="chronique">Chronique</option>
-      <option value="actualite">Actualité</option>
-      <option value="vie-villes">Vie des villes</option>
-      <option value="voyage">Voyage</option>
-    </select>
-  </div>
-</div>
+<section class="paper">
 
-<!-- TIMELINE -->
-<div class="paper">
-  <div class="timeline" id="articles-list">
-    
-    <!-- ARTICLE 1 -->
-    <div class="timeline-item article-item" data-type="chronique">
-      <div class="timeline-date">31 août 1474</div>
-      <div class="timeline-title">À quelques heures du départ</div>
-      <div class="timeline-meta">
-        <span class="badge">Chronique</span>
-        Par Mishac · L'Écho de Bretagne
-      </div>
-      <div class="timeline-excerpt">
-        Un regard personnel sur plusieurs années passées au service de la Bretagne.
-        Mishac s'apprête à quitter Roc'han pour un voyage en Lorraine...
-        <a href="Bretagne.html#article">Lire →</a>
-      </div>
+  <div class="filters">
+    <div class="filter-group">
+      <label>🔍 Rechercher :</label>
+      <input type="text" id="search-input" placeholder="Titre, auteur, contenu...">
     </div>
-
+    <div class="filter-group">
+      <label>📂 Type :</label>
+      <select onchange="filterArticles('type', this.value)">
+        <option value="all">Tous les types</option>
+        <option value="chronique">Chroniques</option>
+        <option value="vie-villes">Vie des villes</option>
+        <option value="voyage">Voyages</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>🗣️ Auteur :</label>
+      <select onchange="filterArticles('auteur', this.value)">
+        <option value="all">Tous les auteurs</option>
+        <option value="Mishac">Mishac</option>
+        <option value="Chroniqueurs">Chroniqueurs</option>
+      </select>
+    </div>
   </div>
-</div>
+
+  <div class="timeline" id="articles-list">
+    <div class="article-item" data-type="chronique" data-auteur="Mishac" data-royaume="Bretagne">
+      <div class="article-item-date">31 août 1474</div>
+      <div class="article-item-title">À quelques heures du départ</div>
+      <div class="article-item-meta">Par Mishac • Chronique</div>
+      <div class="article-item-excerpt">Un regard personnel sur plusieurs années passées au service de la Bretagne. Mishac s'apprête à quitter ses fonctions et prendre la route, porteur de nouvelles ambitions.</div>
+      <a href="Bretagne.html#article" class="article-item-link">Lire l'article complet →</a>
+    </div>
+    <div class="article-item" data-type="chronique" data-auteur="Chroniqueurs" data-royaume="Bretagne">
+      <div class="article-item-date">31 août 1474</div>
+      <div class="article-item-title">Bienvenue en Lorraine</div>
+      <div class="article-item-meta">Par Chroniqueurs • Chronique</div>
+      <div class="article-item-excerpt">Les premières impressions de voyageurs arrivant en terre lorraine. Une nouvelle page de L'Écho s'ouvre avec les récits et rencontres qui naissent de cette contrée.</div>
+      <a href="Lorraine.html#article" class="article-item-link">Lire l'article complet →</a>
+    </div>
+    <div class="article-item" data-type="vie-villes" data-auteur="Chroniqueurs" data-royaume="Bretagne">
+      <div class="article-item-date">31 août 1474</div>
+      <div class="article-item-title">Quand les Bretons commencent à partir</div>
+      <div class="article-item-meta">Par L'Écho de Bretagne • Vie des villes</div>
+      <div class="article-item-excerpt">Une réflexion sur les départs et l'avenir des villes bretonnes. Comment les terres s'adaptent quand leurs habitants cherchent de nouveaux horizons.</div>
+      <a href="Bretagne.html#articles" class="article-item-link">Bientôt disponible →</a>
+    </div>
+  </div>
+
+  <div class="no-results" id="no-results" style="display:none;">Aucun article ne correspond à votre recherche.</div>
+
+</section>
+
+<section style="margin-top:42px;">
+  <div class="section-heading">
+    <div class="section-label">✦ À propos des archives ✦</div>
+    <h2>Comment naviguer</h2>
+  </div>
+  <div class="paper">
+    <p><strong>Recherche :</strong> Entrez un mot-clé pour chercher dans les titres, auteurs et contenus.</p>
+    <p><strong>Filtres :</strong> Utilisez les menus déroulants pour filtrer par type d'article ou auteur. Vous pouvez combiner plusieurs filtres.</p>
+    <p><strong>Timeline :</strong> Les articles sont affichés en ordre chronologique inversé (les plus récents d'abord). Cliquez sur "Lire l'article complet" pour accéder au contenu détaillé.</p>
+  </div>
+</section>
 
 </main>
 
 <footer>
-  <div class="ornement">
-    ✦
-  </div>
+  <div class="ornement">✦</div>
   <p>L'Écho de Bretagne · Journal libre et indépendant</p>
   <p>Bretagne · 1474</p>
 </footer>
@@ -353,7 +405,43 @@ footer .ornement:after{
   document.addEventListener("DOMContentLoaded", function() {
     initSearch("articles-list");
   });
+const originalInitSearch = initSearch;
+initSearch = function(containerId = "articles-list") {
+  originalInitSearch(containerId);
+  const searchInput = document.getElementById("search-input");
+  const container = document.getElementById(containerId);
+  const noResults = document.getElementById("no-results");
+  if (!searchInput || !container) return;
+  function updateNoResults() {
+    const articles = container.querySelectorAll(".article-item");
+    let visibleCount = 0;
+    articles.forEach(article => {
+      if (article.style.display !== "none") visibleCount++;
+    });
+    noResults.style.display = visibleCount === 0 ? "block" : "none";
+  }
+  searchInput.addEventListener("input", function() {
+    const query = this.value.toLowerCase();
+    const articles = container.querySelectorAll(".article-item");
+    articles.forEach(article => {
+      const text = article.textContent.toLowerCase();
+      article.style.display = text.includes(query) ? "block" : "none";
+    });
+    updateNoResults();
+  });
+};
+const originalFilterArticles = filterArticles;
+filterArticles = function(filterType, filterValue) {
+  originalFilterArticles(filterType, filterValue);
+  const container = document.getElementById("articles-list");
+  const noResults = document.getElementById("no-results");
+  const articles = container.querySelectorAll(".article-item");
+  let visibleCount = 0;
+  articles.forEach(article => {
+    if (article.style.display !== "none") visibleCount++;
+  });
+  noResults.style.display = visibleCount === 0 ? "block" : "none";
+};
 </script>
-
 </body>
 </html>

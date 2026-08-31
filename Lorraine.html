@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>L'Écho de Lorraine</title>
 
 <style>
@@ -27,23 +26,12 @@ body{
   font-family:Georgia,"Times New Roman",serif;
 }
 
-/* =========================
-   EN-TÊTE
-========================= */
-
 header{
   text-align:center;
   background:var(--parchemin);
   padding:28px 15px 20px;
   border-bottom:7px double #806d50;
   box-shadow:0 3px 12px rgba(0,0,0,.18);
-}
-
-.masthead-kicker{
-  font-size:12px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  color:#6f604c;
 }
 
 header h1{
@@ -85,10 +73,6 @@ header p{
   flex:1;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
-
 nav{
   background:var(--brun2);
   text-align:center;
@@ -110,10 +94,6 @@ nav a:hover{
   color:#d5ad5b;
 }
 
-/* =========================
-   CONTENU
-========================= */
-
 main{
   max-width:1150px;
   margin:28px auto;
@@ -126,10 +106,6 @@ main{
   box-shadow:0 8px 25px rgba(107,87,54,.35);
   padding:28px;
 }
-
-/* =========================
-   UNE PRINCIPALE
-========================= */
 
 .hero{
   display:grid;
@@ -173,10 +149,6 @@ main{
   box-shadow:0 4px 14px rgba(0,0,0,.22);
 }
 
-/* =========================
-   BOUTONS
-========================= */
-
 .button{
   display:inline-block;
   color:var(--papier);
@@ -191,10 +163,6 @@ main{
 .button:hover{
   background:#54201c;
 }
-
-/* =========================
-   SECTIONS
-========================= */
 
 .section-heading{
   text-align:center;
@@ -211,10 +179,6 @@ main{
   font-style:italic;
   color:#6f604c;
 }
-
-/* =========================
-   CARTES D'ARTICLES
-========================= */
 
 .cards{
   display:grid;
@@ -259,10 +223,6 @@ main{
   text-decoration:underline;
 }
 
-/* =========================
-   ARTICLE
-========================= */
-
 .article{
   margin-top:42px;
 }
@@ -303,10 +263,6 @@ main{
   font-style:italic;
 }
 
-/* =========================
-   NAVIGATION ARTICLES
-========================= */
-
 .article-nav{
   max-width:820px;
   margin:42px auto 0;
@@ -331,10 +287,6 @@ main{
   text-decoration:underline;
 }
 
-/* =========================
-   INFORMATIONS
-========================= */
-
 .info-section{
   margin-top:42px;
 }
@@ -349,10 +301,6 @@ main{
   line-height:1.8;
 }
 
-/* =========================
-   PIED DE PAGE
-========================= */
-
 footer{
   text-align:center;
   padding:35px 15px;
@@ -363,79 +311,59 @@ footer .ornement{
   margin-bottom:18px;
 }
 
-/* =========================
-   MOBILE
-========================= */
-
 @media(max-width:800px){
-
   .hero{
     grid-template-columns:1fr;
   }
-
   .hero-copy{
     order:1;
   }
-
   .hero img{
     order:2;
   }
-
   .cards{
     grid-template-columns:1fr;
   }
 }
 
 @media(max-width:600px){
-
   header{
     padding:24px 12px 18px;
   }
-
   header h1{
     font-size:48px;
     letter-spacing:-1px;
   }
-
   header p{
     font-size:17px;
   }
-
   nav{
     padding:11px 5px;
   }
-
   nav a{
     margin:3px 5px;
     font-size:11px;
   }
-
   main{
     margin:20px auto;
     padding:0 10px;
   }
-
   .paper{
     padding:20px 17px;
   }
-
   .hero-copy h2{
     font-size:38px;
   }
-
   .hero-copy .chapo{
     font-size:17px;
   }
-
   .article p{
     font-size:17px;
     line-height:1.8;
   }
-
   .article .phrase-forte{
     font-size:18px !important;
   }
-
   .article-nav{
     grid-template-columns:1fr;
   }
@@ -446,495 +374,143 @@ footer .ornement{
 <body>
 
 <header>
-
-  <div class="masthead-kicker">
+  <div class="masthead-kicker" style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#6f604c;margin-bottom:10px;">
     Journal libre et indépendant
   </div>
-
-  <h1>
-    L'Écho de Lorraine
-  </h1>
-
-  <p>
-    Chroniques, nouvelles et regards sur les terres lorraines
-  </p>
-
-  <div class="edition-date">
-    Édition du <span class="date-rp"></span>
-  </div>
-
-  <div class="ornement">
-    ✦
-  </div>
-
+  <h1>L'Écho de Lorraine</h1>
+  <p>Chroniques, nouvelles et regards sur les terres de Lorraine</p>
+  <div class="edition-date">Édition du <span class="date-rp"></span></div>
+  <div class="ornement">✦</div>
 </header>
 
-
 <nav>
-
-  <a href="index.html">
-    ← Portail
-  </a>
-
-  <a href="#articles">
-    Articles
-  </a>
-
-  <a href="#rubriques">
-    Rubriques
-  </a>
-
-  <a href="Archives-Lorraine.html">
-    Archives
-  </a>
-
-  <a href="Carte-Lorraine.html">
-    Carte
-  </a>
-
-  <a href="#apropos">
-    À propos
-  </a>
-
-  <a href="Bretagne.html">
-    L'Écho de Bretagne
-  </a>
-
+  <a href="index.html">← Portail</a>
+  <a href="#articles">Articles</a>
+  <a href="#rubriques">Rubriques</a>
+  <a href="Archives-Lorraine.html">Archives</a>
+  <a href="Carte-Lorraine.html">Carte</a>
+  <a href="#apropos">À propos</a>
+  <a href="Bretagne.html">L'Écho de Bretagne</a>
 </nav>
-
 
 <main>
 
-<!-- =========================
-     UNE
-========================= -->
-
 <section class="paper hero" id="une">
-
   <div class="hero-copy">
-
-    <div class="special-label">
-      Première édition
-    </div>
-
-    <div class="meta">
-      <span class="date-rp"></span> · Actualités
-    </div>
-
-    <h2>
-      L'Écho ouvre ses pages en Lorraine
-    </h2>
-
-    <p class="chapo">
-      Une nouvelle voix rejoint aujourd'hui les terres de Lorraine.
-      L'Écho de Lorraine ouvre ses pages afin de raconter les villes,
-      les habitants, les événements et les histoires qui façonnent
-      cette terre.
-    </p>
-
-    <a class="button" href="#article">
-      Lire l'article complet →
-    </a>
-
+    <div class="special-label">Édition spéciale</div>
+    <div class="meta"><span class="date-rp"></span> · Chronique</div>
+    <h2>Bienvenue en Lorraine</h2>
+    <p class="chapo">Les premiers pas dans les terres de Lorraine marquent souvent le début d'une nouvelle aventure. Découvrez comment s'organisent ces terres et les histoires qui les façonnent.</p>
+    <a class="button" href="#article">Lire l'article complet →</a>
   </div>
-
   <div>
-
-    <img
-      src="lorraine.png"
-      alt="Illustration de L'Écho de Lorraine"
-    >
-
+    <img src="article-lorraine.png" alt="Illustration de L'Écho de Lorraine">
   </div>
-
 </section>
-
-
-<!-- =========================
-     ARTICLES
-========================= -->
 
 <section id="articles">
-
   <div class="section-heading">
-
-    <div class="section-label">
-      ✦ La vie du journal ✦
-    </div>
-
-    <h2>
-      Derniers articles
-    </h2>
-
-    <p>
-      Les nouvelles, chroniques et récits de L'Écho de Lorraine
-    </p>
-
+    <div class="section-label">✦ La vie du journal ✦</div>
+    <h2>Derniers articles</h2>
+    <p>Les nouvelles, chroniques et récits de L'Écho de Lorraine</p>
   </div>
-
-
   <div class="cards">
-
-
     <article class="card">
-
-      <div class="section-label">
-        Actualités
-      </div>
-
-      <h3>
-        L'Écho arrive en Lorraine
-      </h3>
-
-      <p>
-        Une nouvelle publication voit le jour et souhaite donner
-        une voix aux habitants et aux événements des terres lorraines.
-      </p>
-
-      <a href="#article">
-        Lire →
-      </a>
-
+      <div class="section-label">Chronique</div>
+      <h3>Bienvenue en Lorraine</h3>
+      <p>Les premières impressions de voyageurs arrivant en terre lorraine. Une nouvelle page de L'Écho s'ouvre.</p>
+      <a href="#article">Lire →</a>
     </article>
-
-
     <article class="card">
-
-      <div class="section-label">
-        Vie des villes
-      </div>
-
-      <h3>
-        Les cités de Lorraine
-      </h3>
-
-      <p>
-        Villes, villages, métiers et habitants : découverte
-        de celles et ceux qui font vivre les terres lorraines.
-      </p>
-
-      <a href="#articles">
-        Bientôt disponible
-      </a>
-
+      <div class="section-label">Vie lorraine</div>
+      <h3>L'organisation des terres</h3>
+      <p>Comment s'organisent les villes et communautés de Lorraine. Les structures, les rencontres, les traditions locales.</p>
+      <a href="#articles">Bientôt disponible</a>
     </article>
-
-
     <article class="card">
-
-      <div class="section-label">
-        À venir
-      </div>
-
-      <h3>
-        Sur les routes de Lorraine
-      </h3>
-
-      <p>
-        Les chemins, les rencontres et les nouvelles histoires
-        qui viendront nourrir les prochaines éditions.
-      </p>
-
-      <a href="#articles">
-        À suivre
-      </a>
-
+      <div class="section-label">À venir</div>
+      <h3>Les routes de Lorraine</h3>
+      <p>Explorez les chemins qui sillonnent les terres lorraines et les destinations qui les relient.</p>
+      <a href="#articles">À suivre</a>
     </article>
-
-
   </div>
-
 </section>
-
-
-<!-- =========================
-     RUBRIQUES
-========================= -->
 
 <section id="rubriques">
-
   <div class="section-heading">
-
-    <div class="section-label">
-      ✦ Les pages du journal ✦
-    </div>
-
-    <h2>
-      Rubriques
-    </h2>
-
-    <p>
-      Les différents regards de L'Écho sur les terres lorraines
-    </p>
-
+    <div class="section-label">✦ Les pages du journal ✦</div>
+    <h2>Rubriques</h2>
+    <p>Les différents regards de L'Écho sur le monde</p>
   </div>
-
-
   <div class="cards">
-
-
     <article class="card">
-
-      <div class="section-label">
-        Chroniques
-      </div>
-
-      <h3>
-        Récits et témoignages
-      </h3>
-
-      <p>
-        Les histoires personnelles, les témoignages et les événements
-        qui méritent d'être racontés.
-      </p>
-
+      <div class="section-label">Chroniques</div>
+      <h3>Récits et témoignages</h3>
+      <p>Les histoires personnelles et les événements qui méritent d'être racontés.</p>
     </article>
-
-
     <article class="card">
-
-      <div class="section-label">
-        Vie lorraine
-      </div>
-
-      <h3>
-        Villes et habitants
-      </h3>
-
-      <p>
-        La vie quotidienne, les cités, les métiers et celles
-        et ceux qui font vivre la Lorraine.
-      </p>
-
+      <div class="section-label">Vie lorraine</div>
+      <h3>Villes et habitants</h3>
+      <p>La vie quotidienne, les cités, les métiers et celles et ceux qui font vivre la Lorraine.</p>
     </article>
-
-
     <article class="card">
-
-      <div class="section-label">
-        Voyages
-      </div>
-
-      <h3>
-        Routes et frontières
-      </h3>
-
-      <p>
-        Les routes, les terres voisines, les voyageurs et
-        les découvertes qui façonnent le monde lorrain.
-      </p>
-
+      <div class="section-label">Voyages</div>
+      <h3>Au-delà des frontières</h3>
+      <p>Les routes, les terres lointaines et les découvertes qui nourriront les prochaines éditions.</p>
     </article>
-
-
   </div>
-
 </section>
-
-
-<!-- =========================
-     ARTICLE
-========================= -->
 
 <section id="article" class="paper article">
-
   <div class="article-head">
-
-    <div class="section-label">
-      Première édition · <span class="date-rp"></span>
-    </div>
-
-    <h2>
-      L'Écho ouvre ses pages en Lorraine
-    </h2>
-
-    <p>
-      L'Écho de Lorraine · Première édition
-    </p>
-
+    <div class="section-label">Édition spéciale · <span class="date-rp"></span></div>
+    <h2>Bienvenue en Lorraine</h2>
+    <p>Par L'Écho · L'Écho de Lorraine</p>
   </div>
-
-
-  <p>
-    Une nouvelle voix vient aujourd'hui rejoindre les terres de Lorraine.
-    L'Écho de Lorraine ouvre ses pages avec une ambition simple :
-    raconter ce qui se passe autour de nous et conserver la mémoire
-    de celles et ceux qui font vivre ces terres.
-  </p>
-
-
-  <p>
-    Un journal n'est pas seulement une succession de nouvelles.
-    Il est aussi un témoin de son époque, une manière de regarder
-    les événements et de donner une place aux histoires qui pourraient
-    autrement disparaître avec le temps.
-  </p>
-
-
-  <p>
-    La Lorraine possède ses villes, ses villages, ses routes,
-    ses marchés, ses métiers et ses habitants. Chacun participe,
-    à sa manière, à l'histoire de cette terre.
-  </p>
-
-
-  <p class="phrase-forte">
-    Une terre ne se raconte pas seulement par ses frontières,
-    mais par les femmes et les hommes qui la font vivre.
-  </p>
-
-
-  <p>
-    L'Écho de Lorraine cherchera donc à regarder au-delà des grandes
-    décisions et des événements officiels afin de raconter également
-    la vie quotidienne, les rencontres, les voyages et les histoires
-    personnelles.
-  </p>
-
-
-  <p>
-    Les temps changent, les hommes voyagent et les frontières
-    ne sont jamais complètement immobiles. Les nouvelles venues
-    d'autres terres pourront également trouver leur place dans
-    nos pages lorsqu'elles auront une importance pour nos lecteurs.
-  </p>
-
-
-  <p>
-    Notre journal entend rester libre et indépendant, avec la volonté
-    de raconter les faits avec sérieux tout en laissant une place
-    aux témoignages et aux regards personnels.
-  </p>
-
-
-  <p>
-    Cette première édition n'est donc que le début.
-  </p>
-
-
-  <p>
-    Au fil des jours, de nouvelles chroniques viendront compléter
-    ces pages. Des villes seront découvertes, des personnages
-    rencontrés et des événements racontés.
-  </p>
-
-
-  <p class="phrase-forte">
-    Aujourd'hui, une nouvelle page s'ouvre.
-    À nous désormais de la remplir d'histoires.
-  </p>
-
-  <!-- Navigation entre articles -->
+  <p>Arriver en Lorraine, c'est franchir les portes d'une nouvelle histoire. Ces terres, moins connues que certaines, n'en demeurent pas moins riches de cultures, de traditions et de rencontres singulières.</p>
+  <p>Les villes lorraines s'organisent selon leurs propres rythmes, leurs propres besoins et leurs propres ambitions. Chacune porte en elle une identité particulière, forgée par les habitants qui y vivent.</p>
+  <p>Contrairement à certaines idées reçues, la Lorraine n'est pas une terre figée dans le passé. C'est un espace vivant, en constante évolution, où se rencontrent traditions et modernité.</p>
+  <p class="phrase-forte">La Lorraine, c'est aussi une terre d'accueil. Ceux qui y arrivent découvrent souvent des communautés bienveillantes et des espaces d'opportunité.</p>
+  <p>Les premières impressions peuvent être trompeuses. Il faut du temps pour vraiment comprendre une région, pour saisir les subtilités de son fonctionnement et les raisons qui poussent ses habitants à agir comme ils le font.</p>
+  <p>Mais une chose est certaine : ceux qui prennent le temps de vraiment regarder et d'écouter trouvent dans ces terres une richesse insoupçonnée.</p>
+  <p class="phrase-forte">La Lorraine attend ceux qui sont prêts à la découvrir, sans préjugés, avec curiosité et respect.</p>
+  <p>L'Écho de Lorraine espère, au fil des éditions, raconter cette richesse, ces histoires et ces rencontres qui font la véritable identité de ces terres.</p>
   <div class="article-nav">
-    <a href="Bretagne.html">
-      ← Retour en Bretagne
-    </a>
-    <a href="#articles">
-      Retour aux articles →
-    </a>
+    <a href="Bretagne.html">← Nouvelles de Bretagne</a>
+    <a href="#articles">Retour aux articles →</a>
   </div>
-
 </section>
-
-
-<!-- =========================
-     ARCHIVES
-========================= -->
 
 <section id="archives" class="info-section">
-
   <div class="section-heading">
-
-    <div class="section-label">
-      ✦ La mémoire du journal ✦
-    </div>
-
-    <h2>
-      Archives
-    </h2>
-
+    <div class="section-label">✦ La mémoire du journal ✦</div>
+    <h2>Archives</h2>
   </div>
-
-
   <div class="paper">
-
-    <p>
-      Retrouvez les anciennes éditions de L'Écho de Lorraine
-      dans les archives du journal.
-    </p>
-
-    <a class="button" href="Archives-Lorraine.html">
-      Consulter les archives →
-    </a>
-
+    <p>Retrouvez les anciennes éditions de L'Écho de Lorraine dans les archives du journal.</p>
+    <a class="button" href="Archives-Lorraine.html">Consulter les archives →</a>
   </div>
-
 </section>
-
-
-<!-- =========================
-     À PROPOS
-========================= -->
 
 <section id="apropos" class="info-section">
-
   <div class="section-heading">
-
-    <div class="section-label">
-      ✦ Le journal ✦
-    </div>
-
-    <h2>
-      À propos
-    </h2>
-
+    <div class="section-label">✦ Le journal ✦</div>
+    <h2>À propos</h2>
   </div>
-
-
   <div class="paper">
-
-    <p>
-      L'Écho de Lorraine est un journal libre et indépendant consacré
-      aux terres lorraines, à leurs habitants et aux événements
-      qui façonnent leur histoire.
-    </p>
-
-    <p>
-      Chroniques, récits, témoignages et actualités trouveront
-      leur place dans ses pages afin de conserver une trace
-      de la vie de la Lorraine en cette année 1474.
-    </p>
-
+    <p>L'Écho de Lorraine est un journal libre et indépendant consacré à la vie des terres lorraines, à leurs habitants et aux histoires qui méritent d'être conservées.</p>
+    <p>Chroniques, récits, témoignages et événements trouvent ici leur place afin de garder une trace de la vie de Lorraine et de ceux qui la font vivre.</p>
   </div>
-
 </section>
-
 
 </main>
 
-
-<!-- =========================
-     PIED DE PAGE
-========================= -->
-
 <footer>
-
-  <div class="ornement">
-    ✦
-  </div>
-
-  <p>
-    L'Écho de Lorraine · Journal libre et indépendant
-  </p>
-
-  <p>
-    Lorraine · 1474
-  </p>
-
+  <div class="ornement">✦</div>
+  <p>L'Écho de Lorraine · Journal libre et indépendant</p>
+  <p>Lorraine · 1474</p>
 </footer>
 
-
 <script src="script.js"></script>
-
 </body>
 </html>
