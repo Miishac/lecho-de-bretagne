@@ -29,11 +29,16 @@ function initDateRP() {
 }
 
 /**
- * Active le plein écran sur les iframes (cartes)
+ * Active le plein écran sur une iframe (carte)
  */
-function enableFullscreen(iframeSelector) {
-  const iframe = document.querySelector(iframeSelector);
-  if (iframe) {
-    iframe.setAttribute("allowfullscreen", "true");
+function pleinEcran(iframeId = "carteRR") {
+  const carte = document.getElementById(iframeId);
+
+  if (!carte) return;
+
+  if (carte.requestFullscreen) {
+    carte.requestFullscreen();
+  } else if (carte.webkitRequestFullscreen) {
+    carte.webkitRequestFullscreen();
   }
 }
