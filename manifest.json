@@ -1,0 +1,63 @@
+{
+  "name": "L'Écho de Bretagne et Lorraine",
+  "short_name": "L'Écho",
+  "description": "Journal libre et indépendant des Royaumes Renaissants",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#cbb88f",
+  "theme_color": "#762c27",
+  "orientation": "portrait-primary",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%23cbb88f' width='192' height='192'/><text x='50%' y='50%' font-size='120' font-family='Georgia' fill='%23762c27' text-anchor='middle' dominant-baseline='middle'>L</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%23cbb88f' width='512' height='512'/><text x='50%' y='50%' font-size='360' font-family='Georgia' fill='%23762c27' text-anchor='middle' dominant-baseline='middle'>L</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect fill='%23eee1c5' width='540' height='720'/><text x='270' y='100' font-size='60' font-family='Georgia' fill='%23762c27' text-anchor='middle'>L'Écho</text><text x='270' y='200' font-size='30' font-family='Georgia' fill='%236f604c' text-anchor='middle'>Journal libre</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720'><rect fill='%23eee1c5' width='1280' height='720'/><text x='640' y='150' font-size='80' font-family='Georgia' fill='%23762c27' text-anchor='middle'>L'Écho</text><text x='640' y='250' font-size='40' font-family='Georgia' fill='%236f604c' text-anchor='middle'>Chroniques de Bretagne et Lorraine</text></svg>",
+      "sizes": "1280x720",
+      "type": "image/svg+xml",
+      "form_factor": "wide"
+    }
+  ],
+  "categories": ["news", "lifestyle"],
+  "shortcuts": [
+    {
+      "name": "Bretagne",
+      "short_name": "Bretagne",
+      "description": "L'Écho de Bretagne",
+      "url": "./Bretagne.html",
+      "icons": []
+    },
+    {
+      "name": "Lorraine",
+      "short_name": "Lorraine",
+      "description": "L'Écho de Lorraine",
+      "url": "./Lorraine.html",
+      "icons": []
+    },
+    {
+      "name": "Archives",
+      "short_name": "Archives",
+      "description": "Archives de L'Écho",
+      "url": "./Archives.html",
+      "icons": []
+    }
+  ]
+}

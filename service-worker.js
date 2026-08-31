@@ -1,36 +1,31 @@
-// Service Worker - L'Écho de Bretagne et Lorraine
-// Permet le fonctionnement hors ligne et met en cache les ressources
+// ========================
+// Service Worker - L'Écho
+// ========================
 
-const CACHE_NAME = 'echo-v1';
+const CACHE_NAME = 'lecho-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/Bretagne.html',
-  '/Lorraine.html',
-  '/Archives.html',
-  '/Archives-Lorraine.html',
-  '/Carte.html',
-  '/Carte-Lorraine.html',
-  '/Galerie.html',
-  '/article-template.html',
-  '/style.css',
-  '/script.js',
-  '/feed.json'
+  './',
+  './index.html',
+  './Bretagne.html',
+  './Lorraine.html',
+  './Carte.html',
+  './Archives.html',
+  './About.html',
+  './script.js',
+  './feed.json',
+  './manifest.json'
 ];
 
 // Installation du Service Worker
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Cache ouvert');
-        return cache.addAll(urlsToCache);
-      })
-      .catch(err => {
-        console.log('Erreur lors de la mise en cache:', err);
-      })
+    caches.open(CACHE_NAME).then(cache => {
+      console.log('✓ Cache ouvert');
+      return cache.addAll(urlsToCache).catch(err => {
+        console.log('Erreur lors du cache:', err);
+      });
+    })
   );
-  self.skipWaiting();
 });
 
 // Activation du Service Worker
@@ -47,45 +42,65 @@ self.addEventListener('activate', event => {
       );
     })
   );
-  self.clients.claim();
 });
 
-// Stratégie: Cache first, fallback to network
+// Stratégie de fetch
 self.addEventListener('fetch', event => {
-  // Ignorer les requêtes non-GET
-  if (event.request.method !== 'GET') {
+  const { request } = event;
+  const url = new URL(request.url);
+
+  // Ignorer les requêtes externes
+  if (url.origin !== location.origin) {
     return;
   }
 
+  // Stratégie NETWORK FIRST pour le contenu HTML
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          // Cloner la réponse avant de la mettre en cache
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(request, responseClone);
+          });
+          return response;
+        })
+        .catch(() => {
+          // Retourner la version en cache si offline
+          return caches.match(request);
+        })
+    );
+    return;
+  }
+
+  // Stratégie CACHE FIRST pour les assets (CSS, JS, images)
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Retourner depuis le cache si disponible
-        if (response) {
+    caches.match(request).then(response => {
+      if (response) {
+        return response;
+      }
+      return fetch(request).then(response => {
+        // Ne pas cacher les réponses non-200
+        if (!response || response.status !== 200 || response.type === 'error') {
           return response;
         }
-
-        // Sinon, faire une requête réseau
-        return fetch(event.request)
-          .then(response => {
-            // Vérifier si réponse valide
-            if (!response || response.status !== 200 || response.type === 'error') {
-              return response;
-            }
-
-            // Cloner la réponse avant de la mettre en cache
-            const responseToCache = response.clone();
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return response;
+        // Cloner et cacher
+        const responseClone = response.clone();
+        caches.open(CACHE_NAME).then(cache => {
+          cache.put(request, responseClone);
+        });
+        return response;
+      }).catch(() => {
+        // Fallback offline
+        return new Response('Offline - Contenu non disponible', {
+          status: 503,
+          statusText: 'Service Unavailable',
+          headers: new Headers({
+            'Content-Type': 'text/plain'
           })
-          .catch(() => {
-            // Si offline et pas en cache, retourner page offline
-            return caches.match('/index.html');
-          });
-      })
+        });
+      });
+    })
   );
 });

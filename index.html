@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#762c27">
 <title>L'Écho — Portail des journaux</title>
 
 <style>
@@ -27,11 +28,18 @@ body{
   background:var(--ocre);
   color:var(--brun);
   font-family:Georgia,"Times New Roman",serif;
+  transition:background-color 0.3s, color 0.3s;
 }
 
-/* =========================
-   EN-TÊTE
-========================= */
+body.dark-mode{
+  --parchemin:#2a2a2a;
+  --papier:#1f1f1f;
+  --ocre:#3a3a3a;
+  --brun:#e0e0e0;
+  --brun2:#1a1a1a;
+  --bordeaux:#b8704b;
+  --ligne:#555;
+}
 
 header{
   text-align:center;
@@ -87,15 +95,15 @@ header p{
   flex:1;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
-
 nav{
   background:var(--brun2);
   text-align:center;
   padding:14px 8px;
   border-bottom:3px solid var(--or);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
 nav a{
@@ -112,19 +120,52 @@ nav a:hover{
   color:#d5ad5b;
 }
 
-/* =========================
-   CONTENU
-========================= */
+.search-bar{
+  margin-left:auto;
+  margin-right:10px;
+  display:flex;
+  gap:5px;
+}
+
+.search-bar input{
+  padding:8px 12px;
+  border:1px solid #555;
+  background:#2a2a2a;
+  color:#eadfc9;
+  border-radius:4px;
+  font-size:12px;
+  min-width:150px;
+}
+
+.search-bar input::placeholder{
+  color:#999;
+}
+
+.search-bar input:focus{
+  outline:none;
+  border-color:var(--or);
+}
+
+.theme-toggle{
+  padding:8px 12px;
+  background:#555;
+  border:none;
+  color:#eadfc9;
+  cursor:pointer;
+  border-radius:4px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.theme-toggle:hover{
+  background:#777;
+}
 
 main{
   max-width:1100px;
   margin:35px auto;
   padding:0 15px;
 }
-
-/* =========================
-   INTRODUCTION
-========================= */
 
 .introduction{
   background:var(--papier);
@@ -154,10 +195,6 @@ main{
   font-size:18px;
   line-height:1.8;
 }
-
-/* =========================
-   JOURNAUX
-========================= */
 
 .journaux{
   display:grid;
@@ -203,10 +240,6 @@ main{
   margin-top:25px;
 }
 
-/* =========================
-   BOUTONS
-========================= */
-
 .button{
   display:inline-block;
   color:var(--papier);
@@ -221,10 +254,6 @@ main{
 .button:hover{
   background:#54201c;
 }
-
-/* =========================
-   PRÉSENTATION
-========================= */
 
 .presentation{
   margin-top:35px;
@@ -247,10 +276,6 @@ main{
   line-height:1.8;
 }
 
-/* =========================
-   PIED DE PAGE
-========================= */
-
 footer{
   text-align:center;
   padding:35px 15px;
@@ -266,58 +291,43 @@ footer p{
   font-size:14px;
 }
 
-/* =========================
-   MOBILE
-========================= */
-
 @media(max-width:700px){
-
   .journaux{
     grid-template-columns:1fr;
   }
-
   header{
     padding:28px 12px 22px;
   }
-
   header h1{
     font-size:58px;
     letter-spacing:-2px;
   }
-
   header p{
     font-size:17px;
   }
-
   nav{
-    padding:11px 5px;
+    flex-direction:column;
   }
-
-  nav a{
-    margin:3px 5px;
-    font-size:11px;
+  .search-bar{
+    margin:10px auto;
+    width:100%;
   }
-
+  .search-bar input{
+    width:100%;
+  }
   main{
     margin:22px auto;
     padding:0 10px;
   }
-
   .introduction,
   .journal,
   .presentation{
     padding:25px 18px;
   }
-
   .journal h2{
     font-size:34px;
   }
-
 }
-
-/* =========================
-   FEUILLES D'AUTOMNE
-========================= */
 
 .feuilles-conteneur{
   position:fixed;
@@ -363,201 +373,131 @@ footer p{
 
 <body>
 
-<!-- =========================
-     EN-TÊTE
-========================= -->
-
 <header>
-
   <div class="masthead-kicker">
     Journal libre et indépendant
   </div>
-
   <h1>
     L'Écho
   </h1>
-
   <p>
     Les journaux des terres de France
   </p>
-
   <div class="edition-date">
     Édition du <span class="date-rp"></span>
   </div>
-
   <div class="ornement">
     ✦
   </div>
-
 </header>
 
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
 <nav>
-
   <a href="index.html">
     Portail
   </a>
-
   <a href="Bretagne.html">
     Bretagne
   </a>
-
   <a href="Lorraine.html">
     Lorraine
   </a>
-
-  <a href="Galerie.html">
-    Galerie
+  <a href="Carte.html">
+    Carte
   </a>
-
+  <a href="About.html">
+    À propos
+  </a>
+  <div class="search-bar">
+    <input type="text" id="global-search" placeholder="Chercher...">
+    <button class="theme-toggle" id="theme-toggle">🌙 Sombre</button>
+  </div>
 </nav>
 
-
-<!-- =========================
-     CONTENU
-========================= -->
-
 <main>
-
-
-  <!-- INTRODUCTION -->
-
   <section class="introduction">
-
     <div class="section-label">
       ✦ Bienvenue ✦
     </div>
-
     <h2>
       L'Écho des terres
     </h2>
-
     <p>
       Deux journaux, deux terres, deux regards sur le monde.
       Choisissez votre destination et découvrez les chroniques,
       nouvelles, récits et événements qui façonnent leur histoire.
     </p>
-
   </section>
 
-
-  <!-- JOURNAUX -->
-
   <section class="journaux">
-
-
-    <!-- BRETAGNE -->
-
     <article class="journal">
-
       <div class="journal-symbol">
         ⚜
       </div>
-
       <div class="section-label">
         Duché de Bretagne
       </div>
-
       <h2>
         L'Écho de Bretagne
       </h2>
-
       <p>
         Chroniques, nouvelles et regards sur les terres bretonnes.
         Découvrez la vie des villes, les événements, les personnages
         et les histoires qui façonnent la Bretagne.
       </p>
-
       <a class="button" href="Bretagne.html">
         Entrer en Bretagne →
       </a>
-
     </article>
 
-
-    <!-- LORRAINE -->
-
     <article class="journal">
-
       <div class="journal-symbol">
         🏰
       </div>
-
       <div class="section-label">
         Terres de Lorraine
       </div>
-
       <h2>
         L'Écho de Lorraine
       </h2>
-
       <p>
         Chroniques, nouvelles et regards sur les terres de Lorraine.
         Retrouvez les événements, les récits et les personnages
         qui font vivre cette région.
       </p>
-
       <a class="button" href="Lorraine.html">
         Entrer en Lorraine →
       </a>
-
     </article>
-
-
   </section>
 
-
-  <!-- PRÉSENTATION -->
-
   <section class="presentation">
-
     <div class="section-label">
       ✦ L'Écho ✦
     </div>
-
     <h2>
       Deux journaux, une même ambition
     </h2>
-
     <p>
       L'Écho souhaite raconter les terres et ceux qui les habitent,
       donner la parole aux événements et conserver la mémoire
       des histoires qui traversent les années.
     </p>
-
   </section>
-
-
 </main>
 
-
-<!-- =========================
-     PIED DE PAGE
-========================= -->
-
 <footer>
-
   <div class="ornement">
     ✦
   </div>
-
   <p>
     L'Écho · Journaux libres et indépendants
   </p>
-
   <p>
     Bretagne · Lorraine · 1474
   </p>
-
 </footer>
 
-
 <div class="feuilles-conteneur" id="feuillesConteneur"></div>
-
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -565,73 +505,66 @@ footer p{
       "janvier", "février", "mars", "avril", "mai", "juin",
       "juillet", "août", "septembre", "octobre", "novembre", "décembre"
     ];
-
     const aujourdHui = new Date();
     const jour = aujourdHui.getDate();
     const moisActuel = mois[aujourdHui.getMonth()];
     const anneeRP = 1474;
-
     const dateTexte = `${jour} ${moisActuel} ${anneeRP}`;
-
     document.querySelectorAll(".date-rp").forEach(function (element) {
       element.textContent = dateTexte;
     });
   });
 </script>
 
-
 <script>
-
-/* =========================
-   FEUILLES D'AUTOMNE
-========================= */
-
-(function () {
-
+  (function () {
     const conteneur = document.getElementById("feuillesConteneur");
     const emojis = ["🍂", "🍁"];
     const nombreFeuilles = 15;
-
     for (let i = 0; i < nombreFeuilles; i++) {
-
-        const feuille = document.createElement("div");
-        feuille.className = "feuille";
-        feuille.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-
-        const positionGauche = Math.random() * 100;
-        const dureeChute = 10 + Math.random() * 12;
-        const dureeBalancement = 3 + Math.random() * 3;
-        const delai = Math.random() * 15;
-        const taille = 16 + Math.random() * 14;
-
-        feuille.style.left = positionGauche + "vw";
-        feuille.style.fontSize = taille + "px";
-        feuille.style.animationDuration = dureeChute + "s, " + dureeBalancement + "s";
-        feuille.style.animationDelay = delai + "s, " + delai + "s";
-
-        conteneur.appendChild(feuille);
-
+      const feuille = document.createElement("div");
+      feuille.className = "feuille";
+      feuille.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      const positionGauche = Math.random() * 100;
+      const dureeChute = 10 + Math.random() * 12;
+      const dureeBalancement = 3 + Math.random() * 3;
+      const delai = Math.random() * 15;
+      const taille = 16 + Math.random() * 14;
+      feuille.style.left = positionGauche + "vw";
+      feuille.style.fontSize = taille + "px";
+      feuille.style.animationDuration = dureeChute + "s, " + dureeBalancement + "s";
+      feuille.style.animationDelay = delai + "s, " + delai + "s";
+      conteneur.appendChild(feuille);
     }
-
-})();
-
-/* =========================
-   SERVICE WORKER
-========================= */
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('./service-worker.js')
-      .then(function(registration) {
-        console.log('✓ Service Worker enregistré');
-      })
-      .catch(function(err) {
-        console.log('Service Worker erreur:', err);
-      });
-  });
-}
-
+  })();
 </script>
 
+<script>
+  // Thème sombre
+  const themeToggle = document.getElementById('theme-toggle');
+  const isDark = localStorage.getItem('dark-mode') === 'true';
+  if (isDark) {
+    document.body.classList.add('dark-mode');
+    themeToggle.textContent = '☀️ Clair';
+  }
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDarkNow = document.body.classList.contains('dark-mode');
+    localStorage.setItem('dark-mode', isDarkNow);
+    themeToggle.textContent = isDarkNow ? '☀️ Clair' : '🌙 Sombre';
+  });
+
+  // Recherche globale
+  const searchInput = document.getElementById('global-search');
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      const query = searchInput.value.toLowerCase();
+      // Redirection vers Archives avec paramètre
+      window.location.href = `Archives.html?search=${encodeURIComponent(query)}`;
+    }
+  });
+</script>
+
+<script src="script.js"></script>
 </body>
 </html>

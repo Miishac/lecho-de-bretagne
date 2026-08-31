@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /.git/
+
+Sitemap: https://lechodebretagne.fr/sitemap.xml
+
+# Crawl delays
+Crawl-delay: 1
