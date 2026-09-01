@@ -28,6 +28,7 @@ body.dark-mode{
   --bordeaux:#b8704b;
   --ligne:#555;
 }
+body.dark-mode a{color:var(--bordeaux)}
 
 /* =========================
    EN-TÊTE
@@ -538,20 +539,3 @@ footer .ornement{
     font-size:20px;
   }
 }
-
-/* Écho V1.2.1 — stabilisation du portail et du thème */
-:root[data-theme="dark"]{
-  --parchemin:#211d18;
-  --papier:#2a251f;
-  --ocre:#c8a66a;
-  --brun:#eadfc9;
-  --brun2:#c9b99d;
-  --bordeaux:#d6a0a0;
-  --or:#e2c27a;
-  --ligne:#5a4c3d;
-}
-body.dark-mode{
-  background:var(--parchemin);
-  color:var(--brun);
-}
-body.dark-mode a{color:var(--bordeaux)}
