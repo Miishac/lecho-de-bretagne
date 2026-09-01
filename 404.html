@@ -1,103 +1,11 @@
 <!doctype html>
 <html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Page non trouvée — L'Écho</title>
-<style>
-*{box-sizing:border-box}
-:root{
-  --parchemin:#eee1c5;
-  --papier:#f6ecd5;
-  --ocre:#cbb88f;
-  --brun:#2d251c;
-  --brun2:#191510;
-  --bordeaux:#762c27;
-  --or:#a17a38;
-  --ligne:#927d5b;
-}
-body{
-  margin:0;
-  background:var(--ocre);
-  color:var(--brun);
-  font-family:Georgia,"Times New Roman",serif;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:100vh;
-  padding:20px;
-}
-.error-container{
-  text-align:center;
-  background:var(--papier);
-  border:1px solid var(--ligne);
-  box-shadow:0 8px 25px rgba(107,87,54,.35);
-  padding:60px 40px;
-  max-width:600px;
-  border-radius:8px;
-}
-.error-code{
-  font-size:120px;
-  color:var(--bordeaux);
-  margin:0;
-  line-height:1;
-}
-.error-title{
-  font-size:36px;
-  color:var(--brun);
-  margin:15px 0;
-}
-.error-message{
-  font-size:18px;
-  color:#6f604c;
-  margin:20px 0 30px;
-  line-height:1.7;
-}
-.error-links{
-  display:flex;
-  gap:15px;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin-top:30px;
-}
-.btn{
-  display:inline-block;
-  padding:12px 20px;
-  background:var(--bordeaux);
-  color:var(--papier);
-  text-decoration:none;
-  font-weight:bold;
-  border:2px solid #51201c;
-  transition:background 0.2s;
-}
-.btn:hover{
-  background:#54201c;
-}
-.btn-secondary{
-  background:#927d5b;
-  border-color:#6f604c;
-}
-.btn-secondary:hover{
-  background:#765f3f;
-}
-</style>
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page introuvable — L'Écho de Bretagne</title><link rel="stylesheet" href="site.css"></head>
 <body>
-<div class="error-container">
-  <h1 class="error-code">404</h1>
-  <h2 class="error-title">Page non trouvée</h2>
-  <p class="error-message">
-    La page que vous cherchez n'existe pas ou a été déplacée.
-    Retournez à l'accueil ou explorez l'un de nos journaux.
-  </p>
-  <div class="error-links">
-    <a href="./index.html" class="btn">← Accueil</a>
-    <a href="./index.html" class="btn btn-secondary">Bretagne</a>
-    <a href="./index.html" class="btn btn-secondary">Lorraine</a>
-    <a href="./Archives.html" class="btn btn-secondary">Archives</a>
-  </div>
-</div>
-  <script src="editorial.js"></script>
-  <script src="theme.js"></script>
+  <div id="leaves" aria-hidden="true"></div>
+  <header><h1>L'Écho de Bretagne</h1><p>Chroniques, récits et nouvelles des terres parcourues</p><div class="date">Édition du <span data-rp-date></span></div></header>
+  <nav aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="articles.html">📰 Articles</a><a href="Carte.html">🗺️ Carte interactive</a><a href="archives.html">🗄️ Archives</a><button type="button" data-theme aria-pressed="false">🌙 Sombre</button></nav>
+  <main><section class="paper"><div class="label">Erreur 404</div><h2>Cette page s’est perdue en chemin.</h2><p><a class="button" href="index.html">Retour à l’accueil</a></p></section></main>
+  <footer>L'Écho de Bretagne · 1474</footer><script src="dark-mode.js"></script><script src="app.js"></script>
 </body>
 </html>

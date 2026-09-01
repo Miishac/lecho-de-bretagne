@@ -1,9 +1,11 @@
 {
   "site": "L'Écho de Bretagne",
-  "version": "5.0",
+  "version": "6.0",
   "sections": [
+    "Accueil",
     "Articles",
-    "Carte interactive"
+    "Carte interactive",
+    "Archives"
   ],
   "articles": [
     {
@@ -12,7 +14,7 @@
       "date": "1474-09-01",
       "author": "Mishac",
       "category": "Voyages",
-      "kingdom": "Bretagne",
+      "location": "Vannes → Rieux → terres de l'Est",
       "link": "article.html?id=sur-les-chemins-de-l-inconnu"
     }
   ]

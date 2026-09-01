@@ -1,1 +1,31 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="L'Écho de Bretagne — articles et carte interactive."><title>Articles — L'Écho de Bretagne</title><link rel="stylesheet" href="site.css"></head><body><div id="leaves"></div><header><h1>L'Écho de Bretagne</h1><p>Chroniques et récits</p><div class="date">Édition du <span data-rp-date></span></div></header><nav><a href="index.html">📰 Articles</a><a href="carte.html">🗺️ Carte interactive</a><button data-theme aria-pressed="false">🌙 Sombre</button></nav><main><section class="paper"><div class="label">Articles</div><h2>Derniers articles</h2><input id="search" class="search" placeholder="Rechercher un article…"><div id="article-list" class="cards" style="margin-top:1rem"></div></section></main><footer>L'Écho de Bretagne · 1474</footer><script src="app.js"></script><script>if("serviceWorker" in navigator){navigator.serviceWorker.register("service-worker.js").catch(()=>{});}</script></body></html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="L'Écho de Bretagne, journal de récits et de voyages.">
+  <title>L'Écho de Bretagne</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <div id="leaves" aria-hidden="true"></div>
+  <header>
+    <h1>L'Écho de Bretagne</h1>
+    <p>Chroniques, récits et nouvelles des terres parcourues</p>
+    <div class="date">Édition du <span data-rp-date></span></div>
+  </header>
+  <nav aria-label="Navigation principale">
+    <a href="index.html" aria-current="page">Accueil</a>
+    <a href="articles.html">📰 Articles</a>
+    <a href="Carte.html">🗺️ Carte interactive</a>
+    <a href="archives.html">🗄️ Archives</a>
+    <button type="button" data-theme aria-pressed="false">🌙 Sombre</button>
+  </nav>
+  <main>
+    <section id="featured-article" class="paper hero"></section>
+  </main>
+  <footer>L'Écho de Bretagne · 1474</footer>
+  <script src="dark-mode.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
