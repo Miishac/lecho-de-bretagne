@@ -2,12 +2,12 @@
   "name": "L'Écho de Bretagne et Lorraine",
   "short_name": "L'Écho",
   "description": "Journal libre et indépendant des Royaumes Renaissants",
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#cbb88f",
   "theme_color": "#762c27",
   "orientation": "portrait-primary",
-  "scope": "./",
+  "scope": ".",
   "icons": [
     {
       "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%23cbb88f' width='192' height='192'/><text x='50%' y='50%' font-size='120' font-family='Georgia' fill='%23762c27' text-anchor='middle' dominant-baseline='middle'>L</text></svg>",
