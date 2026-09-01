@@ -1,39 +1,58 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="L'Écho de Bretagne, journal d’actualités, d’événements et de chroniques.">
-  <title>L'Écho de Bretagne</title>
-  <link rel="stylesheet" href="site.css">
-  <link rel="alternate" type="application/rss+xml" title="L'Écho de Bretagne" href="feed.xml">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="L'Écho de Bretagne — actualités, politique, élections, événements et chroniques.">
+<title>L'Écho de Bretagne</title>
+<link rel="stylesheet" href="site.css">
+<link rel="alternate" type="application/rss+xml" title="L'Écho de Bretagne" href="feed.xml">
 </head>
 <body>
-  <div id="leaves" aria-hidden="true"></div>
-  <header>
-    <h1>L'Écho de Bretagne</h1>
-    <p>Actualités, événements et chroniques de Bretagne</p>
-    <div class="date">Édition du <span data-rp-date></span></div>
-  </header>
-  <nav aria-label="Navigation principale">
-    <a href="index.html" aria-current="page">📰 Accueil</a>
-    <a href="articles.html">🗞️ Articles</a>
-    <a href="Carte.html">🗺️ Carte interactive</a>
-    <a href="archives.html">🗄️ Archives</a>
-    <a href="a-propos.html">ℹ️ À propos</a>
-    <button type="button" data-theme aria-pressed="false">🌙 Sombre</button>
-  </nav>
-  <main>
-    <section id="featured-article" class="paper hero"></section>
-    <section class="paper">
-      <div class="label">Derniers récits</div>
-      <h2>Derniers articles</h2>
-      <div id="recent-list" class="cards"></div>
-      <p><a class="button" href="articles.html">Voir tous les articles →</a></p>
-    </section>
-  </main>
-  <footer>L'Écho de Bretagne · 1474 · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></footer>
-  <script src="dark-mode.js"></script>
-  <script src="app.js"></script>
+<div id="leaves" aria-hidden="true"></div>
+<header class="newspaper-head">
+  <div class="mast-rule"></div>
+  <p class="edition">ÉDITION DU <span data-rp-date></span></p>
+  <h1>L'Écho de Bretagne</h1>
+  <p class="motto">Informer · raconter · témoigner</p>
+  <div class="mast-rule"></div>
+</header>
+<nav aria-label="Navigation principale">
+  <a href="index.html" aria-current="page">📰 Accueil</a>
+  <a href="articles.html">🗞️ Articles</a>
+  <a href="Carte.html">🗺️ Carte interactive</a>
+  <a href="archives.html">🗄️ Archives</a>
+  <a href="a-propos.html">ℹ️ À propos</a>
+  <button type="button" data-theme aria-pressed="false">🌙 Sombre</button>
+</nav>
+<main class="front-page">
+<section class="front-lead paper">
+  <div>
+    <span class="label">À la Une</span>
+    <h2 id="front-title">Les nouvelles du jour</h2>
+    <p id="front-meta" class="meta"></p>
+    <p id="front-excerpt" class="chapo"></p>
+    <a id="front-link" class="button" href="articles.html">Lire l'article →</a>
+  </div>
+  <div id="front-image"></div>
+</section>
+<section class="paper">
+  <div class="section-bar"><span>Les nouvelles du journal</span><span>✦</span></div>
+  <div id="front-columns" class="front-columns"></div>
+</section>
+<section class="paper">
+  <div class="section-bar"><span>Rubriques</span><span>✦</span></div>
+  <div id="front-categories" class="front-categories"></div>
+</section>
+<section class="paper">
+  <div class="section-bar"><span>Dernières parutions</span><span>✦</span></div>
+  <div id="recent-list" class="cards"></div>
+  <p><a class="button button-secondary" href="articles.html">Voir tous les articles →</a></p>
+</section>
+</main>
+<footer>L'Écho de Bretagne · 1474 · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></footer>
+<script src="dark-mode.js"></script>
+<script src="app.js"></script>
+<script src="front-page.js"></script>
 </body>
 </html>

@@ -74,12 +74,29 @@ html.dark .meta,.dark .date{color:#c5b293}
 .e-empty{padding:1rem;text-align:center;font-style:italic}
 @media(max-width:700px){.e-lead{grid-template-columns:1fr}.e-section{padding:0 .75rem}}
 
-/* Finition du thème et des composants du journal */
-html.dark input,
-html.dark textarea,
-html.dark select{background:#181512;color:#eadfc9;border-color:#665846}
-html.dark .e-search{background:#181512;color:#eadfc9;border-color:#665846}
-html.dark .e-paper,
-html.dark .e-card{background:var(--paper,#27231f);color:var(--text,#eadfc9);border-color:var(--line,#665846)}
-html.dark .e-cat{color:#eadfc9;border-color:#665846}
-html.dark .e-cat.active{background:#d39a7c;color:#181512;border-color:#d39a7c}
+/* UNE PROPRE — identité éditoriale */
+.newspaper-head{padding:1.15rem 1rem 1rem!important}
+.newspaper-head h1{font-size:clamp(3rem,10vw,6.2rem)!important;line-height:.95!important;margin:.15rem 0!important}
+.mast-rule{height:1px;background:var(--line);max-width:950px;margin:.45rem auto}
+.edition{margin:.1rem 0!important;font-size:.76rem!important;letter-spacing:.2em;text-transform:uppercase;font-style:normal!important;color:var(--muted)!important}
+.motto{margin:.2rem 0 .45rem!important;font-size:.9rem!important;letter-spacing:.12em}
+.front-page{max-width:1120px}
+.front-lead{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);gap:2rem;align-items:center;border-top:4px double var(--line)}
+.front-lead h2{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.02;margin:.4rem 0}
+.front-image{width:100%;height:auto;display:block;border:1px solid var(--line);box-shadow:0 5px 15px rgba(50,35,20,.15)}
+.section-bar{display:flex;justify-content:space-between;border-top:3px double var(--line);border-bottom:1px solid var(--line);padding:.45rem 0;margin-bottom:1rem;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:bold}
+.front-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 1.5rem}
+.front-card{padding:1rem 0;border-bottom:1px solid var(--line)}
+.front-card h3{margin:.3rem 0;font-size:1.45rem}
+.front-card p{margin:.4rem 0}
+.front-categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem}
+.front-cat{display:flex;flex-direction:column;gap:.2rem;border:1px solid var(--line);padding:.8rem;color:inherit;background:rgba(255,255,255,.12);transition:transform .2s ease}
+.front-cat:hover{text-decoration:none;transform:translateY(-2px)}
+.front-cat span{font-size:.78rem;color:var(--muted)}
+html.dark .front-cat{background:#211d19}
+html.dark .front-image{box-shadow:none}
+@media(max-width:750px){
+ .front-lead{grid-template-columns:1fr}
+ .front-columns{grid-template-columns:1fr}
+ .front-categories{grid-template-columns:repeat(2,minmax(0,1fr))}
+}

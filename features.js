@@ -11,7 +11,7 @@ function init(list){
   latest.innerHTML=`<div class="e-lead">${a.image?`<img src="${esc(a.image)}" alt="${esc(a.title)}">`:""}<div><div class="e-kicker">À la Une · ${esc(a.category||"Chroniques")}</div><div class="e-meta">${esc(a.date_display||a.date||"")} · ${esc(a.author||"")}</div><h2 class="e-title">${esc(a.title)}</h2><p>${esc(a.excerpt||"")}</p><a class="e-btn" href="article.html?id=${encodeURIComponent(a.id)}">Lire l’article →</a></div></div>`;
  }
  const listBox=document.getElementById("articles-v6");const search=document.getElementById("article-search");const cats=document.getElementById("article-categories");if(!listBox)return;
- let selected="Toutes";
+ let selected=new URLSearchParams(location.search).get("category")||"Toutes"; if(!ECHO_CATS.includes(selected)) selected="Toutes";
  function paint(){const q=(search?.value||"").toLowerCase();const filtered=list.filter(a=>{const text=(a.title+" "+a.author+" "+a.excerpt+" "+a.category+" "+(a.location||"")).toLowerCase();return(!q||text.includes(q))&&(selected==="Toutes"||a.category===selected)});listBox.innerHTML=filtered.length?filtered.map(card).join(""):'<div class="e-empty">Aucun article ne correspond à votre recherche.</div>'}
  if(cats){cats.innerHTML=ECHO_CATS.map(c=>`<button class="e-cat${c===selected?" active":""}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");cats.addEventListener("click",e=>{const b=e.target.closest("[data-cat]");if(!b)return;selected=b.dataset.cat;cats.querySelectorAll(".e-cat").forEach(x=>x.classList.toggle("active",x===b));paint()})}
  if(search)search.addEventListener("input",paint);paint();
