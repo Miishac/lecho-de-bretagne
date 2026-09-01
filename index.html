@@ -6,6 +6,7 @@
   <meta name="description" content="L'Écho de Bretagne, journal de récits et de voyages.">
   <title>L'Écho de Bretagne</title>
   <link rel="stylesheet" href="site.css">
+  <link rel="alternate" type="application/rss+xml" title="L'Écho de Bretagne" href="feed.xml">
 </head>
 <body>
   <div id="leaves" aria-hidden="true"></div>
@@ -15,16 +16,23 @@
     <div class="date">Édition du <span data-rp-date></span></div>
   </header>
   <nav aria-label="Navigation principale">
-    <a href="index.html" aria-current="page">Accueil</a>
-    <a href="articles.html">📰 Articles</a>
+    <a href="index.html" aria-current="page">📰 Accueil</a>
+    <a href="articles.html">🗞️ Articles</a>
     <a href="Carte.html">🗺️ Carte interactive</a>
     <a href="archives.html">🗄️ Archives</a>
+    <a href="a-propos.html">ℹ️ À propos</a>
     <button type="button" data-theme aria-pressed="false">🌙 Sombre</button>
   </nav>
   <main>
     <section id="featured-article" class="paper hero"></section>
+    <section class="paper">
+      <div class="label">Derniers récits</div>
+      <h2>Derniers articles</h2>
+      <div id="recent-list" class="cards"></div>
+      <p><a class="button" href="articles.html">Voir tous les articles →</a></p>
+    </section>
   </main>
-  <footer>L'Écho de Bretagne · 1474</footer>
+  <footer>L'Écho de Bretagne · 1474 · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></footer>
   <script src="dark-mode.js"></script>
   <script src="app.js"></script>
 </body>

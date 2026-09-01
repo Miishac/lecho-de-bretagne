@@ -23,11 +23,14 @@
     }
   }
   const card = article => `<article class="card"><div class="label">${escape(article.category || "Article")}</div><div class="meta">${escape(article.date_display || "")} · ${escape(article.author || "")}</div><h3>${escape(article.title || "")}</h3><p>${escape(article.excerpt || "")}</p><a href="${articleLink(article)}">Lire l’article →</a></article>`;
+  const byDateDesc = (a, b) => String(b.date || "").localeCompare(String(a.date || ""));
   async function renderArticles() {
     const container = document.getElementById("article-list");
     const view = document.getElementById("article-view");
     const featured = document.getElementById("featured-article");
-    if (!container && !view && !featured) return;
+    const recent = document.getElementById("recent-list");
+    const breadcrumbs = document.getElementById("breadcrumbs");
+    if (!container && !view && !featured && !recent) return;
     let articles;
     try {
       const response = await fetch("articles.json");
@@ -38,9 +41,14 @@
       if (view || featured) (view || featured).textContent = "Cet article ne peut pas être chargé pour le moment.";
       return;
     }
-    if (featured && articles[0]) {
-      const article = articles[0];
+    const sorted = [...articles].sort(byDateDesc);
+    if (featured && sorted[0]) {
+      const article = sorted[0];
       featured.innerHTML = `<div><div class="label">Dernier récit</div><h2>${escape(article.title)}</h2><p class="meta">${escape(article.date_display || "")} · ${escape(article.author || "")}</p><p class="chapo">${escape(article.excerpt || "")}</p><p><a class="button" href="${articleLink(article)}">Lire l’article</a> <a class="button button-secondary" href="Carte.html">Explorer la carte</a></p></div>${article.image ? `<img src="${escape(article.image)}" alt="${escape(article.title)}">` : ""}`;
+    }
+    if (recent) {
+      const list = (featured ? sorted.slice(1) : sorted).slice(0, 3);
+      recent.innerHTML = list.length ? list.map(card).join("") : "<p>Aucun autre article pour le moment.</p>";
     }
     if (container) {
       const paint = list => { container.innerHTML = list.map(card).join(""); };
@@ -53,8 +61,12 @@
     }
     if (view) {
       const id = new URLSearchParams(location.search).get("id");
-      const article = articles.find(item => item.id === id) || articles[0];
-      if (!article) return;
+      const article = articles.find(item => item.id === id) || (id ? null : articles[0]);
+      if (!article) {
+        location.replace("404.html");
+        return;
+      }
+      if (breadcrumbs) breadcrumbs.innerHTML = `<a href="index.html">Accueil</a> <span aria-hidden="true">›</span> <a href="articles.html">Articles</a> <span aria-hidden="true">›</span> <span aria-current="page">${escape(article.title || "")}</span>`;
       view.innerHTML = `<article class="paper article"><div class="label">${escape(article.category || "Article")}</div><div class="meta">${escape(article.date_display || "")} · Par ${escape(article.author || "")}${article.location ? ` · ${escape(article.location)}` : ""}</div><h2>${escape(article.title)}</h2><p class="chapo">${escape(article.excerpt || "")}</p>${article.image ? `<img src="${escape(article.image)}" alt="${escape(article.title)}">` : ""}${(article.sections || []).map(section => `${section.title ? `<h3>${escape(section.title)}</h3>` : ""}${(section.paragraphs || []).map(paragraph => `<p>${escape(paragraph)}</p>`).join("")}`).join("")}<p class="signature"><em>${escape(article.author || "")}</em></p></article>`;
     }
   }
