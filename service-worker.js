@@ -2,7 +2,7 @@
 // Service Worker - L'Écho
 // ========================
 
-const CACHE_NAME = 'lecho-final';
+const CACHE_NAME = 'lecho-final-dark';
 const urlsToCache = [
   './',
   './index.html',

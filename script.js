@@ -45,20 +45,29 @@ function initDateRP() {
 
 /**
  * Initialise le thème sombre partagé par toutes les pages.
+ * Une seule clé est utilisée afin d'éviter les doubles bascules.
  */
 function initTheme() {
   const themeToggle = document.getElementById("theme-toggle");
-  if (!themeToggle) return;
+  const KEY = "lecho-theme";
+  const isDark = localStorage.getItem(KEY) === "dark";
 
-  const isDark = localStorage.getItem("dark-mode") === "true";
   document.body.classList.toggle("dark-mode", isDark);
-  themeToggle.textContent = isDark ? "☀️ Clair" : "🌙 Sombre";
+  document.documentElement.dataset.theme = isDark ? "dark" : "light";
 
-  themeToggle.addEventListener("click", () => {
-    const isDarkNow = document.body.classList.toggle("dark-mode");
-    localStorage.setItem("dark-mode", isDarkNow);
-    themeToggle.textContent = isDarkNow ? "☀️ Clair" : "🌙 Sombre";
-  });
+  if (themeToggle) {
+    themeToggle.textContent = isDark ? "☀️ Clair" : "🌙 Sombre";
+    themeToggle.setAttribute("aria-pressed", isDark ? "true" : "false");
+
+    themeToggle.addEventListener("click", () => {
+      const nextDark = !document.body.classList.contains("dark-mode");
+      document.body.classList.toggle("dark-mode", nextDark);
+      document.documentElement.dataset.theme = nextDark ? "dark" : "light";
+      localStorage.setItem(KEY, nextDark ? "dark" : "light");
+      themeToggle.textContent = nextDark ? "☀️ Clair" : "🌙 Sombre";
+      themeToggle.setAttribute("aria-pressed", nextDark ? "true" : "false");
+    });
+  }
 }
 
 /**

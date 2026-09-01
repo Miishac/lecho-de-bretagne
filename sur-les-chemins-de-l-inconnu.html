@@ -11,6 +11,11 @@
 <link rel="canonical" href="https://lechodebretagne.fr/sur-les-chemins-de-l-inconnu.html">
 <link rel="stylesheet" href="journal.css">
 <title>Sur les chemins de l’inconnu — L’Écho de Bretagne</title>
+<style>
+.article-illustration{margin:1.5rem 0 2rem;text-align:center}
+.article-illustration img{display:block;width:100%;height:auto;max-height:720px;object-fit:cover;margin:0 auto;border-radius:2px}
+.article-illustration figcaption{font-size:.9rem;font-style:italic;margin-top:.5rem;opacity:.8}
+</style>
 </head>
 <body>
 <header>
@@ -26,7 +31,7 @@
   <a href="Archives.html">Archives</a>
   <a href="Carte.html">Carte</a>
   <a href="Lorraine.html">L'Écho de Lorraine</a>
-  <button class="theme-toggle" id="theme-toggle">🌙 Sombre</button>
+  <button class="theme-toggle" id="theme-toggle" data-theme-toggle aria-pressed="false">🌙 Sombre</button>
 </nav>
 <div class="breadcrumbs">
   <a href="index.html">Portail</a> &gt; <a href="Bretagne.html">Bretagne</a> &gt; <strong>Sur les chemins de l’inconnu</strong>
@@ -34,16 +39,15 @@
 <main>
   <article class="paper article" id="article">
     <div class="article-head">
-<figure class="article-illustration">
-  <img src="images/sur-les-chemins-de-l-inconnu.png" alt="Mishac au départ de Vannes, face aux chemins de l'inconnu">
-  <figcaption>Vannes — les premiers pas d'un voyage vers les terres de l'Est.</figcaption>
-</figure>
-
       <div class="section-label">Voyages</div>
       <div class="meta">1er septembre 1474 · Par Mishac</div>
       <h2>Sur les chemins de l’inconnu</h2>
       <p class="chapo">Après plusieurs années passées à Roc'han, Mishac a pris la route. De Vannes à Rieux, puis vers les terres de l'Est, il raconte les premiers pas d'un voyage placé sous le signe de la découverte.</p>
     </div>
+    <figure class="article-illustration">
+      <img src="images/sur-les-chemins-de-l-inconnu.png" alt="Mishac sur les routes, face à Vannes, avant son départ vers les terres de l'Est" loading="eager">
+      <figcaption>Sur les chemins de l’inconnu — Vannes, 1er septembre 1474.</figcaption>
+    </figure>
     <div class="article-body">
       <p>Me voilà désormais sur les routes.</p>
 <p>Après plusieurs années passées à Roc&#x27;han, à servir la ville et la Bretagne, j&#x27;ai finalement pris la décision de partir.</p>

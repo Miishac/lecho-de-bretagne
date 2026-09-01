@@ -556,6 +556,24 @@ body.dark-mode{
 }
 body.dark-mode a{color:var(--bordeaux)}
 
-.article-illustration{margin:1.5rem 0 2rem;text-align:center}
-.article-illustration img{display:block;width:100%;height:auto;max-height:720px;object-fit:cover;border:1px solid var(--ligne,#8a7658)}
-.article-illustration figcaption{margin-top:.5rem;font-style:italic;font-size:.9rem}
+/* Dark mode final — portail et pages communes */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+body.dark-mode {
+  background: var(--parchemin, #211d18);
+  color: var(--brun, #eadfc9);
+}
+body.dark-mode header,
+body.dark-mode nav,
+body.dark-mode .paper,
+body.dark-mode .card,
+body.dark-mode .hero,
+body.dark-mode footer {
+  background-color: var(--papier, #2a251f);
+  color: var(--brun, #eadfc9);
+}
+body.dark-mode .theme-toggle {
+  color: var(--brun, #eadfc9);
+  border-color: var(--ligne, #5a4c3d);
+}
