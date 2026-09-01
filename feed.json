@@ -1,14 +1,15 @@
 {
-  "title": "L'Écho de Bretagne",
-  "description": "Chroniques, nouvelles et regards sur les terres bretonnes.",
+  "title": "L'Écho",
+  "description": "Chroniques, récits et nouvelles des terres parcourues.",
   "items": [
     {
       "title": "Sur les chemins de l’inconnu",
       "date": "1er septembre 1474",
       "author": "Mishac",
+      "kingdom": "Bretagne",
       "category": "Voyages",
-      "link": "https://lechodebretagne.fr/sur-les-chemins-de-l-inconnu.html",
-      "excerpt": "Le récit du départ de Roc'han et des premiers pas de Mishac sur les routes vers la Lorraine."
+      "link": "article.html?id=sur-les-chemins-de-l-inconnu",
+      "excerpt": "Après plusieurs années passées à Roc'han, Mishac a pris la route. De Vannes à Rieux, puis vers les terres de l'Est, il raconte les premiers pas d'un voyage placé sous le signe de la découverte."
     }
   ]
 }

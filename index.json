@@ -1,20 +1,19 @@
 {
-  "version": "2.0",
-  "journals": [
-    "Bretagne",
-    "Lorraine"
+  "version": "3.0",
+  "site": "L'Écho",
+  "sections": [
+    "Articles",
+    "Archives",
+    "Carte interactive"
   ],
   "articles": [
     {
-      "slug": "sur-les-chemins-de-l-inconnu",
+      "id": "sur-les-chemins-de-l-inconnu",
       "title": "Sur les chemins de l’inconnu",
       "date": "1474-09-01",
-      "date_display": "1er septembre 1474",
-      "journal": "Bretagne",
-      "author": "Mishac",
+      "kingdom": "Bretagne",
       "category": "Voyages",
-      "link": "sur-les-chemins-de-l-inconnu.html",
-      "excerpt": "Le récit du départ de Roc'han et des premiers pas de Mishac sur les routes vers la Lorraine."
+      "link": "article.html?id=sur-les-chemins-de-l-inconnu"
     }
   ]
 }
