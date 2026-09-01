@@ -20,13 +20,20 @@ body{
 }
 
 body.dark-mode{
-  --parchemin:#2a2a2a;
-  --papier:#1f1f1f;
+  --parchemin:#211d18;
+  --papier:#2a251f;
   --ocre:#3a3a3a;
-  --brun:#e0e0e0;
+  --brun:#eadfc9;
   --brun2:#1a1a1a;
-  --bordeaux:#b8704b;
-  --ligne:#555;
+  --bordeaux:#d6a0a0;
+  --or:#e2c27a;
+  --ligne:#5a4c3d;
+  background:var(--parchemin);
+  color:var(--brun);
+}
+
+body.dark-mode a{
+  color:var(--bordeaux);
 }
 
 /* =========================
@@ -36,13 +43,13 @@ body.dark-mode{
 header{
   text-align:center;
   background:var(--parchemin);
-  padding:28px 15px 20px;
+  padding:38px 15px 28px;
   border-bottom:7px double #806d50;
   box-shadow:0 3px 12px rgba(0,0,0,.18);
 }
 
 .masthead-kicker{
-  font-size:12px;
+  font-size:14px;
   letter-spacing:4px;
   text-transform:uppercase;
   color:#6f604c;
@@ -107,9 +114,10 @@ nav a{
   text-decoration:none;
   margin:4px 10px;
   text-transform:uppercase;
-  font-size:13px;
+  font-size:14px;
   font-weight:bold;
   display:inline-block;
+  transition:color 0.2s ease;
 }
 
 nav a:hover{
@@ -140,7 +148,7 @@ nav a:hover{
 .breadcrumbs{
   background:var(--brun2);
   padding:10px 15px;
-  font-size:12px;
+  font-size:14px;
   color:#999;
   border-bottom:1px solid var(--ligne);
 }
@@ -160,7 +168,7 @@ nav a:hover{
 
 main{
   max-width:1150px;
-  margin:28px auto;
+  margin:40px auto;
   padding:0 15px;
 }
 
@@ -168,7 +176,7 @@ main{
   background:var(--papier);
   border:1px solid var(--ligne);
   box-shadow:0 8px 25px rgba(107,87,54,.35);
-  padding:28px;
+  padding:32px;
 }
 
 /* =========================
@@ -243,10 +251,13 @@ main{
   margin-top:18px;
   font-weight:bold;
   cursor:pointer;
+  transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .button:hover{
   background:#54201c;
+  transform:translateY(-2px);
+  box-shadow:0 5px 14px rgba(0,0,0,.28);
 }
 
 /* =========================
@@ -282,9 +293,15 @@ main{
 .card{
   background:var(--papier);
   border:1px solid var(--ligne);
-  padding:21px;
+  padding:30px;
   box-shadow:0 5px 15px rgba(107,87,54,.24);
   position:relative;
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(107,87,54,.32);
 }
 
 .card:before{
@@ -445,7 +462,7 @@ main{
 
 footer{
   text-align:center;
-  padding:35px 15px;
+  padding:38px 15px;
   color:#5f513e;
   margin-top:42px;
 }
@@ -471,16 +488,16 @@ footer .ornement{
   .hero img{
     order:2;
   }
+}
+
+@media(max-width:700px){
 
   .cards{
     grid-template-columns:1fr;
   }
-}
-
-@media(max-width:600px){
 
   header{
-    padding:24px 12px 18px;
+    padding:26px 12px 20px;
   }
 
   header h1{
@@ -538,20 +555,3 @@ footer .ornement{
     font-size:20px;
   }
 }
-
-/* Écho V1.2.1 — stabilisation du portail et du thème */
-:root[data-theme="dark"]{
-  --parchemin:#211d18;
-  --papier:#2a251f;
-  --ocre:#c8a66a;
-  --brun:#eadfc9;
-  --brun2:#c9b99d;
-  --bordeaux:#d6a0a0;
-  --or:#e2c27a;
-  --ligne:#5a4c3d;
-}
-body.dark-mode{
-  background:var(--parchemin);
-  color:var(--brun);
-}
-body.dark-mode a{color:var(--bordeaux)}

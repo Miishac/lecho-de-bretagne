@@ -22,13 +22,13 @@ body {
 header {
     background: #eee1c2;
     text-align: center;
-    padding: 24px 15px 18px;
+    padding: 38px 15px 28px;
     border-bottom: 7px double #5d4328;
     box-shadow: 0 3px 12px rgba(0,0,0,.25);
 }
 
 .petit-titre {
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: #704d2b;
@@ -63,7 +63,8 @@ nav a {
     display: inline-block;
     margin: 4px 9px;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 14px;
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
@@ -167,10 +168,13 @@ nav a:hover {
     cursor: pointer;
 
     font-family: Georgia, "Times New Roman", serif;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .bouton:hover {
     background: #54201c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(0,0,0,.28);
 }
 
 /* =========================
@@ -191,7 +195,7 @@ footer {
     color: #eee1c2;
     text-align: center;
 
-    padding: 28px 15px;
+    padding: 38px 15px;
 
     border-top: 4px solid #a17a38;
 }
@@ -201,7 +205,7 @@ footer h2 {
 }
 
 footer p {
-    font-size: 12px;
+    font-size: 14px;
     margin: 5px;
 }
 
@@ -209,7 +213,7 @@ footer p {
    MOBILE
 ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     nav a {
         font-size: 11px;
