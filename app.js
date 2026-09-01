@@ -1,0 +1,15 @@
+(function(){
+"use strict";
+const THEME="lecho-theme";
+const MONTHS=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+function rpDate(){const d=new Date();return d.getDate()+" "+MONTHS[d.getMonth()]+" 1474";}
+function theme(dark){document.documentElement.classList.toggle("dark-mode",dark);document.querySelectorAll("[data-theme]").forEach(b=>{b.textContent=dark?"☀️ Clair":"🌙 Sombre";b.setAttribute("aria-pressed",dark?"true":"false")});}
+function initTheme(){theme(localStorage.getItem(THEME)==="dark");document.addEventListener("click",e=>{const b=e.target.closest("[data-theme]");if(!b)return;const dark=!document.documentElement.classList.contains("dark-mode");localStorage.setItem(THEME,dark?"dark":"light");theme(dark)})}
+function renderDate(){document.querySelectorAll("[data-rp-date]").forEach(e=>e.textContent=rpDate())}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function renderArticle(a){const root=document.querySelector("#article-view");if(!root)return;root.innerHTML=`<article class="paper article"><div class="label">${esc(a.category)} · ${esc(a.kingdom)}</div><div class="meta">${esc(a.date_display)} · Par ${esc(a.author)}</div><h2>${esc(a.title)}</h2><p class="chapo">${esc(a.excerpt)}</p><img class="article-image" src="${esc(a.image)}" alt="Illustration de ${esc(a.title)}"><div>${a.sections.map(s=>(s.title?`<h3>${esc(s.title)}</h3>`:"")+s.paragraphs.map(p=>`<p>${esc(p)}</p>`).join("")).join("")}</div><div class="signature"><em>${esc(a.author)}</em></div></article>`}
+function renderCards(list){const box=document.querySelector("#article-list");if(!box)return;box.innerHTML=list.map(a=>`<article class="card"><div class="label">${esc(a.category)} · ${esc(a.kingdom)}</div><div class="meta">${esc(a.date_display)}</div><h3>${esc(a.title)}</h3><p>${esc(a.excerpt)}</p><a href="article.html?id=${encodeURIComponent(a.id)}">Lire l’article →</a></article>`).join("")}
+function initLeaves(){const holder=document.querySelector("#leaves");if(!holder||matchMedia("(prefers-reduced-motion: reduce)").matches)return;for(let i=0;i<18;i++){const x=document.createElement("span");x.className="leaf";x.textContent=["🍂","🍁","🍃"][i%3];x.style.left=(Math.random()*100)+"vw";x.style.animationDuration=(7+Math.random()*9)+"s";x.style.animationDelay=(-Math.random()*12)+"s";x.style.fontSize=(12+Math.random()*16)+"px";holder.appendChild(x)}}
+async function load(){let articles=[];try{const r=await fetch("data/articles.json");articles=await r.json()}catch(e){}renderDate();initLeaves();const id=new URLSearchParams(location.search).get("id");if(id&&document.querySelector("#article-view")){renderArticle(articles.find(a=>a.id===id)||articles[0]);return}renderCards(articles);const input=document.querySelector("#search");if(input)input.addEventListener("input",()=>{const q=input.value.toLowerCase();renderCards(articles.filter(a=>(a.title+" "+a.author+" "+a.kingdom+" "+a.category+" "+a.excerpt).toLowerCase().includes(q)))})}
+document.addEventListener("DOMContentLoaded",()=>{initTheme();load()});
+})();
