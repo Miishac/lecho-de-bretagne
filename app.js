@@ -44,7 +44,7 @@
     const sorted = [...articles].sort(byDateDesc);
     if (featured && sorted[0]) {
       const article = sorted[0];
-      featured.innerHTML = `<div><div class="label">Dernier récit</div><h2>${escape(article.title)}</h2><p class="meta">${escape(article.date_display || "")} · ${escape(article.author || "")}</p><p class="chapo">${escape(article.excerpt || "")}</p><p><a class="button" href="${articleLink(article)}">Lire l’article</a> <a class="button button-secondary" href="Carte.html">Explorer la carte</a></p></div>${article.image ? `<img src="${escape(article.image)}" alt="${escape(article.title)}">` : ""}`;
+      featured.innerHTML = `<div><div class="label">À la Une</div><h2>${escape(article.title)}</h2><p class="meta">${escape(article.date_display || "")} · ${escape(article.author || "")}</p><p class="chapo">${escape(article.excerpt || "")}</p><p><a class="button" href="${articleLink(article)}">Lire l’article</a> <a class="button button-secondary" href="Carte.html">Explorer la carte</a></p></div>${article.image ? `<img src="${escape(article.image)}" alt="${escape(article.title)}">` : ""}`;
     }
     if (recent) {
       const list = (featured ? sorted.slice(1) : sorted).slice(0, 3);

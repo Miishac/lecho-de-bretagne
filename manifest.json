@@ -1,7 +1,7 @@
 {
   "name": "L'Écho de Bretagne",
   "short_name": "L'Écho",
-  "description": "Journal de récits et de voyages des Royaumes Renaissants",
+  "description": "Journal d’actualités, d’événements et de chroniques de Bretagne",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#cbb88f",
@@ -30,7 +30,7 @@
       "form_factor": "narrow"
     },
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720'><rect fill='%23eee1c5' width='1280' height='720'/><text x='640' y='150' font-size='80' font-family='Georgia' fill='%23762c27' text-anchor='middle'>L'Écho</text><text x='640' y='250' font-size='40' font-family='Georgia' fill='%236f604c' text-anchor='middle'>Chroniques de Bretagne et Lorraine</text></svg>",
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720'><rect fill='%23eee1c5' width='1280' height='720'/><text x='640' y='150' font-size='80' font-family='Georgia' fill='%23762c27' text-anchor='middle'>L'Écho</text><text x='640' y='250' font-size='40' font-family='Georgia' fill='%236f604c' text-anchor='middle'>Actualités et chroniques de Bretagne</text></svg>",
       "sizes": "1280x720",
       "type": "image/svg+xml",
       "form_factor": "wide"

@@ -73,3 +73,13 @@ html.dark .meta,.dark .date{color:#c5b293}
 .e-card h3{margin:.4rem 0;line-height:1.2}
 .e-empty{padding:1rem;text-align:center;font-style:italic}
 @media(max-width:700px){.e-lead{grid-template-columns:1fr}.e-section{padding:0 .75rem}}
+
+/* Finition du thème et des composants du journal */
+html.dark input,
+html.dark textarea,
+html.dark select{background:#181512;color:#eadfc9;border-color:#665846}
+html.dark .e-search{background:#181512;color:#eadfc9;border-color:#665846}
+html.dark .e-paper,
+html.dark .e-card{background:var(--paper,#27231f);color:var(--text,#eadfc9);border-color:var(--line,#665846)}
+html.dark .e-cat{color:#eadfc9;border-color:#665846}
+html.dark .e-cat.active{background:#d39a7c;color:#181512;border-color:#d39a7c}

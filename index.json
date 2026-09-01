@@ -1,8 +1,7 @@
 {
   "site": "L'Écho de Bretagne",
-  "version": "6.0",
+  "version": "8.0",
   "sections": [
-    "Accueil",
     "Articles",
     "Carte interactive",
     "Archives"
@@ -17,5 +16,15 @@
       "location": "Vannes → Rieux → terres de l'Est",
       "link": "article.html?id=sur-les-chemins-de-l-inconnu"
     }
+  ],
+  "categories": [
+    "Actualités",
+    "Politique",
+    "Élections",
+    "Événements",
+    "Vie locale",
+    "Voyages",
+    "Chroniques",
+    "Annonces"
   ]
 }
