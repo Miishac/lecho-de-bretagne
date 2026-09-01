@@ -22,7 +22,7 @@ body {
 header {
     background: #eee1c2;
     text-align: center;
-    padding: 24px 15px 18px;
+    padding: 36px 15px 28px;
     border-bottom: 7px double #5d4328;
     box-shadow: 0 3px 12px rgba(0,0,0,.25);
 }
@@ -43,7 +43,7 @@ header h1 {
 header p {
     margin: 0;
     font-style: italic;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 /* =========================
@@ -63,7 +63,8 @@ nav a {
     display: inline-block;
     margin: 4px 9px;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 14px;
+    transition: color .2s;
 }
 
 nav a:hover {
@@ -77,7 +78,7 @@ nav a:hover {
 .intro {
     background: #eee1c2;
     text-align: center;
-    padding: 16px 12px;
+    padding: 20px 16px;
     border-bottom: 1px solid #765532;
 }
 
@@ -89,7 +90,7 @@ nav a:hover {
 .intro p {
     margin: 0;
     font-style: italic;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /* =========================
@@ -125,12 +126,14 @@ nav a:hover {
     background: rgba(238,225,194,.95);
     border: 2px solid #60452a;
 
-    padding: 10px 14px;
+    padding: 12px 16px;
 
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
 
     font-weight: bold;
     color: #7b2924;
+
+    transition: transform .2s, box-shadow .2s;
 }
 
 /* =========================
@@ -140,20 +143,20 @@ nav a:hover {
 .actions {
     background: #eee1c2;
     text-align: center;
-    padding: 14px;
+    padding: 18px;
     border-bottom: 1px solid #765532;
 }
 
 .actions p {
     margin: 0 0 10px;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.5;
 }
 
 .bouton {
     display: inline-block;
 
-    padding: 11px 17px;
+    padding: 13px 20px;
     margin: 3px;
 
     background: #762c27;
@@ -167,10 +170,14 @@ nav a:hover {
     cursor: pointer;
 
     font-family: Georgia, "Times New Roman", serif;
+
+    transition: background .2s, transform .2s, box-shadow .2s;
 }
 
 .bouton:hover {
     background: #54201c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
 
 /* =========================
@@ -179,7 +186,7 @@ nav a:hover {
 
 .retour {
     text-align: center;
-    padding: 22px 15px;
+    padding: 28px 18px;
 }
 
 /* =========================
@@ -191,7 +198,7 @@ footer {
     color: #eee1c2;
     text-align: center;
 
-    padding: 28px 15px;
+    padding: 32px 15px;
 
     border-top: 4px solid #a17a38;
 }
@@ -201,7 +208,7 @@ footer h2 {
 }
 
 footer p {
-    font-size: 12px;
+    font-size: 13px;
     margin: 5px;
 }
 
@@ -209,10 +216,10 @@ footer p {
    MOBILE
 ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     nav a {
-        font-size: 11px;
+        font-size: 12px;
         margin: 3px 5px;
     }
 
@@ -235,7 +242,7 @@ footer p {
     }
 
     .actions {
-        padding: 10px;
+        padding: 12px;
     }
 
     .bouton {
