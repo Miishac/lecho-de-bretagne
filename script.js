@@ -44,33 +44,6 @@ function initDateRP() {
 
 
 /**
- * Initialise le thème sombre partagé par toutes les pages.
- * Une seule clé est utilisée afin d'éviter les doubles bascules.
- */
-function initTheme() {
-  const themeToggle = document.getElementById("theme-toggle");
-  const KEY = "lecho-theme";
-  const isDark = localStorage.getItem(KEY) === "dark";
-
-  document.body.classList.toggle("dark-mode", isDark);
-  document.documentElement.dataset.theme = isDark ? "dark" : "light";
-
-  if (themeToggle) {
-    themeToggle.textContent = isDark ? "☀️ Clair" : "🌙 Sombre";
-    themeToggle.setAttribute("aria-pressed", isDark ? "true" : "false");
-
-    themeToggle.addEventListener("click", () => {
-      const nextDark = !document.body.classList.contains("dark-mode");
-      document.body.classList.toggle("dark-mode", nextDark);
-      document.documentElement.dataset.theme = nextDark ? "dark" : "light";
-      localStorage.setItem(KEY, nextDark ? "dark" : "light");
-      themeToggle.textContent = nextDark ? "☀️ Clair" : "🌙 Sombre";
-      themeToggle.setAttribute("aria-pressed", nextDark ? "true" : "false");
-    });
-  }
-}
-
-/**
  * Initialise la recherche globale depuis la page d'accueil.
  */
 function initGlobalSearch() {
@@ -390,3 +363,5 @@ registerServiceWorker();
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',applyTheme);
   else applyTheme();
 })();
+
+function initTheme() { /* Le thème est géré exclusivement par theme.js. */ }

@@ -415,50 +415,8 @@ footer .ornement{
   <p>Bretagne · Lorraine · 1474</p>
 </footer>
 
-<script>
-// Thème sombre
-const themeToggle = document.getElementById('theme-toggle');
-const isDark = localStorage.getItem('dark-mode') === 'true';
-
-if (isDark) {
-  document.body.classList.add('dark-mode');
-  themeToggle.textContent = '☀️ Clair';
-}
-
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  const isDarkNow = document.body.classList.contains('dark-mode');
-  localStorage.setItem('dark-mode', isDarkNow);
-  themeToggle.textContent = isDarkNow ? '☀️ Clair' : '🌙 Sombre';
-});
-
-// Retour au top
-const scrollBtn = document.getElementById('scroll-to-top');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    scrollBtn.classList.add('show');
-  } else {
-    scrollBtn.classList.remove('show');
-  }
-});
-scrollBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Date RP
-document.addEventListener("DOMContentLoaded", function () {
-  const mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
-  const aujourdHui = new Date();
-  const jour = aujourdHui.getDate();
-  const moisActuel = mois[aujourdHui.getMonth()];
-  const anneeRP = 1474;
-  const dateTexte = `${jour} ${moisActuel} ${anneeRP}`;
-  document.querySelectorAll(".date-rp").forEach(function (element) {
-    element.textContent = dateTexte;
-  });
-});
-</script>
 <script src="script.js"></script>
   <script src="editorial.js"></script>
+  <script src="theme.js"></script>
 </body>
 </html>

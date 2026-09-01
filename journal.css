@@ -577,3 +577,25 @@ body.dark-mode .theme-toggle {
   color: var(--brun, #eadfc9);
   border-color: var(--ligne, #5a4c3d);
 }
+
+/* Thème sombre stable */
+html.dark-mode, html.dark-mode body {
+  background:#211d18;
+  color:#eadfc9;
+}
+html.dark-mode body header,
+html.dark-mode body nav,
+html.dark-mode body main,
+html.dark-mode body footer,
+html.dark-mode body .paper,
+html.dark-mode body .card,
+html.dark-mode body .hero {
+  background:#2a251f;
+  color:#eadfc9;
+}
+html.dark-mode body a { color:#d6a0a0; }
+html.dark-mode body .theme-toggle {
+  background:#211d18;
+  color:#eadfc9;
+  border-color:#5a4c3d;
+}
