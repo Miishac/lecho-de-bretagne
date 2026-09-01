@@ -101,7 +101,11 @@ html.dark .front-image{box-shadow:none}
  .front-categories{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
-/* Sceau officiel */
-.echo-seal{width:92px;height:92px;object-fit:cover;border-radius:50%;display:block;margin:0 auto .55rem;filter:drop-shadow(0 3px 3px rgba(40,25,15,.2));position:relative;z-index:2}
-.echo-seal-fallback{margin:1rem auto}
-@media(max-width:600px){.echo-seal{width:72px;height:72px}}
+/* Sceau officiel — intégration finale dans le masthead */
+.echo-seal-wrap{display:flex!important;justify-content:center!important;align-items:center!important;width:100%!important;margin:0 auto 8px!important;position:relative!important;z-index:20!important}
+.echo-seal-wrap .echo-seal{display:block!important;width:82px!important;height:82px!important;min-width:82px!important;min-height:82px!important;max-width:82px!important;max-height:82px!important;object-fit:cover!important;border-radius:50%!important;opacity:1!important;visibility:visible!important;filter:drop-shadow(0 3px 4px rgba(0,0,0,.28))!important}
+.newspaper-head .echo-seal-wrap{order:-1!important}
+@media(max-width:600px){
+ .echo-seal-wrap .echo-seal{width:68px!important;height:68px!important;min-width:68px!important;min-height:68px!important;max-width:68px!important;max-height:68px!important}
+ .echo-seal-wrap{margin-bottom:6px!important}
+}
