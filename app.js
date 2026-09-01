@@ -26,7 +26,8 @@
   async function renderArticles() {
     const container = document.getElementById("article-list");
     const view = document.getElementById("article-view");
-    if (!container && !view) return;
+    const featured = document.getElementById("featured-article");
+    if (!container && !view && !featured) return;
     let articles;
     try {
       const response = await fetch("articles.json");
@@ -35,6 +36,10 @@
     } catch {
       if (container) container.textContent = "Les articles ne peuvent pas être chargés pour le moment.";
       return;
+    }
+    if (featured && articles[0]) {
+      const article = articles[0];
+      featured.innerHTML = `<div><div class="label">Dernier récit</div><h2>${escape(article.title)}</h2><p class="meta">${escape(article.date_display || "")} · ${escape(article.author || "")}</p><p class="chapo">${escape(article.excerpt || "")}</p><p><a class="button" href="${articleLink(article)}">Lire l’article</a> <a class="button button-secondary" href="Carte.html">Explorer la carte</a></p></div>${article.image ? `<img src="${escape(article.image)}" alt="${escape(article.title)}">` : ""}`;
     }
     if (container) {
       const paint = list => { container.innerHTML = list.map(card).join(""); };
