@@ -101,5 +101,7 @@ html.dark .front-image{box-shadow:none}
  .front-categories{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
-/* SCEAU OFFICIEL DE L'ÉCHO */
-.echo-seal{width:96px;height:96px;object-fit:cover;border-radius:50%;display:block;margin:0 auto .55rem;filter:drop-shadow(0 3px 3px rgba(40,25,15,.18))}@media(max-width:600px){.echo-seal{width:76px;height:76px}}
+/* Sceau officiel */
+.echo-seal{width:92px;height:92px;object-fit:cover;border-radius:50%;display:block;margin:0 auto .55rem;filter:drop-shadow(0 3px 3px rgba(40,25,15,.2));position:relative;z-index:2}
+.echo-seal-fallback{margin:1rem auto}
+@media(max-width:600px){.echo-seal{width:72px;height:72px}}
