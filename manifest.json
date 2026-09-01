@@ -1,7 +1,7 @@
 {
-  "name": "L'Écho de Bretagne et Lorraine",
+  "name": "L'Écho de Bretagne",
   "short_name": "L'Écho",
-  "description": "Journal libre et indépendant des Royaumes Renaissants",
+  "description": "Journal de récits et de voyages des Royaumes Renaissants",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#cbb88f",
@@ -42,24 +42,17 @@
   ],
   "shortcuts": [
     {
-      "name": "Bretagne",
-      "short_name": "Bretagne",
-      "description": "L'Écho de Bretagne",
-      "url": "./Bretagne.html",
-      "icons": []
-    },
-    {
-      "name": "Lorraine",
-      "short_name": "Lorraine",
-      "description": "L'Écho de Lorraine",
-      "url": "./Lorraine.html",
+      "name": "Articles",
+      "short_name": "Articles",
+      "description": "Les récits de L'Écho de Bretagne",
+      "url": "./articles.html",
       "icons": []
     },
     {
       "name": "Archives",
       "short_name": "Archives",
       "description": "Archives de L'Écho",
-      "url": "./Archives.html",
+      "url": "./archives.html",
       "icons": []
     }
   ],

@@ -1,29 +1,11 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="L'Écho — articles, chroniques et récits des terres parcourues."><title>Carte interactive — L'Écho</title><link rel="stylesheet" href="site.css"></head><body><div id="leaves"></div><header class="masthead"><h1>L'Écho</h1><p>Chroniques, récits et nouvelles des terres parcourues</p><div class="date">Édition du <span data-rp-date></span></div><div class="ornement">✦</div></header><nav class="main-nav"><a href="index.html">Articles</a><a href="archives.html">Archives</a><a href="carte.html">Carte interactive</a><a href="Galerie.html">Galerie</a><a href="About.html">À propos</a><button data-theme>🌙 Sombre</button></nav><main>
-
-<section class="section-heading">
-  <div class="section-label">✦ Explorer ✦</div>
-  <h2>Carte interactive de Bretagne</h2>
-  <p>Découvrez les différentes régions et localités bretonnes</p>
-</section>
-
-<section class="paper">
-  <div class="carte-container" id="carteRR">
-    <iframe
-      src="https://rk-map.de/"
-      title="Carte interactive des Royaumes Renaissants"
-      loading="eager"
-      allowfullscreen>
-    </iframe>
-  </div>
-  
-  <div class="actions">
-    <p>La carte est interactive : zoomez, déplacez-vous et utilisez ses différentes couches.</p>
-    <button class="button" onclick="document.getElementById('carteRR').firstChild.requestFullscreen()">⛶ Plein écran 🖥️</button>
-    <a class="button" href="https://rk-map.de/" target="_blank" rel="noopener noreferrer">↗ Ouvrir seule</a>
-  </div>
-</section>
-
-</main><footer>✦<br>L'Écho · 1474</footer><script src="script.js"></script>
-<script src="editorial.js"></script>
-<script src="theme.js"></script>
-<script src="app.js"></script><script>if("serviceWorker" in navigator)navigator.serviceWorker.register("service-worker.js").catch(()=>{});</script></body></html>
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Carte interactive de L'Écho de Bretagne."><title>Carte interactive — L'Écho de Bretagne</title><link rel="stylesheet" href="site.css"></head>
+<body>
+  <div id="leaves" aria-hidden="true"></div>
+  <header><h1>L'Écho de Bretagne</h1><p>Chroniques, récits et nouvelles des terres parcourues</p><div class="date">Édition du <span data-rp-date></span></div></header>
+  <nav aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="articles.html">📰 Articles</a><a href="Carte.html" aria-current="page">🗺️ Carte interactive</a><a href="archives.html">🗄️ Archives</a><button type="button" data-theme aria-pressed="false">🌙 Sombre</button></nav>
+  <main><section class="paper"><div class="label">Explorer</div><h2>Carte interactive</h2><p>Zoomez, déplacez-vous et utilisez les différentes couches de la carte.</p><div class="map"><iframe src="https://rk-map.de/" title="Carte interactive des Royaumes Renaissants" allowfullscreen></iframe></div><p><button class="button" type="button" data-map-fullscreen>⛶ Plein écran</button> <a class="button button-secondary" href="https://rk-map.de/" target="_blank" rel="noopener noreferrer">Ouvrir la carte</a></p></section></main>
+  <footer>L'Écho de Bretagne · 1474</footer><script src="dark-mode.js"></script><script src="app.js"></script>
+</body>
+</html>

@@ -21,7 +21,13 @@ h3{font-size:1.5rem;line-height:1.2;margin-top:2rem;border-bottom:1px solid var(
 .chapo{font-size:1.1rem}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
 .card{background:var(--paper);border:1px solid var(--line);padding:1rem}
+.card h3{margin-top:1rem}
 .search{width:100%;padding:.8rem;font:inherit;border:1px solid var(--line);background:#fffaf0;color:var(--text);border-radius:4px}
+.button{display:inline-block;padding:.65rem .9rem;background:var(--accent);border:1px solid var(--accent);border-radius:4px;color:#fff;text-decoration:none;font:inherit;cursor:pointer}
+.button:hover{background:#54201c;text-decoration:none}
+.button-secondary{background:transparent;color:var(--accent)}
+.map{height:min(70vh,680px);min-height:420px;border:1px solid var(--line)}
+.map iframe{display:block;width:100%;height:100%;border:0}
 .signature{text-align:right;font-size:1.2rem;margin-top:2rem}
 footer{text-align:center;border-top:1px solid var(--line);padding:2rem 1rem;margin-top:2rem}
 #leaves{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:100}
@@ -32,6 +38,8 @@ html.dark header,html.dark .paper,html.dark .card{background:#27231f;color:#eadf
 html.dark nav{background:#0f0d0b}
 html.dark .search{background:#181512;color:#eadfc9;border-color:#665846}
 html.dark a{color:#d9a99a}
+html.dark .button{color:#fff}
+html.dark .button-secondary{background:transparent;color:#d9a99a;border-color:#d9a99a}
 html.dark .meta,.dark .date{color:#c5b293}
 @media(max-width:700px){.hero{grid-template-columns:1fr}nav a,nav button{padding:.6rem .65rem;font-size:.9rem}}
 @media(prefers-reduced-motion:reduce){#leaves{display:none}}

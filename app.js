@@ -1,15 +1,59 @@
-(function(){
-"use strict";
-const THEME_KEY="lecho-theme";
-const months=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
-function setTheme(dark){document.documentElement.classList.toggle("dark",dark);document.body.classList.toggle("dark",dark);document.querySelectorAll("[data-theme]").forEach(b=>{b.textContent=dark?"☀️ Clair":"🌙 Sombre";b.setAttribute("aria-pressed",dark?"true":"false")})}
-function initTheme(){setTheme(localStorage.getItem(THEME_KEY)==="dark");document.addEventListener("click",e=>{const b=e.target.closest("[data-theme]");if(!b)return;const next=!document.documentElement.classList.contains("dark");localStorage.setItem(THEME_KEY,next?"dark":"light");setTheme(next)})}
-function rpDate(){const d=new Date();return d.getDate()+" "+months[d.getMonth()]+" 1474"}
-function initDate(){document.querySelectorAll("[data-rp-date]").forEach(e=>e.textContent=rpDate())}
-function initLeaves(){const box=document.getElementById("leaves");if(!box||matchMedia("(prefers-reduced-motion: reduce)").matches)return;for(let i=0;i<16;i++){const l=document.createElement("span");l.className="leaf";l.textContent=["🍂","🍁","🍃"][i%3];l.style.left=Math.random()*100+"vw";l.style.animationDuration=7+Math.random()*8+"s";l.style.animationDelay=-(Math.random()*10)+"s";l.style.fontSize=12+Math.random()*14+"px";box.appendChild(l)}}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
-async function getArticles(){try{return await (await fetch("articles.json",{cache:"no-store"})).json()}catch(e){return[]}}
-function card(a){return `<article class="card"><div class="label">${esc(a.category||"Article")}</div><div class="meta">${esc(a.date_display||"")} · ${esc(a.author||"")}</div><h3>${esc(a.title||"")}</h3><p>${esc(a.excerpt||"")}</p><a href="article.html?id=${encodeURIComponent(a.id)}">Lire l’article →</a></article>`}
-async function renderArticles(){const list=await getArticles();const box=document.getElementById("article-list");if(box){const paint=x=>box.innerHTML=x.map(card).join("");paint(list);const q=document.getElementById("search");if(q)q.addEventListener("input",()=>{const term=q.value.toLowerCase();paint(list.filter(a=>(a.title+" "+a.author+" "+a.category+" "+a.excerpt).toLowerCase().includes(term)))}}const view=document.getElementById("article-view");if(view){const id=new URLSearchParams(location.search).get("id");const a=list.find(x=>x.id===id)||list[0];if(!a)return;view.innerHTML=`<article class="paper article"><div class="label">${esc(a.category||"Article")}</div><div class="meta">${esc(a.date_display||"")} · Par ${esc(a.author||"")}</div><h2>${esc(a.title||"")}</h2><p class="chapo">${esc(a.excerpt||"")}</p>${a.image?`<img src="${esc(a.image)}" alt="${esc(a.title||"Illustration")}">`:""}${(a.sections||[]).map(s=>(s.title?`<h3>${esc(s.title)}</h3>`:"")+(s.paragraphs||[]).map(p=>`<p>${esc(p)}</p>`).join("")).join("")}<div class="signature"><em>${esc(a.author||"")}</em></div></article>`}}
-document.addEventListener("DOMContentLoaded",()=>{initTheme();initDate();initLeaves();renderArticles()});
-})();
+(function () {
+  "use strict";
+  const months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+  const escape = value => String(value).replace(/[&<>"']/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[character]));
+  const articleLink = article => `article.html?id=${encodeURIComponent(article.id)}`;
+  function initDate() {
+    const date = new Date();
+    const label = `${date.getDate()}${date.getDate() === 1 ? "er" : ""} ${months[date.getMonth()]} 1474`;
+    document.querySelectorAll("[data-rp-date]").forEach(element => { element.textContent = label; });
+  }
+  function initLeaves() {
+    const container = document.getElementById("leaves");
+    if (!container || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    for (let index = 0; index < 16; index += 1) {
+      const leaf = document.createElement("span");
+      leaf.className = "leaf";
+      leaf.textContent = ["🍂", "🍁", "🍃"][index % 3];
+      leaf.style.left = `${Math.random() * 100}vw`;
+      leaf.style.animationDuration = `${7 + Math.random() * 8}s`;
+      leaf.style.animationDelay = `${-Math.random() * 10}s`;
+      leaf.style.fontSize = `${12 + Math.random() * 14}px`;
+      container.appendChild(leaf);
+    }
+  }
+  const card = article => `<article class="card"><div class="label">${escape(article.category || "Article")}</div><div class="meta">${escape(article.date_display || "")} · ${escape(article.author || "")}</div><h3>${escape(article.title || "")}</h3><p>${escape(article.excerpt || "")}</p><a href="${articleLink(article)}">Lire l’article →</a></article>`;
+  async function renderArticles() {
+    const container = document.getElementById("article-list");
+    const view = document.getElementById("article-view");
+    if (!container && !view) return;
+    let articles;
+    try {
+      const response = await fetch("articles.json");
+      if (!response.ok) throw new Error("Catalogue indisponible");
+      articles = await response.json();
+    } catch {
+      if (container) container.textContent = "Les articles ne peuvent pas être chargés pour le moment.";
+      return;
+    }
+    if (container) {
+      const paint = list => { container.innerHTML = list.map(card).join(""); };
+      paint(articles);
+      const search = document.getElementById("search");
+      if (search) search.addEventListener("input", () => {
+        const query = search.value.trim().toLocaleLowerCase();
+        paint(articles.filter(article => [article.title, article.author, article.category, article.location, article.excerpt].join(" ").toLocaleLowerCase().includes(query)));
+      });
+    }
+    if (view) {
+      const id = new URLSearchParams(location.search).get("id");
+      const article = articles.find(item => item.id === id) || articles[0];
+      if (!article) return;
+      view.innerHTML = `<article class="paper article"><div class="label">${escape(article.category || "Article")}</div><div class="meta">${escape(article.date_display || "")} · Par ${escape(article.author || "")}${article.location ? ` · ${escape(article.location)}` : ""}</div><h2>${escape(article.title)}</h2><p class="chapo">${escape(article.excerpt || "")}</p>${article.image ? `<img src="${escape(article.image)}" alt="${escape(article.title)}">` : ""}${(article.sections || []).map(section => `${section.title ? `<h3>${escape(section.title)}</h3>` : ""}${(section.paragraphs || []).map(paragraph => `<p>${escape(paragraph)}</p>`).join("")}`).join("")}<p class="signature"><em>${escape(article.author || "")}</em></p></article>`;
+    }
+  }
+  function initMapFullscreen() {
+    document.querySelector("[data-map-fullscreen]")?.addEventListener("click", () => document.querySelector(".map iframe")?.requestFullscreen());
+  }
+  document.addEventListener("DOMContentLoaded", () => { initDate(); initLeaves(); initMapFullscreen(); renderArticles(); });
+}());
