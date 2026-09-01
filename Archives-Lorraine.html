@@ -29,7 +29,7 @@ body{
 header{
   text-align:center;
   background:var(--parchemin);
-  padding:28px 15px 20px;
+  padding:36px 15px 28px;
   border-bottom:7px double #806d50;
   box-shadow:0 3px 12px rgba(0,0,0,.18);
 }
@@ -60,9 +60,10 @@ nav a{
   text-decoration:none;
   margin:4px 10px;
   text-transform:uppercase;
-  font-size:13px;
+  font-size:14px;
   font-weight:bold;
   display:inline-block;
+  transition:color .2s;
 }
 
 nav a:hover{
@@ -71,7 +72,7 @@ nav a:hover{
 
 main{
   max-width:1150px;
-  margin:28px auto;
+  margin:40px auto;
   padding:0 15px;
 }
 
@@ -79,7 +80,7 @@ main{
   background:var(--papier);
   border:1px solid var(--ligne);
   box-shadow:0 8px 25px rgba(107,87,54,.35);
-  padding:28px;
+  padding:32px 30px;
   margin-bottom:28px;
 }
 
@@ -216,7 +217,13 @@ main{
 .article-item{
   background:var(--papier);
   border:1px solid var(--ligne);
-  padding:21px;
+  padding:24px;
+  transition:transform .2s, box-shadow .2s;
+}
+
+.article-item:hover{
+  transform:translateY(-3px);
+  box-shadow:0 6px 16px rgba(107,87,54,.28);
 }
 
 .article-item .badge{
@@ -230,7 +237,7 @@ main{
 
 footer{
   text-align:center;
-  padding:35px 15px;
+  padding:38px 15px;
   color:#5f513e;
 }
 
@@ -254,7 +261,7 @@ footer .ornement:after{
   flex:1;
 }
 
-@media(max-width:600px){
+@media(max-width:700px){
   main{
     padding:0 10px;
   }
