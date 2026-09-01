@@ -35,6 +35,7 @@
       articles = await response.json();
     } catch {
       if (container) container.textContent = "Les articles ne peuvent pas être chargés pour le moment.";
+      if (view || featured) (view || featured).textContent = "Cet article ne peut pas être chargé pour le moment.";
       return;
     }
     if (featured && articles[0]) {
