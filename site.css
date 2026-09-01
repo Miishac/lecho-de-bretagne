@@ -50,3 +50,26 @@ html.dark .button-secondary{background:transparent;color:#d9a99a;border-color:#d
 html.dark .meta,.dark .date{color:#c5b293}
 @media(max-width:700px){.hero{grid-template-columns:1fr}nav a,nav button{padding:.6rem .65rem;font-size:.9rem}}
 @media(prefers-reduced-motion:reduce){#leaves{display:none}}
+
+
+/* L'Écho — améliorations Une / recherche / catégories */
+.e-section{margin:2rem auto;max-width:1100px;padding:0 1rem}
+.e-paper{background:var(--paper,#f7eedc);border:1px solid var(--line,#9a825f);padding:1.25rem;box-shadow:0 6px 20px rgba(60,40,20,.12)}
+.e-section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,5vw,3rem);margin:.2rem 0 1rem;border-bottom:1px solid var(--line,#9a825f);padding-bottom:.4rem}
+.e-lead{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:1.5rem;align-items:center}
+.e-lead img{width:100%;display:block;border:1px solid var(--line,#9a825f)}
+.e-kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:bold;color:var(--accent,#762c27)}
+.e-meta{font-style:italic;color:var(--muted,#765f45)}
+.e-title{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:.35rem 0}
+.e-btn{display:inline-block;padding:.65rem .9rem;border:1px solid var(--line,#9a825f);border-radius:4px;background:transparent;color:inherit;text-decoration:none;cursor:pointer}
+.e-btn:hover{text-decoration:none;filter:brightness(.95)}
+.e-tools{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
+.e-search{flex:1 1 260px;min-width:0;padding:.75rem;border:1px solid var(--line,#9a825f);background:#fffaf0;color:inherit;border-radius:4px;font:inherit}
+.e-cats{display:flex;gap:.4rem;flex-wrap:wrap}
+.e-cat{padding:.5rem .7rem;border:1px solid var(--line,#9a825f);border-radius:99px;background:transparent;color:inherit;cursor:pointer}
+.e-cat.active{background:var(--accent,#762c27);color:#fff;border-color:var(--accent,#762c27)}
+.e-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.e-card{border:1px solid var(--line,#9a825f);padding:1rem;background:var(--paper,#f7eedc)}
+.e-card h3{margin:.4rem 0;line-height:1.2}
+.e-empty{padding:1rem;text-align:center;font-style:italic}
+@media(max-width:700px){.e-lead{grid-template-columns:1fr}.e-section{padding:0 .75rem}}
