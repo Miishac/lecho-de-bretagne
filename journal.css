@@ -555,3 +555,7 @@ body.dark-mode{
   color:var(--brun);
 }
 body.dark-mode a{color:var(--bordeaux)}
+
+.article-illustration{margin:1.5rem 0 2rem;text-align:center}
+.article-illustration img{display:block;width:100%;height:auto;max-height:720px;object-fit:cover;border:1px solid var(--ligne,#8a7658)}
+.article-illustration figcaption{margin-top:.5rem;font-style:italic;font-size:.9rem}

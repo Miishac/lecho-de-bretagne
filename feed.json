@@ -1,52 +1,14 @@
 {
-  "version": "1.0.0",
-  "title": "L'Écho de Bretagne et Lorraine",
-  "subtitle": "Journal libre et indépendant des Royaumes Renaissants",
-  "language": "fr",
-  "link": "https://lechodebretagne.fr",
-  "description": "Chroniques, nouvelles et regards sur les terres de Bretagne et Lorraine",
-  "logo": "https://lechodebretagne.fr/logo.svg",
-  "favicon": "https://lechodebretagne.fr/favicon.svg",
-  "updated": "2026-08-31T12:00:00Z",
-  "author": {
-    "name": "L'Écho",
-    "email": "contact@lechodebretagne.fr",
-    "url": "https://lechodebretagne.fr"
-  },
+  "title": "L'Écho de Bretagne",
+  "description": "Chroniques, nouvelles et regards sur les terres bretonnes.",
   "items": [
     {
-      "id": "article-002",
-      "title": "Bienvenue en Lorraine",
-      "author": "Chroniqueurs",
-      "link": "https://lechodebretagne.fr/Lorraine.html#article",
-      "published": "2026-08-31",
-      "updated": "2026-08-31",
-      "summary": "Les premières impressions de voyageurs arrivant en terre lorraine. Une nouvelle page de L'Écho s'ouvre avec les récits et rencontres qui naissent de cette contrée.",
-      "content": "Les villes lorraines s'organisent selon leurs propres rythmes, leurs propres besoins et leurs propres ambitions. Chacune porte en elle une identité particulière, forgée par les habitants qui y vivent.",
-      "category": [
-        "chronique",
-        "lorraine"
-      ],
-      "kingdom": "lorraine"
-    },
-    {
-      "id": "article-003",
-      "title": "Quand les Bretons commencent à partir",
-      "author": "L'Écho de Bretagne",
-      "link": "https://lechodebretagne.fr/Archives.html",
-      "published": "2026-08-31",
-      "updated": "2026-08-31",
-      "summary": "Une réflexion sur les départs et l'avenir des villes bretonnes. Comment les terres s'adaptent quand leurs habitants cherchent de nouveaux horizons.",
-      "content": "La vie quotidienne, les cités, les métiers et celles et ceux qui font vivre la Bretagne. Les routes, les terres lointaines et les découvertes qui nourriront les prochaines éditions.",
-      "category": [
-        "vie-villes",
-        "bretagne"
-      ],
-      "kingdom": "bretagne"
+      "title": "Sur les chemins de l’inconnu",
+      "date": "1er septembre 1474",
+      "author": "Mishac",
+      "category": "Voyages",
+      "link": "https://lechodebretagne.fr/sur-les-chemins-de-l-inconnu.html",
+      "excerpt": "Le récit du départ de Roc'han et des premiers pas de Mishac sur les routes vers la Lorraine."
     }
-  ],
-  "_links": {
-    "self": "https://lechodebretagne.fr/feed.json",
-    "alternate": "https://lechodebretagne.fr/index.html"
-  }
+  ]
 }
