@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+<rect width="1200" height="800" fill="#e8d8b8"/>
+<path d="M0 590 Q220 500 420 570 T800 550 T1200 520 V800 H0Z" fill="#b9a27a" opacity=".45"/>
+<path d="M0 650 Q240 570 470 640 T900 610 T1200 590" fill="none" stroke="#756044" stroke-width="9" opacity=".6"/>
+<path d="M380 650 L380 290 L475 205 L570 290 L570 650Z" fill="#6b5139"/>
+<path d="M405 620 L405 305 L475 240 L545 305 L545 620Z" fill="#cdb58d"/>
+<path d="M440 620 L440 425 Q475 380 510 425 L510 620Z" fill="#55402e"/>
+<path d="M350 650 H600" stroke="#4b3929" stroke-width="22"/>
+<path d="M700 650 Q790 565 900 650" fill="none" stroke="#5b4935" stroke-width="15"/>
+<path d="M720 630 Q800 560 880 630" fill="none" stroke="#d5c096" stroke-width="32"/>
+<text x="600" y="105" text-anchor="middle" font-family="Georgia,serif" font-size="54" fill="#4d3d2b">Aux frontières de Bretagne</text>
+<text x="600" y="160" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#66533c">Regards d’un voyageur breton</text>
+<g fill="#4d3d2b" opacity=".65"><circle cx="170" cy="170" r="5"/><circle cx="210" cy="130" r="4"/><circle cx="1010" cy="190" r="5"/><circle cx="1060" cy="145" r="4"/></g>
+</svg>
