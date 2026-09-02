@@ -9,6 +9,15 @@
   ],
   "articles": [
     {
+      "id": "une-bretagne-ou-rentrer-devient-plus-difficile",
+      "title": "Une Bretagne où rentrer devient plus difficile que d’y entrer",
+      "date": "1474-09-02",
+      "author": "Mishac",
+      "category": "Chroniques",
+      "location": "Bretagne",
+      "link": "article.html?id=une-bretagne-ou-rentrer-devient-plus-difficile"
+    },
+    {
       "id": "sur-les-chemins-de-l-inconnu",
       "title": "Sur les chemins de l’inconnu",
       "date": "1474-09-01",
